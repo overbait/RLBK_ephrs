@@ -3,8 +3,15 @@ document.addEventListener("DOMContentLoaded", () => {
   let currentSlide = 0;
 
   function showSlide(n) {
-    slides.forEach(slide => (slide.style.display = "none"));
+    slides.forEach(slide => {
+      slide.classList.remove('active');
+      slide.style.display = 'none';
+    });
     slides[n].style.display = "block";
+    // A small delay to allow the display property to be set before adding the active class for the transition
+    setTimeout(() => {
+      slides[n].classList.add('active');
+    }, 20);
   }
 
   function nextSlide() {
