@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Epohers World Cup Handbook</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Cinzel:wght@400;700;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="slider-container">
+    <!-- Slide 1: Cover -->
+    <div class="slide active">
+      <img class="background" src="assets/background.png">
+      <div class="overlay"></div>
+      <div class="edge-vignette"></div>
+      <div class="content flex flex-col justify-between h-full py-16 px-20">
+        <div class="text-center mb-4">
+          <div class="logo-container">
+            <img class="logo" src="assets/Logo_main.png" alt="Epohers Logo" style="max-width: 240px; filter: drop-shadow(3px 3px 8px rgba(0, 0, 0, 0.9));">
+          </div>
+          <h1 class="section-title text-7xl mb-5">EPOHERS WORLD CUP</h1>
+          <h2 class="text-3xl font-semibold">Age of Empires IV Tournament</h2>
+        </div>
+        <div class="text-center my-8">
+          <div class="content-box inline-block">
+            <div class="text-7xl tracking-wider font-cinzel font-bold text-[#d76c45] text-shadow">HANDBOOK</div>
+          </div>
+        </div>
+        <div class="mt-6">
+          <div class="flex justify-between items-end">
+            <div class="text-2xl italic">Version 1.1</div>
+            <div class="text-right">
+              <div class="text-xl font-semibold">August 30 - September 14, 2025</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Slide 2: Table of Contents -->
+    <div class="slide">
+      <div class="background" style="background-image: url('assets/background.png');"></div>
+      <div class="overlay"></div>
+      <div class="edge-vignette"></div>
+      <div class="side-decoration" style="left: 0;"></div>
+      <div class="side-decoration" style="right: 0;"></div>
+      <div class="content flex flex-col h-full py-12 px-20">
+        <div class="mb-10">
+          <h1 class="section-title text-5xl">TABLE OF CONTENTS</h1>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="toc-item-container"><a href="#" class="toc-item-button">General Provisions <span class="toc-page-number">3</span></a></div>
+          <div class="toc-item-container"><a href="#" class="toc-item-button">Brackets & Schedule <span class="toc-page-number">4</span></a></div>
+          <div class="toc-item-container"><a href="#" class="toc-item-button">Tournament Format <span class="toc-page-number">5</span></a></div>
+          <div class="toc-item-container"><a href="#" class="toc-item-button">Registration & Seeding <span class="toc-page-number">6</span></a></div>
+          <div class="toc-item-container"><a href="#" class="toc-item-button">Maps & Civilizations Rules <span class="toc-page-number">7</span></a></div>
+          <div class="toc-item-container"><a href="#" class="toc-item-button">Server & Lobby Configuration <span class="toc-page-number">8</span></a></div>
+          <div class="toc-item-container"><a href="#" class="toc-item-button">Game Rules <span class="toc-page-number">9</span></a></div>
+          <div class="toc-item-container"><a href="#" class="toc-item-button">Game Exploits & Misconduct <span class="toc-page-number">10</span></a></div>
+          <div class="toc-item-container"><a href="#" class="toc-item-button">Fair Play & Misconduct <span class="toc-page-number">11</span></a></div>
+          <div class="toc-item-container"><a href="#" class="toc-item-button">Communication <span class="toc-page-number">12</span></a></div>
+          <div class="toc-item-container"><a href="#" class="toc-item-button">Technical & Match Details <span class="toc-page-number">13</span></a></div>
+          <div class="toc-item-container"><a href="#" class="toc-item-button">Prize Pool & Rewards <span class="toc-page-number">14</span></a></div>
+          <div class="toc-item-container"><a href="#" class="toc-item-button">Contacts & Resources <span class="toc-page-number">15</span></a></div>
+        </div>
+        <div class="flex justify-center items-center mt-auto">
+          <div class="page-number">2</div>
+        </div>
+      </div>
+    </div>
+    <!-- Slide 3: General Provisions -->
+    <div class="slide">
+      <div class="background" style="background-image: url('assets/background.png');"></div>
+      <div class="overlay"></div>
+      <div class="edge-vignette"></div>
+      <div class="side-decoration" style="left: 0;"></div>
+      <div class="side-decoration" style="right: 0;"></div>
+      <div class="content flex flex-col h-full py-12 px-20">
+        <div class="mb-10">
+          <h1 class="section-title text-5xl">GENERAL PROVISIONS</h1>
+        </div>
+        <div class="grid grid-cols-2 gap-8">
+          <div class="content-box rounded-md">
+            <h2 class="text-2xl font-bold mb-4 text-center font-cinzel">About the Tournament</h2>
+            <div class="provision-item text-xl">
+              <span class="highlight">Epohers World Cup</span> is an esports entertainment event, an Age of Empires IV tournament hosted by the Epohers team.
+            </div>
+            <div class="provision-item text-xl">
+              Each participant is required to adhere to these regulations.
+            </div>
+          </div>
+          <div class="content-box rounded-md">
+            <h2 class="text-2xl font-bold mb-4 text-center font-cinzel">Organizer Team</h2>
+            <div class="provision-item text-xl">
+              The tournament organizer is team Epohers. Tournament admins:
+              <div class="ml-4 flex flex-col space-y-1 mt-2">
+                <div class="admin-item text-lg">Tosic (Discord: @tosic_graf)</div>
+                <div class="admin-item text-lg">Shtoprrrr (Discord: @shtoprrrr)</div>
+              </div>
+            </div>
+          </div>
+          <div class="content-box rounded-md col-span-2">
+            <h2 class="text-2xl font-bold mb-4 text-center font-cinzel">Communication</h2>
+            <div class="provision-item text-xl">
+              All tournament communication provided in <span class="highlight">Epohers discord server</span> - <a class="resource-link" href="https://discord.gg/WWt2VUncCJ">https://discord.gg/WWt2VUncCJ</a>
+            </div>
+          </div>
+          <div class="content-box rounded-md col-span-2">
+            <h2 class="text-2xl font-bold mb-4 text-center font-cinzel">Rules and Regulations</h2>
+            <div class="provision-item text-xl">
+              Organizers reserve the right to change the tournament rules at any time, but in case of significant changes, they are obliged to announce it publicly.
+            </div>
+            <div class="provision-item text-xl">
+              On all issues not covered by the tournament rules, decisions are made exclusively by the organizers.
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-center items-center mt-auto">
+          <div class="page-number">3</div>
+        </div>
+      </div>
+    </div>
+    <!-- Slide 4: Schedule -->
+    <div class="slide">
+      <div class="background" style="background-image: url('assets/background.png');"></div>
+      <div class="overlay"></div>
+      <div class="edge-vignette"></div>
+      <div class="side-decoration" style="left: 0;"></div>
+      <div class="side-decoration" style="right: 0;"></div>
+      <div class="content flex flex-col h-full py-12 px-20">
+        <div class="mb-8">
+          <h1 class="section-title text-5xl">TOURNAMENT SCHEDULE</h1>
+        </div>
+        <div class="content-box p-6 rounded-md">
+          <h2 class="text-3xl font-bold mb-4 text-center font-cinzel">Tournament Schedule</h2>
+          <div class="schedule-item text-xl">
+            <span class="highlight">Tournament Dates:</span> August 30 – September 14, 2025
+          </div>
+          <div class="schedule-item text-xl">
+            <span class="highlight">Qualifications:</span>
+            <div class="ml-4 flex flex-col space-y-1 mt-1">
+              <div class="schedule-detail text-lg">First Qualification – August 30</div>
+              <div class="schedule-detail text-lg">Second Qualification – August 31</div>
+            </div>
+          </div>
+          <div class="schedule-item text-xl">
+            <span class="highlight">Group Stage:</span> September 6 – 7
+            <div class="ml-4 flex flex-col space-y-1 mt-1">
+              <div class="schedule-detail text-lg">September 6: Full 1st round, 2nd round winners match</div>
+              <div class="schedule-detail text-lg">September 7: 2nd round loser match, 3rd round</div>
+            </div>
+          </div>
+          <div class="schedule-item text-xl">
+            <span class="highlight">Playoffs:</span> September 13 – 14
+            <div class="ml-4 flex flex-col space-y-1 mt-1">
+              <div class="schedule-detail text-lg">September 13: Quarterfinals and semifinals</div>
+              <div class="schedule-detail text-lg">September 14: 3rd place match and grand final</div>
+            </div>
+          </div>
+          <div class="schedule-item text-xl mt-4">
+            Each tournament game day starts at <span class="highlight">15:00 GMT</span>
+          </div>
+        </div>
+        <div class="flex justify-center items-center mt-auto pt-6">
+          <div class="page-number">4</div>
+        </div>
+      </div>
+    </div>
+    <!-- Slide 4a: Brackets -->
+    <div class="slide">
+      <div class="background" style="background-image: url('assets/background.png');"></div>
+      <div class="overlay"></div>
+      <div class="edge-vignette"></div>
+      <div class="side-decoration" style="left: 0;"></div>
+      <div class="side-decoration" style="right: 0;"></div>
+      <div class="content flex flex-col h-full py-12 px-20">
+        <div class="mb-8">
+          <h1 class="section-title text-5xl">TOURNAMENT BRACKETS</h1>
+        </div>
+        <div class="content-box p-6 rounded-md flex flex-col justify-center">
+          <h2 class="text-3xl font-bold mb-6 text-center font-cinzel">Tournament Brackets</h2>
+          <div class="flex flex-col space-y-8 items-center">
+            <div class="flex flex-col items-center">
+              <div class="text-2xl mb-2 text-center">Qualifications Bracket</div>
+              <a class="bracket-link text-xl" href="https://docs.google.com/spreadsheets/d/15NbnUrzQlXH52Zu-0GF7Rhsi1YPiMO-o-S8BdPPYiWA/edit?gid=0#gid=0" target="_blank">View Qualifications Bracket</a>
+            </div>
+            <div class="flex flex-col items-center">
+              <div class="text-2xl mb-2 text-center">Main Stage Bracket</div>
+              <a class="bracket-link text-xl" href="https://docs.google.com/spreadsheets/d/1Prwscw5IbfpOKg35zs18jchq7yCkiQiwwAZKbDiBicw/edit?gid=0#gid=0" target="_blank">View Main Stage Bracket</a>
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-center items-center mt-auto pt-6">
+          <div class="page-number">4a</div>
+        </div>
+      </div>
+    </div>
+    <!-- Slide 5: Tournament Format -->
+    <div class="slide">
+      <div class="background" style="background-image: url('assets/background.png');"></div>
+      <div class="overlay"></div>
+      <div class="edge-vignette"></div>
+      <div class="side-decoration" style="left: 0;"></div>
+      <div class="side-decoration" style="right: 0;"></div>
+      <div class="content flex flex-col h-full py-12 px-20">
+        <div class="mb-10">
+          <h1 class="section-title text-5xl">TOURNAMENT FORMAT</h1>
+        </div>
+        <div class="grid grid-cols-1 gap-6">
+          <div class="content-box rounded-md">
+            <h2 class="format-title text-2xl">Qualifiers</h2>
+            <div class="format-item text-xl">Single-elimination 48-6 bracket formed from registered players. Top 48 players by seeding are able to participate.</div>
+            <div class="format-item text-xl">There are 2 qualifiers. From each qualifier 6 players will advance to the main stage (summary 12).</div>
+            <div class="format-item text-xl">4 players are invited directly and are considered qualified.</div>
+            <div class="format-item text-xl">All Qualifier matches are <span class="highlight">Best of 3</span>.</div>
+          </div>
+          <div class="content-box rounded-md">
+            <h2 class="format-title text-2xl">Group Stage</h2>
+            <div class="format-item text-xl">16 qualified players are seeded into 4 groups of 4 each one.</div>
+            <div class="format-item text-xl">Group Stage format is <span class="highlight">GSL</span>:</div>
+            <div class="ml-8">
+              <div class="format-item text-lg">First round: top-seeded vs fourth-seeded, second-seeded vs third-seeded.</div>
+              <div class="format-item text-lg">Second round: winners match – winner advances to playoffs with 1st group-place, loser match – loser eliminated.</div>
+              <div class="format-item text-lg">Third round: deciding match between remaining players – winner advances with 2nd group-place, loser eliminated.</div>
+            </div>
+            <div class="format-item text-xl">All Group Stage matches are <span class="highlight">Best of 5</span>.</div>
+          </div>
+          <div class="content-box rounded-md">
+            <h2 class="format-title text-2xl">Playoffs</h2>
+            <div class="format-item text-xl">Single-elimination 8 bracket with 3rd place match formed from players advanced from Group Stage.</div>
+            <div class="format-item text-xl">First round seeding is 1st group-place players vs 2nd group-place players.</div>
+            <div class="format-item text-xl">Quarterfinals and 3rd place match are <span class="highlight">Best of 5</span>.</div>
+            <div class="format-item text-xl">Semifinals and grand final are <span class="highlight">Best of 7</span>.</div>
+          </div>
+        </div>
+        <div class="flex justify-center items-center mt-auto">
+          <div class="page-number">5</div>
+        </div>
+      </div>
+    </div>
+    <!-- Slide 6: Registration & Seeding -->
+    <div class="slide">
+      <div class="background" style="background-image: url('assets/background.png');"></div>
+      <div class="overlay"></div>
+      <div class="edge-vignette"></div>
+      <div class="side-decoration" style="left: 0;"></div>
+      <div class="side-decoration" style="right: 0;"></div>
+      <div class="content flex flex-col h-full py-12 px-20">
+        <div class="mb-10">
+          <h1 class="section-title text-5xl">REGISTRATION & SEEDING</h1>
+        </div>
+        <div class="grid grid-cols-2 gap-8">
+          <div class="content-box rounded-md">
+            <h2 class="section-header text-2xl">Registration Procedure</h2>
+            <div class="provision-item text-xl">
+              Complete these steps to register for the tournament:
+              <div class="ml-4 flex flex-col space-y-1 mt-2">
+                <div class="step-item text-lg">Complete the registration form – <a class="resource-link" href="#">Tournament Registration Link</a></div>
+                <div class="step-item text-lg">Join the Discord server – <a class="resource-link" href="https://discord.gg/WWt2VUncCJ">https://discord.gg/WWt2VUncCJ</a></div>
+                <div class="step-item text-lg">Verify your name appears in the registration list – <a class="resource-link" href="#">Registration List Link</a></div>
+              </div>
+            </div>
+            <div class="provision-item text-xl">
+              Registration deadline: <span class="highlight">August 29, 20:00 GMT</span>
+            </div>
+          </div>
+          <div class="content-box rounded-md">
+            <h2 class="section-header text-2xl">Seeding System</h2>
+            <div class="provision-item text-xl">
+              The tournament uses two types of seeding:
+            </div>
+            <div class="provision-item text-xl">
+              <span class="highlight">External seeding</span> - Used only for qualifier bracket seeding:
+              <div class="ml-4 flex flex-col space-y-1 mt-2">
+                <div class="step-item text-lg">Based on Tournament ELO (or ranked 1v1 ELO for players without Tournament ELO)</div>
+                <div class="step-item text-lg">Registration order serves as an additional seeding factor</div>
+              </div>
+            </div>
+            <div class="provision-item text-xl">
+              <span class="highlight">Internal seeding</span> - Used within the tournament:
+              <div class="ml-4 flex flex-col space-y-1 mt-2">
+                <div class="step-item text-lg">The 4 invited players receive 1st seed in groups (using EGC Masters Points)</div>
+                <div class="step-item text-lg">Qualified players are seeded into groups by reverse seeding principle</div>
+                <div class="step-item text-lg">Playoffs seeding is based on group stage results</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-center items-center mt-auto">
+          <div class="page-number">6</div>
+        </div>
+      </div>
+    </div>
+    <!-- Slide 7: Maps & Civilizations Rules -->
+    <div class="slide">
+      <div class="background" style="background-image: url('assets/background.png');"></div>
+      <div class="overlay"></div>
+      <div class="edge-vignette"></div>
+      <div class="side-decoration" style="left: 0;"></div>
+      <div class="side-decoration" style="right: 0;"></div>
+      <div class="content flex flex-col h-full py-12 px-20">
+        <div class="mb-8">
+          <h1 class="section-title text-5xl">MAPS & CIVILIZATIONS RULES</h1>
+        </div>
+        <div class="grid grid-cols-2 gap-8">
+          <div class="content-box rounded-md">
+            <h2 class="subsection-title">Map Rules</h2>
+            <div class="rule-item text-xl">In the match draft, <span class="highlight">maps are drafted first</span>, then civilizations are drafted.</div>
+            <div class="rule-item text-xl">Match drafts are hosted by the <span class="highlight">higher seed player</span>.</div>
+            <div class="rule-item text-xl">Game drafts host alternates starting with the higher seed player.</div>
+            <div class="rule-item text-xl">Maps cannot be repeated in the same series.</div>
+          </div>
+          <div class="content-box rounded-md">
+            <h2 class="subsection-title">Civilization Rules</h2>
+            <div class="rule-item text-xl">Players draft civilizations after map selection is complete.</div>
+            <div class="rule-item text-xl">Each player bans one civilization at the beginning of each series, which cannot be picked throughout the entire match.</div>
+            <div class="rule-item text-xl">Civilizations cannot be repeated in Best of 3 and Best of 5 matches.</div>
+          </div>
+          <div class="content-box rounded-md col-span-2">
+            <h2 class="subsection-title">Required Mods</h2>
+            <div class="rule-item text-xl">The following mods must be downloaded, installed, and verified before tournament participation:</div>
+            <div class="ml-4 flex flex-col space-y-1 mt-2">
+              <div class="mod-item text-lg">EGC - Gorge</div>
+              <div class="mod-item text-lg">Baldland</div>
+              <div class="mod-item text-lg">EGC - Holy Island</div>
+              <div class="mod-item text-lg">EGC - Archipelago</div>
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-center items-center mt-auto">
+          <div class="page-number">7</div>
+        </div>
+      </div>
+    </div>
+    <!-- Slide 8: Server & Lobby Configuration -->
+    <div class="slide">
+      <div class="background" style="background-image: url('assets/background.png'); filter: blur(3px) brightness(0.8);"></div>
+      <div class="overlay"></div>
+      <div class="edge-vignette"></div>
+      <div class="side-decoration" style="left: 0;"></div>
+      <div class="side-decoration" style="right: 0;"></div>
+      <div class="content flex flex-col h-full py-12 px-20">
+        <div class="mb-10">
+          <h1 class="section-title text-5xl">SERVER & LOBBY CONFIGURATION</h1>
+        </div>
+        <div class="grid grid-cols-2 gap-8">
+          <div class="content-box rounded-md">
+            <h2 class="text-2xl font-bold mb-4 text-center font-cinzel">Server Settings</h2>
+            <div class="provision-item text-xl">All tournament matches must use official multiplayer servers</div>
+            <div class="provision-item text-xl">Server selection should minimize ping for both players</div>
+            <div class="provision-item text-xl">In case of player location disputes, predetermined server list will be used</div>
+          </div>
+          <div class="content-box rounded-md">
+            <h2 class="text-2xl font-bold mb-4 text-center font-cinzel">Lobby Configuration</h2>
+            <div class="provision-item text-xl">Game Type: Standard Match</div>
+            <div class="provision-item text-xl">Map Size: Standard</div>
+            <div class="provision-item text-xl">Resources: Standard</div>
+            <div class="provision-item text-xl">Starting Age: Dark Age</div>
+            <div class="provision-item text-xl">Victory Condition: Conquest</div>
+            <div class="provision-item text-xl">Reveal Map: Normal</div>
+            <div class="provision-item text-xl">Pause: Allowed</div>
+          </div>
+          <div class="content-box rounded-md">
+            <h2 class="text-2xl font-bold mb-4 text-center font-cinzel">Observer Settings</h2>
+            <div class="provision-item text-xl">Observers must follow admin settings</div>
+            <div class="provision-item text-xl">Spectator delay: 2 minutes</div>
+            <div class="provision-item text-xl">Public Game: Enabled for broadcast matches</div>
+          </div>
+          <div class="content-box rounded-md">
+            <h2 class="text-2xl font-bold mb-4 text-center font-cinzel">Player Colors</h2>
+            <div class="provision-item text-xl">Player colors set according to bracket position</div>
+            <div class="provision-item text-xl">Higher seed: <span style="color: blue;">Blue</span></div>
+            <div class="provision-item text-xl">Lower seed: <span style="color: red;">Red</span></div>
+          </div>
+        </div>
+        <div class="flex justify-center items-center mt-auto">
+          <div class="page-number">8</div>
+        </div>
+      </div>
+    </div>
+    <!-- Slide 9: Game Rules -->
+    <div class="slide">
+      <div class="background" style="background-image: url('assets/background.png'); filter: blur(3px) brightness(0.8);"></div>
+      <div class="overlay"></div>
+      <div class="edge-vignette"></div>
+      <div class="side-decoration" style="left: 0;"></div>
+      <div class="side-decoration" style="right: 0;"></div>
+      <div class="content flex flex-col h-full py-12 px-20">
+        <div class="mb-8">
+          <h1 class="section-title text-5xl">GAME RULES</h1>
+        </div>
+        <div class="grid grid-cols-1 gap-6">
+          <div class="content-box rounded-md">
+            <h2 class="rule-title text-2xl mb-3">In-Game Rules</h2>
+            <div class="rule-item text-xl">Players are <span class="highlight">not allowed</span> to construct stone walls before the Castle Age (Age 3).</div>
+            <div class="rule-item text-xl">Players are <span class="highlight">not allowed</span> to intentionally remove fish food sources by means of palisades (wooden walls).</div>
+          </div>
+          <div class="content-box rounded-md">
+            <h2 class="rule-title text-2xl mb-3">Game Restarts</h2>
+            <div class="rule-item text-xl">Game restart may be made at any time by <span class="highlight">mutual agreement</span> of the players in the current match, but only <span class="highlight">one per map</span>.</div>
+            <div class="rule-item text-xl">Game restart may be made if one of the players has a technical error within the <span class="highlight">first 2 minutes</span> after the game starts (the error must be documented by screenshot and sent to tournament admin and opponent).</div>
+            <div class="rule-item text-xl">In all other cases, the decision to restart the map is made <span class="highlight">exclusively by tournament administrators</span>.</div>
+          </div>
+          <div class="content-box rounded-md">
+            <h2 class="rule-title text-2xl mb-3">Required Mods</h2>
+            <div class="rule-item text-xl mb-2">See required mods on page 7.</div>
+          </div>
+        </div>
+        <div class="flex justify-center items-center mt-auto">
+          <div class="page-number">9</div>
+        </div>
+      </div>
+    </div>
+    <!-- Slide 10: Game Exploits & Misconduct -->
+    <div class="slide">
+      <div class="background" style="background-image: url('assets/background.png'); filter: blur(3px) brightness(0.8);"></div>
+      <div class="overlay"></div>
+      <div class="edge-vignette"></div>
+      <div class="side-decoration" style="left: 0;"></div>
+      <div class="side-decoration" style="right: 0;"></div>
+      <div class="content flex flex-col h-full py-12 px-20">
+        <div class="mb-10">
+          <h1 class="section-title text-5xl">GAME EXPLOITS & MISCONDUCT</h1>
+        </div>
+        <div class="grid grid-cols-1 gap-6">
+          <div class="content-box rounded-md">
+            <h2 class="rule-title text-2xl mb-3">Prohibited Actions</h2>
+            <div class="provision-item text-xl"><span class="highlight">Third-party software</span> that provides any advantage in the game is strictly prohibited.</div>
+            <div class="provision-item text-xl">Any use of bugs, exploits, or other unauthorized methods to gain advantages is strictly forbidden.</div>
+          </div>
+          <div class="content-box rounded-md">
+            <h2 class="rule-title text-2xl mb-3">List of Known Exploits</h2>
+            <div class="ml-4 flex flex-col space-y-2">
+              <div class="exploit-item text-lg">Cancellation of attack animation for all ranged cavalry units</div>
+              <div class="exploit-item text-lg">Cancellation of attack animation (including torch throws) by placing units in buildings or transports (battering rams, siege towers, ships, etc.)</div>
+              <div class="exploit-item text-lg">Using unfinished buildings with zero builder time spent on construction for tethering sheep</div>
+            </div>
+          </div>
+          <div class="content-box rounded-md">
+            <h2 class="rule-title text-2xl mb-3">Penalties and Reporting</h2>
+            <div class="provision-item text-xl">Players found using any of these or other exploits will face penalties, including potential disqualification from the tournament.</div>
+            <div class="provision-item text-xl">All incidents of suspected cheating must be reported to tournament admins with appropriate evidence (screenshots, recordings).</div>
+          </div>
+        </div>
+        <div class="flex justify-center items-center mt-auto">
+          <div class="page-number">10</div>
+        </div>
+      </div>
+    </div>
+    <!-- Slide 11: Fair Play & Misconduct -->
+    <div class="slide">
+      <div class="background" style="background-image: url('assets/background.png'); filter: blur(3px) brightness(0.8);"></div>
+      <div class="overlay"></div>
+      <div class="edge-vignette"></div>
+      <div class="side-decoration" style="left: 0;"></div>
+      <div class="side-decoration" style="right: 0;"></div>
+      <div class="content flex flex-col h-full py-12 px-20">
+        <div class="mb-10">
+          <h1 class="section-title text-5xl">FAIR PLAY & MISCONDUCT</h1>
+        </div>
+        <div class="grid grid-cols-1 gap-6">
+          <div class="content-box rounded-md">
+            <h2 class="rule-title text-2xl mb-3">Code of Conduct</h2>
+            <div class="provision-item text-xl"><span class="highlight">Respectful conduct</span> is required. Disrespect towards other participants, organizers, spectators, or anyone involved in the tournament is prohibited.</div>
+            <div class="provision-item text-xl"><span class="highlight">Smurfing</span> is prohibited. Using alternative accounts to gain advantages during registration or seeding will result in disqualification.</div>
+            <div class="provision-item text-xl"><span class="highlight">Impersonation</span> is prohibited. Misleading organizers and other participants by changing your nickname, account, or other identifying information is grounds for disqualification.</div>
+          </div>
+          <div class="content-box rounded-md">
+            <h2 class="rule-title text-2xl mb-3">External Assistance</h2>
+            <div class="provision-item text-xl"><span class="highlight">External assistance</span> during tournament games is prohibited, including:</div>
+            <div class="ml-4 mt-2">
+              <div class="provision-item text-lg" style="margin-bottom: 6px;">Verbal assistance (coaching, hints)</div>
+              <div class="provision-item text-lg" style="margin-bottom: 6px;">Physical assistance (account sharing, remote access)</div>
+            </div>
+          </div>
+          <div class="content-box rounded-md">
+            <h2 class="rule-title text-2xl mb-3">Sanctions</h2>
+            <div class="provision-item text-xl">Players who behave in a manner that threatens the progress, integrity, or outcome of the event may be sanctioned with prize money reduction, disqualification, or ban from future tournaments.</div>
+          </div>
+        </div>
+        <div class="flex justify-center items-center mt-auto">
+          <div class="page-number">11</div>
+        </div>
+      </div>
+    </div>
+    <!-- Slide 12: Communication -->
+    <div class="slide">
+      <div class="background" style="background-image: url('assets/background.png'); filter: blur(3px) brightness(0.8);"></div>
+      <div class="overlay"></div>
+      <div class="edge-vignette"></div>
+      <div class="side-decoration" style="left: 0;"></div>
+      <div class="side-decoration" style="right: 0;"></div>
+      <div class="content flex flex-col h-full py-12 px-20">
+        <div class="mb-10">
+          <h1 class="section-title text-5xl">COMMUNICATION</h1>
+        </div>
+        <div class="grid grid-cols-1 gap-6">
+          <div class="content-box rounded-md">
+            <h2 class="rule-title text-2xl mb-3">Official Channels</h2>
+            <div class="provision-item text-xl"><span class="highlight">All participating players</span> must be part of the <span class="highlight">Epohers Discord Server</span> throughout the tournament.</div>
+            <div class="provision-item text-xl">Once registered for the tournament, participants must regularly check all platforms associated with the event for any general updates or direct messages.</div>
+            <div class="provision-item text-xl">Players may also be contacted on other platforms if deemed necessary by tournament organizers.</div>
+          </div>
+          <div class="content-box rounded-md">
+            <h2 class="rule-title text-2xl mb-3">Scheduling and Availability</h2>
+            <div class="provision-item text-xl">Epohers reserves the right to schedule any series to begin at any time between <span class="highlight">14:45 GMT and 21:00 GMT</span> on any day specified in the Tournament Schedule section of the handbook. Participants must remain available during this time frame if they have a scheduled series.</div>
+            <div class="provision-item text-xl">Organizers will try to accommodate players based on their location and time zone as much as possible.</div>
+          </div>
+          <div class="content-box rounded-md">
+            <h2 class="rule-title text-2xl mb-3">Player Conduct</h2>
+            <div class="provision-item text-xl">Communication with opponents should remain respectful and professional at all times.</div>
+          </div>
+        </div>
+        <div class="flex justify-center items-center mt-auto">
+          <div class="page-number">12</div>
+        </div>
+      </div>
+    </div>
+    <!-- Slide 13: Technical & Match Details -->
+    <div class="slide">
+      <div class="background" style="background-image: url('assets/background.png'); filter: blur(3px) brightness(0.8);"></div>
+      <div class="overlay"></div>
+      <div class="edge-vignette"></div>
+      <div class="side-decoration" style="left: 0;"></div>
+      <div class="side-decoration" style="right: 0;"></div>
+      <div class="content flex flex-col h-full py-12 px-20">
+        <div class="mb-10">
+          <h1 class="section-title text-5xl">TECHNICAL & MATCH DETAILS</h1>
+        </div>
+        <div class="grid grid-cols-1 gap-6">
+          <div class="content-box rounded-md">
+            <h2 class="rule-title text-2xl mb-3">Technical Issues</h2>
+            <div class="provision-item text-xl"><span class="highlight">Technical issues</span> during the tournament are handled exclusively by tournament administrators. All such issues must be documented with screenshots and reported promptly.</div>
+          </div>
+          <div class="content-box rounded-md">
+            <h2 class="rule-title text-2xl mb-3">Match Schedule</h2>
+            <div class="provision-item text-xl">Players must be <span class="highlight">available during scheduled times</span> for their matches. Check-in begins 15 minutes before match start.</div>
+            <div class="provision-item text-xl">
+              <div class="mb-3">Tournament matches are scheduled within the following time windows:</div>
+              <div class="time-window ml-4 mb-4">
+                <div class="text-lg">• Qualification days: <span class="highlight">15:00 - 21:00 GMT</span></div>
+                <div class="text-lg">• Group Stage & Playoffs: <span class="highlight">15:00 - 21:00 GMT</span></div>
+              </div>
+            </div>
+            <div class="provision-item text-xl">Epohers World Cup organizers reserve the right to adjust match start times within the stated time windows. Players will be notified of any schedule changes.</div>
+          </div>
+          <div class="content-box rounded-md">
+            <h2 class="rule-title text-2xl mb-3">Emergencies</h2>
+            <div class="provision-item text-xl">In case of <span class="highlight">emergencies</span> or special circumstances, contact tournament admins immediately through the official Discord server.</div>
+          </div>
+        </div>
+        <div class="flex justify-center items-center mt-auto">
+          <div class="page-number">13</div>
+        </div>
+      </div>
+    </div>
+    <!-- Slide 14: Prize Pool & Rewards -->
+    <div class="slide">
+      <div class="background" style="background-image: url('assets/background.png'); filter: blur(3px) brightness(0.8);"></div>
+      <div class="overlay"></div>
+      <div class="edge-vignette"></div>
+      <div class="side-decoration" style="left: 0;"></div>
+      <div class="side-decoration" style="right: 0;"></div>
+      <div class="content flex flex-col h-full py-12 px-20">
+        <div class="mb-8">
+          <h1 class="section-title text-5xl">PRIZE POOL & REWARDS</h1>
+        </div>
+        <div class="content-box rounded-md">
+          <div class="provision-item text-xl">
+            The Epohers World Cup features a <span class="highlight">$10,000 prize pool</span> distributed among the top 8 players.
+          </div>
+          <div class="prize-distribution p-6 my-6">
+            <div class="text-center mb-4 text-2xl font-bold text-white">Prize Distribution</div>
+            <canvas id="prizeChart" style="max-height: 300px;"></canvas>
+          </div>
+          <div class="provision-item text-xl">
+            All prizes are subject to the player's full compliance with tournament rules.
+          </div>
+          <div class="provision-item text-xl">
+            <span class="highlight">Payment conditions:</span> All prize payments will be processed within 30 days after the tournament concludes.
+          </div>
+          <div class="provision-item text-xl">
+            Players found violating tournament rules may have their prize money reduced or forfeited entirely at the organizers' discretion.
+          </div>
+          <div class="provision-item text-xl">
+            Winners must provide all required payment information within 14 days of the tournament's conclusion.
+          </div>
+        </div>
+        <div class="flex justify-center items-center mt-auto">
+          <div class="page-number">14</div>
+        </div>
+      </div>
+    </div>
+    <!-- Slide 15: Contacts & Resources -->
+    <div class="slide">
+      <div class="background" style="background-image: url('assets/background.png'); filter: blur(3px) brightness(0.8);"></div>
+      <div class="overlay"></div>
+      <div class="edge-vignette"></div>
+      <div class="side-decoration" style="left: 0;"></div>
+      <div class="side-decoration" style="right: 0;"></div>
+      <div class="content flex flex-col h-full py-12 px-20">
+        <div class="mb-10">
+          <h1 class="section-title text-5xl">CONTACTS & RESOURCES</h1>
+        </div>
+        <div class="grid grid-cols-2 gap-8">
+          <div class="content-box rounded-md">
+            <h2 class="section-header">Tournament Admins</h2>
+            <div class="contact-item text-xl"><span class="highlight">Tosic</span> - Discord: @tosic_graf</div>
+            <div class="contact-item text-xl"><span class="highlight">Shtoprrrr</span> - Discord: @shtoprrrr</div>
+          </div>
+          <div class="content-box rounded-md">
+            <h2 class="section-header">Official Communications</h2>
+            <div class="resource-item text-xl">
+              <span class="highlight">Discord Server:</span>
+              <a class="resource-link" href="https://discord.gg/WWt2VUncCJ">https://discord.gg/WWt2VUncCJ</a>
+            </div>
+            <div class="resource-item text-xl">All official announcements and schedule updates will be posted in the Discord server.</div>
+          </div>
+          <div class="content-box rounded-md col-span-2">
+            <h2 class="section-header">Tournament Resources</h2>
+            <div class="grid grid-cols-2 gap-4">
+              <div class="resource-item text-xl">
+                <span class="highlight">Registration Form:</span>
+                <a class="resource-link" href="#">Registration Link</a>
+              </div>
+              <div class="resource-item text-xl">
+                <span class="highlight">Qualifications Bracket:</span>
+                <a class="resource-link" href="https://docs.google.com/spreadsheets/d/15NbnUrzQlXH52Zu-0GF7Rhsi1YPiMO-o-S8"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-center items-center mt-auto">
+          <div class="page-number">15</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
