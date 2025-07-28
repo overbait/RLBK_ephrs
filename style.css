@@ -125,6 +125,17 @@
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
       padding: 25px 35px;
       border-radius: 6px;
+      position: relative;
+      overflow: hidden;
+    }
+    .card-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      opacity: 0.1;
     }
     .content-box.overflow-fix {
       padding: 15px 25px;
@@ -186,16 +197,17 @@
       font-weight: 600;
     }
     .page-number {
-      font-family: 'Cinzel', serif;
-      font-size: 18px;
+      font-family: 'South Park', sans-serif;
+      font-size: 2rem;
       color: var(--primary-color);
       text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
       position: absolute;
-      bottom: 20px;
-      right: 20px;
+      bottom: 40px;
+      right: 40px;
       background-color: var(--content-box-bg);
-      padding: 5px 10px;
-      border-radius: 5px;
+      padding: 10px 20px;
+      border-radius: 10px;
+      border: 2px solid var(--accent-color);
     }
     .thumbnails {
       display: flex;

@@ -51,16 +51,16 @@ document.addEventListener("DOMContentLoaded", () => {
     new Chart(prizeChart, {
       type: 'doughnut',
       data: {
-        labels: ['1st Place', '2nd Place', '3rd Place', '4th Place', '5th-8th Place (total)'],
+        labels: ['5th-8th Place (total)', '4th Place', '3rd Place', '2nd Place', '1st Place'],
         datasets: [{
           label: 'Prize Pool',
-          data: [4000, 2000, 1000, 500, 2500],
+          data: [2500, 500, 1000, 2000, 4000],
           backgroundColor: [
-            '#ffd700',
-            '#c0c0c0',
-            '#cd7f32',
+            '#8b4513',
             '#a9a9a9',
-            '#8b4513'
+            '#cd7f32',
+            '#c0c0c0',
+            '#ffd700'
           ],
           borderColor: '#0d0d0d',
           borderWidth: 2
@@ -91,6 +91,28 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+  const colors = ['#C9CBA3', '#FFE1A8', '#E26D5C', '#723D46', '#472D30'];
+
+  document.querySelectorAll('.content-box').forEach(card => {
+    const bg = document.createElement('div');
+    bg.classList.add('card-bg');
+    for (let i = 0; i < 5; i++) {
+      const circle = document.createElement('div');
+      const size = Math.random() * 200 + 100;
+      circle.style.width = `${size}px`;
+      circle.style.height = `${size}px`;
+      circle.style.position = 'absolute';
+      circle.style.borderRadius = '50%';
+      circle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      circle.style.top = `${Math.random() * 100}%`;
+      circle.style.left = `${Math.random() * 100}%`;
+      circle.style.transform = 'translate(-50%, -50%)';
+      circle.style.filter = 'blur(100px)';
+      bg.appendChild(circle);
+    }
+    card.prepend(bg);
+  });
 
   slides.forEach((slide, index) => {
     for (let i = 0; i < 8; i++) {
