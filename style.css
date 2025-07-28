@@ -16,15 +16,15 @@
       color: #f5f0e6;
     }
     .slider-container {
-      width: 1280px;
-      min-height: 720px;
+      width: 2560px;
+      min-height: 1440px;
       position: relative;
       overflow: hidden;
     }
     .slide {
       display: none;
       width: 100%;
-      min-height: 720px;
+      min-height: 1440px;
       position: absolute;
       top: 0;
       left: 0;
@@ -93,6 +93,31 @@
       text-shadow: 2px 2px 0px #4a2511, 3px 3px 5px rgba(0, 0, 0, 0.8);
       border-bottom: 3px solid var(--accent-color);
       display: inline-block;
+      font-size: 5rem;
+    }
+    .text-7xl {
+      font-size: 6rem;
+    }
+    .text-5xl {
+      font-size: 4rem;
+    }
+    .text-3xl {
+      font-size: 2.5rem;
+    }
+    .text-2xl {
+      font-size: 2rem;
+    }
+    .text-xl {
+      font-size: 1.5rem;
+    }
+    .text-lg {
+      font-size: 1.25rem;
+    }
+    .text-base {
+      font-size: 1rem;
+    }
+    .text-sm {
+      font-size: 0.875rem;
     }
     .content-box {
       background-color: var(--content-box-bg);
@@ -251,10 +276,16 @@
     .bracket-link:hover, .resource-link:hover {
       color: var(--primary-color);
     }
-    .prize-distribution {
-      background-color: rgba(44, 28, 17, 0.85);
-      border: 1px solid var(--accent-color);
-      border-radius: 6px;
+    .prize-distribution-container {
+      align-items: center;
+    }
+    .prize-distribution-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .prize-item {
+      font-size: 1.25rem;
     }
     .prize-position {
       font-family: 'Cinzel', serif;
@@ -262,9 +293,13 @@
       color: var(--primary-color);
     }
     .prize-amount {
-      font-family: 'Spectral', serif;
+      font-family: 'Roboto', sans-serif;
       font-weight: 600;
       color: #ffffff;
+    }
+    .prize-chart-container {
+      position: relative;
+      height: 400px;
     }
     .schedule-timeline {
       position: relative;
