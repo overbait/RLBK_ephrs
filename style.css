@@ -16,15 +16,15 @@
       color: #f5f0e6;
     }
     .slider-container {
-      width: 2560px;
-      min-height: 1440px;
+      width: 2240px;
+      min-height: 1260px;
       position: relative;
       overflow: hidden;
     }
     .slide {
       display: none;
       width: 100%;
-      min-height: 1440px;
+      min-height: 1260px;
       position: absolute;
       top: 0;
       left: 0;
@@ -267,6 +267,23 @@
     .rule-icon {
       font-size: 2rem;
       line-height: 1;
+    }
+    .sub-number {
+      font-size: 1.5rem;
+      color: var(--accent-color);
+      margin-right: 10px;
+    }
+    .step-icon {
+      background-color: var(--accent-color);
+      color: white;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: bold;
     }
     .bracket-link, .resource-link {
       color: #a3c7e9;
