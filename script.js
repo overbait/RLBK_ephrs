@@ -51,14 +51,14 @@ document.addEventListener("DOMContentLoaded", () => {
     new Chart(prizeChart, {
       type: 'pie',
       data: {
-        labels: ['1st', '2nd', '3rd', '4th', '5th-8th'],
+        labels: ['1st Place', '2nd Place', '3rd Place', '4th Place', '5th-8th Place'],
         datasets: [{
           label: 'Prize Pool',
-          data: [4000, 2000, 1000, 500, 625],
+          data: [4000, 2000, 1000, 500, 2500],
           backgroundColor: [
-            '#ffd27d',
-            '#e06636',
-            '#c8a2c8',
+            '#ffd700',
+            '#c0c0c0',
+            '#cd7f32',
             '#a9a9a9',
             '#8b4513'
           ],
@@ -71,11 +71,21 @@ document.addEventListener("DOMContentLoaded", () => {
         maintainAspectRatio: false,
         plugins: {
           legend: {
-            position: 'top',
+            position: 'right',
+            labels: {
+              color: '#f5f0e6',
+              font: {
+                size: 14
+              }
+            }
           },
           title: {
             display: true,
-            text: 'Prize Pool Distribution'
+            text: 'Prize Pool Distribution',
+            color: '#f5f0e6',
+            font: {
+              size: 18
+            }
           }
         }
       }
@@ -88,11 +98,11 @@ document.addEventListener("DOMContentLoaded", () => {
       leaf.classList.add('leaf-decoration');
       const leafNum = Math.floor(Math.random() * 4) + 1;
       leaf.style.backgroundImage = `url('assets/leaves_${leafNum}.png')`;
-      leaf.style.top = `${Math.random() * 100}%`;
-      leaf.style.left = `${Math.random() * 100}%`;
-      leaf.style.transform = `rotate(${Math.random() * 360}deg) scale(${Math.random() * 0.5 + 0.5})`;
-      leaf.style.width = `${Math.random() * 50 + 50}px`;
-      leaf.style.height = `${Math.random() * 50 + 50}px`;
+      leaf.style.top = `${Math.random() * 80 + 10}%`;
+      leaf.style.left = `${Math.random() * 80 + 10}%`;
+      leaf.style.transform = `rotate(${Math.random() * 360}deg) scale(${Math.random() * 0.5 + 0.8})`;
+      leaf.style.width = `${Math.random() * 80 + 80}px`;
+      leaf.style.height = `${Math.random() * 80 + 80}px`;
       slide.appendChild(leaf);
     }
   });
