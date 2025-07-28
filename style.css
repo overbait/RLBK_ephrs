@@ -101,6 +101,9 @@
       padding: 25px 35px;
       border-radius: 6px;
     }
+    .content-box.overflow-fix {
+      padding: 15px 25px;
+    }
     .provision-item, .schedule-item, .format-item, .rule-item, .toc-item, .resource-item {
       position: relative;
       padding-left: 30px;
