@@ -49,9 +49,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const prizeChart = document.getElementById('prizeChart');
   if (prizeChart) {
     new Chart(prizeChart, {
-      type: 'pie',
+      type: 'doughnut',
       data: {
-        labels: ['1st Place', '2nd Place', '3rd Place', '4th Place', '5th-8th Place'],
+        labels: ['1st Place', '2nd Place', '3rd Place', '4th Place', '5th-8th Place (total)'],
         datasets: [{
           label: 'Prize Pool',
           data: [4000, 2000, 1000, 500, 2500],
@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
         maintainAspectRatio: false,
         plugins: {
           legend: {
-            position: 'right',
+            position: 'top',
             labels: {
               color: '#f5f0e6',
               font: {
@@ -93,11 +93,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   slides.forEach((slide, index) => {
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 8; i++) {
       const leaf = document.createElement('div');
-      leaf.classList.add('leaf-decoration');
-      const leafNum = Math.floor(Math.random() * 4) + 1;
-      leaf.style.backgroundImage = `url('assets/leaves_${leafNum}.png')`;
+      leaf.classList.add('leaves-decoration');
+      const leafNum = Math.floor(Math.random() * 8) + 1;
+      leaf.style.backgroundImage = `url('assets/leves_${leafNum}.png')`;
       leaf.style.top = `${Math.random() * 80 + 10}%`;
       leaf.style.left = `${Math.random() * 80 + 10}%`;
       leaf.style.transform = `rotate(${Math.random() * 360}deg) scale(${Math.random() * 0.5 + 0.8})`;
@@ -105,5 +105,10 @@ document.addEventListener("DOMContentLoaded", () => {
       leaf.style.height = `${Math.random() * 80 + 80}px`;
       slide.appendChild(leaf);
     }
+
+    const pageNumber = document.createElement('div');
+    pageNumber.classList.add('page-number');
+    pageNumber.textContent = index + 1;
+    slide.appendChild(pageNumber);
   });
 });
