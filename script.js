@@ -31,6 +31,14 @@ document.addEventListener("DOMContentLoaded", () => {
     prevButton.addEventListener("click", prevSlide);
   }
 
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') {
+      nextSlide();
+    } else if (e.key === 'ArrowLeft') {
+      prevSlide();
+    }
+  });
+
   const prizeChart = document.getElementById('prizeChart');
   if (prizeChart) {
     new Chart(prizeChart, {
