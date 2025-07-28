@@ -292,6 +292,76 @@
       font-weight: 700;
       color: var(--primary-color);
     }
+    .main-stage {
+      font-family: Arial, sans-serif;
+      max-width: 1800px;
+      margin: 0 auto;
+      color: black;
+    }
+    /* group tables arranged in a 2×2 grid */
+    .main-stage .groups-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+      margin-bottom: 80px;
+    }
+    .main-stage .group-table {
+      border: 4px solid #333;
+    }
+    .main-stage .group-header {
+      background-color: #333;
+      color: #fff;
+      padding: 8px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 2rem;
+    }
+    .main-stage table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .main-stage th,
+    .main-stage td {
+      border: 2px solid #333;
+      text-align: center;
+      padding: 12px;
+      font-size: 28px;
+    }
+    /* coloured rows to mirror the sheet */
+    .main-stage .row1 { background-color: #c6efce; }
+    .main-stage .row2 { background-color: #d9ead3; }
+    .main-stage .row3 { background-color: #fff2cc; }
+    .main-stage .row4 { background-color: #f4cccc; }
+    /* bracket styles */
+    .main-stage .bracket-title {
+      text-align: center;
+      font-size: 40px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: var(--primary-color);
+    }
+    .main-stage .match-box { fill: #f9f9f9; stroke: #333; stroke-width: 2; }
+    .main-stage .final-box { fill: #d5e8d4; stroke: #333; stroke-width: 2; }
+    .main-stage .match-label { font-size: 24px; dominant-baseline: middle; }
+    .main-stage .bo-label { font-size: 24px; font-weight: bold; fill: #333; }
+    .qual-bracket {
+      font-family: Arial, sans-serif;
+      max-width: 1800px;
+      margin: 0 auto;
+      color: black;
+    }
+    .qual-bracket .title {
+      text-align: center;
+      font-size: 40px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: var(--primary-color);
+    }
+    .qual-bracket .match-box { fill: #f9f9f9; stroke: #333; stroke-width: 2; }
+    .qual-bracket .round-box { fill: #f9f9f9; stroke: #333; stroke-width: 2; }
+    .qual-bracket .final-box { fill: #d5e8d4; stroke: #333; stroke-width: 2; }
+    .qual-bracket .match-label { font-size: 24px; dominant-baseline: middle; }
+    .qual-bracket .qual-label { font-size: 24px; font-weight: bold; fill: #333; }
     .prize-amount {
       font-family: 'Roboto', sans-serif;
       font-weight: 600;

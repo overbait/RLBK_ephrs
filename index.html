@@ -43,6 +43,78 @@
         </div>
       </div>
     </div>
+    <!-- Slide 5a: Qualifier Brackets -->
+    <div class="slide">
+      <div class="background"></div>
+      <div class="overlay"></div>
+      <div class="edge-vignette"></div>
+      <div class="content flex flex-col h-full py-24 px-40">
+        <div class="mb-16 text-center">
+          <h1 class="section-title text-5xl">QUALIFIER BRACKETS</h1>
+        </div>
+        <div class="qual-bracket">
+          <div class="title">Qualifier 1</div>
+          <svg width="880" height="460">
+            <!-- round 1 (initial matches) -->
+            <rect x="20" y="20"  width="120" height="40" class="match-box" />
+            <text x="25" y="40" class="match-label">1 vs 2</text>
+            <rect x="20" y="80"  width="120" height="40" class="match-box" />
+            <text x="25" y="100" class="match-label">3 vs 4</text>
+            <rect x="20" y="140" width="120" height="40" class="match-box" />
+            <text x="25" y="160" class="match-label">5 vs 6</text>
+            <rect x="20" y="200" width="120" height="40" class="match-box" />
+            <text x="25" y="220" class="match-label">7 vs 8</text>
+            <rect x="20" y="260" width="120" height="40" class="match-box" />
+            <text x="25" y="280" class="match-label">9 vs 10</text>
+            <rect x="20" y="320" width="120" height="40" class="match-box" />
+            <text x="25" y="340" class="match-label">11 vs 12</text>
+            <rect x="20" y="380" width="120" height="40" class="match-box" />
+            <text x="25" y="400" class="match-label">13 vs Bye</text>
+
+            <!-- round 2 (winners of round 1) -->
+            <rect x="300" y="50"  width="120" height="40" class="round-box" />
+            <text x="305" y="70" class="match-label">W1 vs W2</text>
+            <rect x="300" y="170" width="120" height="40" class="round-box" />
+            <text x="305" y="190" class="match-label">W3 vs W4</text>
+            <rect x="300" y="290" width="120" height="40" class="round-box" />
+            <text x="305" y="310" class="match-label">W5 vs W6</text>
+            <rect x="300" y="380" width="120" height="40" class="round-box" />
+            <text x="305" y="400" class="match-label">W7 vs Bye</text>
+
+            <!-- round 3 (semifinals) -->
+            <rect x="500" y="110" width="120" height="40" class="round-box" />
+            <text x="505" y="130" class="match-label">SF 1</text>
+            <rect x="500" y="335" width="120" height="40" class="round-box" />
+            <text x="505" y="355" class="match-label">SF 2</text>
+
+            <!-- final qualifier boxes -->
+            <rect x="740" y="110" width="120" height="40" class="final-box" />
+            <text x="800" y="135" text-anchor="middle" class="qual-label">Qualifier</text>
+            <rect x="740" y="335" width="120" height="40" class="final-box" />
+            <text x="800" y="360" text-anchor="middle" class="qual-label">Qualifier</text>
+
+            <!-- connectors from round 1 to round 2 -->
+            <path d="M 140 40 H 180 V 70  H 300" stroke="#333" fill="none" />
+            <path d="M 140 100 H 180 V 70  H 300" stroke="#333" fill="none" />
+            <path d="M 140 160 H 180 V 190 H 300" stroke="#333" fill="none" />
+            <path d="M 140 220 H 180 V 190 H 300" stroke="#333" fill="none" />
+            <path d="M 140 280 H 180 V 310 H 300" stroke="#333" fill="none" />
+            <path d="M 140 340 H 180 V 310 H 300" stroke="#333" fill="none" />
+            <path d="M 140 400 H 180 V 400 H 300" stroke="#333" fill="none" />
+
+            <!-- connectors from round 2 to round 3 -->
+            <path d="M 420 70  H 460 V 130 H 500" stroke="#333" fill="none" />
+            <path d="M 420 190 H 460 V 130 H 500" stroke="#333" fill="none" />
+            <path d="M 420 310 H 460 V 355 H 500" stroke="#333" fill="none" />
+            <path d="M 420 400 H 460 V 355 H 500" stroke="#333" fill="none" />
+
+            <!-- connectors from round 3 to qualifier boxes -->
+            <path d="M 620 130 H 740" stroke="#333" fill="none" />
+            <path d="M 620 355 H 740" stroke="#333" fill="none" />
+          </svg>
+        </div>
+      </div>
+    </div>
     <!-- Slide 2: Table of Contents -->
     <div class="slide">
       <div class="background" style="background-image: url('assets/background.png');"></div>
@@ -183,17 +255,130 @@
       <div class="overlay"></div>
       <div class="edge-vignette"></div>
       <div class="content flex flex-col h-full py-24 px-40">
-        <div class="mb-16">
+        <div class="mb-16 text-center">
           <h1 class="section-title text-5xl">TOURNAMENT BRACKETS</h1>
         </div>
-        <div class="grid grid-cols-2 gap-16">
-          <div class="content-box p-12 rounded-md flex flex-col justify-center items-center">
-            <h2 class="text-5xl font-bold mb-12 text-center font-cinzel">Qualifications Bracket</h2>
-            <a class="bracket-link text-4xl" href="https://docs.google.com/spreadsheets/d/15NbnUrzQlXH52Zu-0GF7Rhsi1YPiMO-o-S8BdPPYiWA/edit?gid=0#gid=0" target="_blank">View Bracket</a>
+        <div class="main-stage">
+          <!-- groups A–D -->
+          <div class="groups-container">
+            <!-- Group A -->
+            <div class="group-table">
+              <div class="group-header">Group A</div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Player</th>
+                    <th>Matches</th>
+                    <th>Maps</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="row1"><td></td><td></td><td></td></tr>
+                  <tr class="row2"><td></td><td></td><td></td></tr>
+                  <tr class="row3"><td></td><td></td><td></td></tr>
+                  <tr class="row4"><td></td><td></td><td></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- Group B -->
+            <div class="group-table">
+              <div class="group-header">Group B</div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Player</th>
+                    <th>Matches</th>
+                    <th>Maps</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="row1"><td></td><td></td><td></td></tr>
+                  <tr class="row2"><td></td><td></td><td></td></tr>
+                  <tr class="row3"><td></td><td></td><td></td></tr>
+                  <tr class="row4"><td></td><td></td><td></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- Group C -->
+            <div class="group-table">
+              <div class="group-header">Group C</div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Player</th>
+                    <th>Matches</th>
+                    <th>Maps</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="row1"><td></td><td></td><td></td></tr>
+                  <tr class="row2"><td></td><td></td><td></td></tr>
+                  <tr class="row3"><td></td><td></td><td></td></tr>
+                  <tr class="row4"><td></td><td></td><td></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- Group D -->
+            <div class="group-table">
+              <div class="group-header">Group D</div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Player</th>
+                    <th>Matches</th>
+                    <th>Maps</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="row1"><td></td><td></td><td></td></tr>
+                  <tr class="row2"><td></td><td></td><td></td></tr>
+                  <tr class="row3"><td></td><td></td><td></td></tr>
+                  <tr class="row4"><td></td><td></td><td></td></tr>
+                </tbody>
+              </table>
+            </div>
           </div>
-          <div class="content-box p-12 rounded-md flex flex-col justify-center items-center">
-            <h2 class="text-5xl font-bold mb-12 text-center font-cinzel">Main Stage Bracket</h2>
-            <a class="bracket-link text-4xl" href="https://docs.google.com/spreadsheets/d/1Prwscw5IbfpOKg35zs18jchq7yCkiQiwwAZKbDiBicw/edit?gid=0#gid=0" target="_blank">View Bracket</a>
+
+          <!-- playoff bracket below the group tables -->
+          <div>
+            <div class="bracket-title">Playoff Bracket</div>
+            <svg width="700" height="360">
+              <!-- quarterfinal matches (round 1) -->
+              <!-- match 1 -->
+              <rect x="20" y="50"  width="120" height="40" class="match-box" />
+              <text x="25" y="70" class="match-label">1A vs 2C</text>
+              <!-- match 2 -->
+              <rect x="20" y="130" width="120" height="40" class="match-box" />
+              <text x="25" y="150" class="match-label">1D vs 2B</text>
+              <!-- match 3 -->
+              <rect x="20" y="210" width="120" height="40" class="match-box" />
+              <text x="25" y="230" class="match-label">1B vs 2D</text>
+              <!-- match 4 -->
+              <rect x="20" y="290" width="120" height="40" class="match-box" />
+              <text x="25" y="310" class="match-label">1C vs 2A</text>
+
+              <!-- semifinal matches (round 2) -->
+              <rect x="300" y="90"  width="120" height="40" class="match-box" />
+              <text x="305" y="110" class="match-label">W1 vs W2</text>
+              <rect x="300" y="250" width="120" height="40" class="match-box" />
+              <text x="305" y="270" class="match-label">W3 vs W4</text>
+
+              <!-- final/score boxes on the right -->
+              <rect x="550" y="90"  width="120" height="40" class="final-box" />
+              <text x="610" y="115" text-anchor="middle" class="bo-label">BO7</text>
+              <rect x="550" y="250" width="120" height="40" class="final-box" />
+              <text x="610" y="275" text-anchor="middle" class="bo-label">BO5</text>
+
+              <!-- connectors between round 1 and round 2 -->
+              <path d="M 140 70  H 180 V 110  H 300" stroke="#333" fill="none" />
+              <path d="M 140 150 H 180 V 110  H 300" stroke="#333" fill="none" />
+              <path d="M 140 230 H 180 V 270  H 300" stroke="#333" fill="none" />
+              <path d="M 140 310 H 180 V 270  H 300" stroke="#333" fill="none" />
+
+              <!-- connectors between round 2 and final boxes -->
+              <path d="M 420 110  H 550" stroke="#333" fill="none" />
+              <path d="M 420 270  H 550" stroke="#333" fill="none" />
+            </svg>
           </div>
         </div>
       </div>
@@ -203,35 +388,30 @@
       <div class="background" style="background-image: url('assets/background.png');"></div>
       <div class="overlay"></div>
       <div class="edge-vignette"></div>
-      <div class="content flex flex-col h-full py-24 px-24">
-        <div class="mb-20">
+      <div class="content flex flex-col h-full justify-center items-center py-24 px-24">
+        <div class="mb-20 text-center">
           <h1 class="section-title text-5xl">TOURNAMENT FORMAT</h1>
         </div>
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          <div class="content-box rounded-md overflow-fix">
+        <div class="flex items-center justify-center w-full">
+          <div class="content-box rounded-md overflow-fix text-center p-12 flex-1">
+            <div class="text-6xl mb-4">⚔️</div>
             <h2 class="format-title text-4xl">Qualifiers</h2>
-            <div class="format-item text-2xl">Single-elimination 48-6 bracket formed from registered players. Top 48 players by seeding are able to participate.</div>
-            <div class="format-item text-2xl">There are 2 qualifiers. From each qualifier 6 players will advance to the main stage (summary 12).</div>
-            <div class="format-item text-2xl">4 players are invited directly and are considered qualified.</div>
-            <div class="format-item text-2xl">All Qualifier matches are <span class="highlight">Best of 3</span>.</div>
+            <p class="format-item text-2xl mt-4">Single-elimination bracket to determine the top players.</p>
+            <p class="format-item text-2xl"><span class="highlight">Best of 3</span></p>
           </div>
-          <div class="content-box rounded-md overflow-fix">
+          <div class="text-6xl mx-8">➡️</div>
+          <div class="content-box rounded-md overflow-fix text-center p-12 flex-1">
+            <div class="text-6xl mb-4">🛡️</div>
             <h2 class="format-title text-4xl">Group Stage</h2>
-            <div class="format-item text-2xl">16 qualified players are seeded into 4 groups of 4 each one.</div>
-            <div class="format-item text-2xl">Group Stage format is <span class="highlight">GSL</span>:</div>
-            <div class="ml-12">
-              <div class="format-item text-xl">First round: top-seeded vs fourth-seeded, second-seeded vs third-seeded.</div>
-              <div class="format-item text-xl">Second round: winners match – winner advances to playoffs with 1st group-place, loser match – loser eliminated.</div>
-              <div class="format-item text-xl">Third round: deciding match between remaining players – winner advances with 2nd group-place, loser eliminated.</div>
-            </div>
-            <div class="format-item text-2xl">All Group Stage matches are <span class="highlight">Best of 5</span>.</div>
+            <p class="format-item text-2xl mt-4">GSL-style group stage with the top 16 players.</p>
+            <p class="format-item text-2xl"><span class="highlight">Best of 5</span></p>
           </div>
-          <div class="content-box rounded-md overflow-fix">
+          <div class="text-6xl mx-8">➡️</div>
+          <div class="content-box rounded-md overflow-fix text-center p-12 flex-1">
+            <div class="text-6xl mb-4">🏆</div>
             <h2 class="format-title text-4xl">Playoffs</h2>
-            <div class="format-item text-2xl">Single-elimination 8 bracket with 3rd place match formed from players advanced from Group Stage.</div>
-            <div class="format-item text-2xl">First round seeding is 1st group-place players vs 2nd group-place players.</div>
-            <div class="format-item text-2xl">Quarterfinals and 3rd place match are <span class="highlight">Best of 5</span>.</div>
-            <div class="format-item text-2xl">Semifinals and grand final are <span class="highlight">Best of 7</span>.</div>
+            <p class="format-item text-2xl mt-4">Single-elimination bracket to crown the champion.</p>
+            <p class="format-item text-2xl"><span class="highlight">Best of 5 & 7</span></p>
           </div>
         </div>
       </div>
