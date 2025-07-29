@@ -115,8 +115,8 @@ document.addEventListener("DOMContentLoaded", () => {
       gradientShape.style.top = `${Math.random() * 100}%`;
       gradientShape.style.left = `${Math.random() * 100}%`;
       gradientShape.style.transform = 'translate(-50%, -50%)';
-      gradientShape.style.filter = 'blur(120px)';
-      gradientShape.style.opacity = '0.7';
+      gradientShape.style.filter = 'blur(80px)';
+      gradientShape.style.opacity = '1';
       bg.appendChild(gradientShape);
     }
     card.prepend(bg);
@@ -132,6 +132,35 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const backgrounds = ['background1.png', 'background2.png', 'background3.png'];
+
+  const paginationContainer = document.querySelector('.pagination');
+
+  function updatePagination() {
+    paginationContainer.innerHTML = '';
+    slides.forEach((_, index) => {
+      const pageIndicator = document.createElement('div');
+      pageIndicator.classList.add('page-indicator');
+      if (index === currentSlide) {
+        pageIndicator.classList.add('active');
+      }
+      pageIndicator.addEventListener('click', () => showSlide(index));
+      paginationContainer.appendChild(pageIndicator);
+    });
+  }
+
+  function showSlide(n) {
+    slides.forEach(slide => {
+      slide.classList.remove('active');
+      slide.style.display = 'none';
+    });
+    slides[n].style.display = "block";
+    // A small delay to allow the display property to be set before adding the active class for the transition
+    setTimeout(() => {
+      slides[n].classList.add('active');
+    }, 20);
+    currentSlide = n;
+    updatePagination();
+  }
 
   slides.forEach((slide, index) => {
     const randomBg = backgrounds[Math.floor(Math.random() * backgrounds.length)];
@@ -158,4 +187,6 @@ document.addEventListener("DOMContentLoaded", () => {
     pageNumber.textContent = index + 1;
     slide.appendChild(pageNumber);
   });
+
+  showSlide(currentSlide);
 });

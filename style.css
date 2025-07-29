@@ -173,16 +173,16 @@
     .toc-container {
       color: #f5f0e6;
     }
-    .toc-item {
-      display: flex;
-      align-items: baseline;
-      margin-bottom: 0.5rem;
+    .toc-list, .toc-sublist {
+      list-style: none;
+      padding-left: 0;
     }
-    .toc-sub-item {
-      display: flex;
-      align-items: baseline;
-      margin-left: 2rem;
-      margin-bottom: 0.5rem;
+    .toc-list > li {
+      margin-bottom: 1rem;
+    }
+    .toc-sublist {
+      margin-top: 0.5rem;
+      padding-left: 2rem;
     }
     .toc-number {
       color: var(--accent-color);
@@ -191,6 +191,11 @@
     }
     .toc-title {
       flex-grow: 1;
+    }
+    .toc-page {
+      font-family: 'Cinzel', serif;
+      color: var(--primary-color);
+      font-weight: 700;
     }
     .highlight {
       color: var(--primary-color);
@@ -322,6 +327,27 @@
       font-weight: 700;
       color: var(--primary-color);
     }
+    .pagination {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+      z-index: 5;
+    }
+    .page-indicator {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .page-indicator.active {
+      background-color: rgba(255, 255, 255, 1);
+      transform: scale(1.2);
+    }
     .stick-decoration {
       position: absolute;
       left: 0;
@@ -334,6 +360,7 @@
       border-top-left-radius: 6px;
       border-bottom-left-radius: 6px;
       overflow: hidden;
+      transform: rotate(-90deg);
     }
     .main-stage, .qual-bracket {
       font-family: 'Cinzel', serif;
