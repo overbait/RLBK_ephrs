@@ -247,7 +247,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   showSlide(currentSlide);
 
-  attachImageToCard('#qualifiers-card', 1, 'icon_swords.png', -30, 6);
-  attachImageToCard('#group-stage-card', 4, 'icon_shield.png', 30, 6);
-  attachImageToCard('#playoffs-card', 2, 'icon_troph.png', 0, 6);
+  attachImageToCard('#qualifiers-card', 1, 'icon_swords.png', -30, 10);
+  attachImageToCard('#group-stage-card', 4, 'icon_shield.png', 30, 10);
+  attachImageToCard('#playoffs-card', 2, 'icon_troph.png', 0, 10);
 });
