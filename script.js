@@ -72,6 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
         plugins: {
           legend: {
             position: 'top',
+            reverse: true,
             labels: {
               color: '#f5f0e6',
               font: {

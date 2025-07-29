@@ -135,7 +135,7 @@
       width: 100%;
       height: 100%;
       z-index: -1;
-      opacity: 0.1;
+      opacity: 0.2;
     }
     .content-box.overflow-fix {
       padding: 15px 25px;
