@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
     bg.classList.add('card-bg');
     for (let i = 0; i < 3; i++) {
       const gradientShape = document.createElement('div');
-      const size = Math.random() * 400 + 200;
+      const size = Math.random() * 500 + 300;
       const colorPair = colors[Math.floor(Math.random() * colors.length)];
       gradientShape.style.width = `${size}px`;
       gradientShape.style.height = `${size}px`;
@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
       gradientShape.style.top = `${Math.random() * 100}%`;
       gradientShape.style.left = `${Math.random() * 100}%`;
       gradientShape.style.transform = 'translate(-50%, -50%)';
-      gradientShape.style.filter = 'blur(80px)';
+      gradientShape.style.filter = 'blur(60px)';
       gradientShape.style.opacity = '1';
       bg.appendChild(gradientShape);
     }
@@ -119,13 +119,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const backgrounds = ['background1.png', 'background2.png', 'background3.png'];
 
-  const paginationContainer = document.querySelector('.pagination');
-
   function updatePagination() {
+    const paginationContainer = document.querySelector('.pagination');
+    if (!paginationContainer) return;
     paginationContainer.innerHTML = '';
     slides.forEach((_, index) => {
-      const pageIndicator = document.createElement('div');
+      const pageIndicator = document.createElement('span');
       pageIndicator.classList.add('page-indicator');
+      pageIndicator.textContent = index + 1;
       if (index === currentSlide) {
         pageIndicator.classList.add('active');
       }
