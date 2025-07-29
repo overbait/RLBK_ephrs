@@ -2,18 +2,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const slides = document.querySelectorAll(".slide");
   let currentSlide = 0;
 
-  function showSlide(n) {
-    slides.forEach(slide => {
-      slide.classList.remove('active');
-      slide.style.display = 'none';
-    });
-    slides[n].style.display = "block";
-    // A small delay to allow the display property to be set before adding the active class for the transition
-    setTimeout(() => {
-      slides[n].classList.add('active');
-    }, 20);
-  }
-
   function nextSlide() {
     currentSlide = (currentSlide + 1) % slides.length;
     showSlide(currentSlide);
@@ -23,8 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
     currentSlide = (currentSlide - 1 + slides.length) % slides.length;
     showSlide(currentSlide);
   }
-
-  showSlide(currentSlide);
 
   // Add event listeners for next and previous buttons if they exist
   const nextButton = document.querySelector(".next");
