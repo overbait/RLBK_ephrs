@@ -16,15 +16,15 @@
       color: #f5f0e6;
     }
     .slider-container {
-      width: 2240px;
-      min-height: 1260px;
+      width: 2016px;
+      min-height: 1134px;
       position: relative;
       overflow: hidden;
     }
     .slide {
       display: none;
       width: 100%;
-      min-height: 1260px;
+      min-height: 1134px;
       position: absolute;
       top: 0;
       left: 0;
