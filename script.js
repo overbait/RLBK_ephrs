@@ -2,6 +2,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const slides = document.querySelectorAll(".slide");
   let currentSlide = 0;
 
+  function showSlide(n) {
+    slides.forEach(slide => {
+      slide.classList.remove('active');
+      slide.style.display = 'none';
+    });
+    slides[n].style.display = "block";
+    // A small delay to allow the display property to be set before adding the active class for the transition
+    setTimeout(() => {
+      slides[n].classList.add('active');
+    }, 20);
+    currentSlide = n;
+    updatePagination();
+  }
+
   function nextSlide() {
     currentSlide = (currentSlide + 1) % slides.length;
     showSlide(currentSlide);
@@ -31,6 +45,36 @@ document.addEventListener("DOMContentLoaded", () => {
       prevSlide();
     }
   });
+
+  document.querySelectorAll('.toc-item').forEach(item => {
+    item.addEventListener('click', (e) => {
+      e.preventDefault();
+      const slideIndex = parseInt(e.target.getAttribute('data-slide-to'));
+      showSlide(slideIndex);
+    });
+  });
+
+  function attachImageToCard(cardSelector, hookNumber, imageUrl, rotation = 0) {
+    const card = document.querySelector(cardSelector);
+    if (!card) return;
+
+    let hook = card.querySelector(`.image-hook-${hookNumber}`);
+    if (!hook) {
+      for (let i = 1; i <= 4; i++) {
+        const newHook = document.createElement('div');
+        newHook.classList.add('image-hook', `image-hook-${i}`);
+        card.appendChild(newHook);
+      }
+      hook = card.querySelector(`.image-hook-${hookNumber}`);
+    }
+
+    const img = document.createElement('img');
+    img.src = `assets/${imageUrl}`;
+    img.classList.add('attached-image');
+    img.style.transform = `rotate(${rotation}deg)`;
+
+    hook.appendChild(img);
+  }
 
   const prizeChart = document.getElementById('prizeChart');
   if (prizeChart) {
@@ -108,14 +152,6 @@ document.addEventListener("DOMContentLoaded", () => {
     card.prepend(bg);
   });
 
-  const sticks = ['upscaled_stick1.png', 'upscaled_stick2.png', 'upscaled_stick3.png'];
-  document.querySelectorAll('.content-box').forEach(card => {
-    const stick = document.createElement('div');
-    stick.classList.add('stick-decoration');
-    const randomStick = sticks[Math.floor(Math.random() * sticks.length)];
-    stick.style.backgroundImage = `url('assets/${randomStick}')`;
-    card.appendChild(stick);
-  });
 
   const backgrounds = ['background1.png', 'background2.png', 'background3.png'];
 
@@ -123,7 +159,21 @@ document.addEventListener("DOMContentLoaded", () => {
     slides.forEach((slide, slideIndex) => {
       const paginationContainer = slide.querySelector('.pagination');
       if (!paginationContainer) return;
-      paginationContainer.innerHTML = '';
+
+      let pageIndicatorContainer = paginationContainer.querySelector('.page-indicator-container');
+      if (!pageIndicatorContainer) {
+        pageIndicatorContainer = document.createElement('div');
+        pageIndicatorContainer.classList.add('page-indicator-container');
+
+        const nextButton = paginationContainer.querySelector('.next');
+        if (nextButton) {
+          paginationContainer.insertBefore(pageIndicatorContainer, nextButton);
+        } else {
+          paginationContainer.appendChild(pageIndicatorContainer);
+        }
+      }
+
+      pageIndicatorContainer.innerHTML = '';
       slides.forEach((_, pageIndex) => {
         const pageIndicator = document.createElement('span');
         pageIndicator.classList.add('page-indicator');
@@ -132,7 +182,7 @@ document.addEventListener("DOMContentLoaded", () => {
           pageIndicator.classList.add('active');
         }
         pageIndicator.addEventListener('click', () => showSlide(pageIndex));
-        paginationContainer.appendChild(pageIndicator);
+        pageIndicatorContainer.appendChild(pageIndicator);
       });
     });
   }
@@ -174,4 +224,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   showSlide(currentSlide);
+
+  attachImageToCard('#qualifiers-card', 1, 'icon_swords.png', -15);
 });

@@ -11,16 +11,15 @@
 </head>
 <body>
   <div class="slider-container">
-    <div class="controls">
-      <button class="prev">Prev</button>
-      <button class="next">Next</button>
-    </div>
     <!-- Slide 1: Cover -->
     <div class="slide active">
       <div class="background"></div>
       <div class="overlay"></div>
       <div class="edge-vignette"></div>
-      <div class="pagination"></div>
+      <div class="pagination">
+        <button class="prev"><img src="assets/icon_arrow_red.png" alt="Previous"></button>
+        <button class="next"><img src="assets/icon_arrow_green.png" alt="Next"></button>
+      </div>
       <div class="content flex flex-col justify-center items-center h-full py-32 px-40">
         <div class="text-center mb-8" style="margin-top: -100px;">
           <div class="logo-container flex justify-center">
@@ -56,75 +55,99 @@
         <div class="mb-20">
           <h1 class="section-title text-5xl">TABLE OF CONTENTS</h1>
         </div>
-        <div class="grid grid-cols-3 gap-4">
-          <div class="content-box rounded-md">
-            <h2 class="section-header text-xl mb-2">3. General Provisions</h2>
-            <a href="#" class="toc-list-item text-base">3.1 About the Tournament</a>
-            <a href="#" class="toc-list-item text-base">3.2 Organizer Team</a>
-            <a href="#" class="toc-list-item text-base">3.3 Communication</a>
-            <a href="#" class="toc-list-item text-base">3.4 Rules and Regulations</a>
+        <div class="toc-grid-container">
+          <div class="toc-card" data-slide-to="2">
+            <div class="toc-card-title">3. General Provisions</div>
+            <div class="toc-card-items">
+              <a href="#" class="toc-item" data-slide-to="2">3.1 About the Tournament</a>
+              <a href="#" class="toc-item" data-slide-to="2">3.2 Organizer Team</a>
+              <a href="#" class="toc-item" data-slide-to="2">3.3 Communication</a>
+              <a href="#" class="toc-item" data-slide-to="2">3.4 Rules and Regulations</a>
+            </div>
           </div>
-          <div class="content-box rounded-md">
-            <h2 class="section-header text-xl mb-2">4. Brackets & Schedule</h2>
-            <a href="#" class="toc-list-item text-base">4.1 Tournament Schedule</a>
-            <a href="#" class="toc-list-item text-base">4.2 Tournament Brackets</a>
-            <a href="#" class="toc-list-item text-base">4.3 Qualifier Brackets</a>
+          <div class="toc-card" data-slide-to="6">
+            <div class="toc-card-title">6. Registration & Seeding</div>
+            <div class="toc-card-items">
+              <a href="#" class="toc-item" data-slide-to="6">6.1 Registration Procedure</a>
+              <a href="#" class="toc-item" data-slide-to="6">6.2 Seeding System</a>
+            </div>
           </div>
-          <div class="content-box rounded-md">
-            <h2 class="section-header text-xl mb-2">5. Tournament Format</h2>
+          <div class="toc-card" data-slide-to="9">
+            <div class="toc-card-title">9. Game Rules</div>
+            <div class="toc-card-items">
+              <a href="#" class="toc-item" data-slide-to="9">9.1 In-Game Rules</a>
+              <a href="#" class="toc-item" data-slide-to="9">9.2 Game Restarts</a>
+            </div>
           </div>
-          <div class="content-box rounded-md">
-            <h2 class="section-header text-xl mb-2">6. Registration & Seeding</h2>
-            <a href="#" class="toc-list-item text-base">6.1 Registration Procedure</a>
-            <a href="#" class="toc-list-item text-base">6.2 Seeding System</a>
+          <div class="toc-card" data-slide-to="12">
+            <div class="toc-card-title">12. Communication</div>
+            <div class="toc-card-items">
+              <a href="#" class="toc-item" data-slide-to="12">12.1 Official Channels</a>
+              <a href="#" class="toc-item" data-slide-to="12">12.2 Scheduling and Availability</a>
+              <a href="#" class="toc-item" data-slide-to="12">12.3 Player Conduct</a>
+            </div>
           </div>
-          <div class="content-box rounded-md">
-            <h2 class="section-header text-xl mb-2">7. Maps & Civilizations Rules</h2>
-            <a href="#" class="toc-list-item text-base">7.1 Map Rules</a>
-            <a href="#" class="toc-list-item text-base">7.2 Civilization Rules</a>
-            <a href="#" class="toc-list-item text-base">7.3 Required Mods</a>
+          <div class="toc-card" data-slide-to="3">
+            <div class="toc-card-title">4. Brackets & Schedule</div>
+            <div class="toc-card-items">
+              <a href="#" class="toc-item" data-slide-to="3">4.1 Tournament Schedule</a>
+              <a href="#" class="toc-item" data-slide-to="4">4.2 Tournament Brackets</a>
+              <a href="#" class="toc-item" data-slide-to="4">4.3 Qualifier Brackets</a>
+            </div>
           </div>
-          <div class="content-box rounded-md">
-            <h2 class="section-header text-xl mb-2">8. Server & Lobby Configuration</h2>
-            <a href="#" class="toc-list-item text-base">8.1 Server Settings</a>
-            <a href="#" class="toc-list-item text-base">8.2 Lobby Configuration</a>
-            <a href="#" class="toc-list-item text-base">8.3 Observer Settings</a>
-            <a href="#" class="toc-list-item text-base">8.4 Player Colors</a>
+          <div class="toc-card" data-slide-to="7">
+            <div class="toc-card-title">7. Maps & Civilizations Rules</div>
+            <div class="toc-card-items">
+              <a href="#" class="toc-item" data-slide-to="7">7.1 Map Rules</a>
+              <a href="#" class="toc-item" data-slide-to="7">7.2 Civilization Rules</a>
+              <a href="#" class="toc-item" data-slide-to="7">7.3 Required Mods</a>
+            </div>
           </div>
-          <div class="content-box rounded-md">
-            <h2 class="section-header text-xl mb-2">9. Game Rules</h2>
-            <a href="#" class="toc-list-item text-base">9.1 In-Game Rules</a>
-            <a href="#" class="toc-list-item text-base">9.2 Game Restarts</a>
+          <div class="toc-card" data-slide-to="10">
+            <div class="toc-card-title">10. Game Exploits & Misconduct</div>
+            <div class="toc-card-items">
+              <a href="#" class="toc-item" data-slide-to="10">10.1 Prohibited Actions</a>
+              <a href="#" class="toc-item" data-slide-to="10">10.2 List of Known Exploits</a>
+              <a href="#" class="toc-item" data-slide-to="10">10.3 Penalties and Reporting</a>
+            </div>
           </div>
-          <div class="content-box rounded-md">
-            <h2 class="section-header text-xl mb-2">10. Game Exploits & Misconduct</h2>
-            <a href="#" class="toc-list-item text-base">10.1 Prohibited Actions</a>
-            <a href="#" class="toc-list-item text-base">10.2 List of Known Exploits</a>
-            <a href="#" class="toc-list-item text-base">10.3 Penalties and Reporting</a>
+          <div class="toc-card" data-slide-to="13">
+            <div class="toc-card-title">13. Technical & Match Details</div>
+            <div class="toc-card-items">
+              <a href="#" class="toc-item" data-slide-to="13">13.1 Technical Issues</a>
+              <a href="#" class="toc-item" data-slide-to="13">13.2 Match Schedule</a>
+              <a href="#" class="toc-item" data-slide-to="13">13.3 Emergencies</a>
+            </div>
           </div>
-          <div class="content-box rounded-md">
-            <h2 class="section-header text-xl mb-2">11. Fair Play & Misconduct</h2>
-            <a href="#" class="toc-list-item text-base">11.1 Code of Conduct</a>
-            <a href="#" class="toc-list-item text-base">11.2 External Assistance</a>
-            <a href="#" class="toc-list-item text-base">11.3 Sanctions</a>
+          <div class="toc-card" data-slide-to="5" id="qualifiers-card">
+            <div class="toc-card-title">5. Tournament Format</div>
+            <div class="image-hook image-hook-1"></div>
+            <div class="image-hook image-hook-2"></div>
+            <div class="image-hook image-hook-3"></div>
+            <div class="image-hook image-hook-4"></div>
           </div>
-          <div class="content-box rounded-md">
-            <h2 class="section-header text-xl mb-2">12. Communication</h2>
-            <a href="#" class="toc-list-item text-base">12.1 Official Channels</a>
-            <a href="#" class="toc-list-item text-base">12.2 Scheduling and Availability</a>
-            <a href="#" class="toc-list-item text-base">12.3 Player Conduct</a>
+          <div class="toc-card" data-slide-to="8">
+            <div class="toc-card-title">8. Server & Lobby Configuration</div>
+            <div class="toc-card-items">
+              <a href="#" class="toc-item" data-slide-to="8">8.1 Server Settings</a>
+              <a href="#" class="toc-item" data-slide-to="8">8.2 Lobby Configuration</a>
+              <a href="#" class="toc-item" data-slide-to="8">8.3 Observer Settings</a>
+              <a href="#" class="toc-item" data-slide-to="8">8.4 Player Colors</a>
+            </div>
           </div>
-          <div class="content-box rounded-md">
-            <h2 class="section-header text-xl mb-2">13. Technical & Match Details</h2>
-            <a href="#" class="toc-list-item text-base">13.1 Technical Issues</a>
-            <a href="#" class="toc-list-item text-base">13.2 Match Schedule</a>
-            <a href="#" class="toc-list-item text-base">13.3 Emergencies</a>
+          <div class="toc-card" data-slide-to="11">
+            <div class="toc-card-title">11. Fair Play & Misconduct</div>
+            <div class="toc-card-items">
+              <a href="#" class="toc-item" data-slide-to="11">11.1 Code of Conduct</a>
+              <a href="#" class="toc-item" data-slide-to="11">11.2 External Assistance</a>
+              <a href="#" class="toc-item" data-slide-to="11">11.3 Sanctions</a>
+            </div>
           </div>
-          <div class="content-box rounded-md">
-            <h2 class="section-header text-xl mb-2">14. Prize Pool & Rewards</h2>
+          <div class="toc-card" data-slide-to="14">
+            <div class="toc-card-title">14. Prize Pool & Rewards</div>
           </div>
-          <div class="content-box rounded-md">
-            <h2 class="section-header text-xl mb-2">15. Contacts & Resources</h2>
+          <div class="toc-card" data-slide-to="15">
+            <div class="toc-card-title">15. Contacts & Resources</div>
           </div>
         </div>
       </div>
