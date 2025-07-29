@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const img = document.createElement('img');
-    img.src = `https://drive.google.com/uc?id=${imageUrl}`;
+    img.src = `https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/${imageUrl}`;
     img.classList.add('attached-image');
     img.style.transform = `rotate(${rotation}deg) scale(${scale})`;
     img.style.transformOrigin = 'center center';
@@ -160,7 +160,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
-  const backgrounds = ['1rvWYzDHmBe65lpoWpjYg6Ac9PmDVTYfB', '1Qk843YmeVlbWcUirADm8Ci-oEwPVSmZF', '1SPsb5PPjnVjzMZkHoV3kDI5QVndi1xIn'];
+  const backgrounds = ['background1.png', 'background2.png', 'background3.png'];
 
   function updatePagination() {
     slides.forEach((slide, slideIndex) => {
@@ -174,7 +174,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!paginationContainer.querySelector('.prev')) {
         const prevButton = document.createElement('button');
         prevButton.classList.add('prev');
-        prevButton.innerHTML = `<img src="https://drive.google.com/uc?id=1X1bkbXH21w6gkOaI3XgPssPQbOc492YR" alt="Previous">`;
+        prevButton.innerHTML = `<img src="https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/icon_arrow_red.png" alt="Previous">`;
         prevButton.addEventListener('click', prevSlide);
         paginationContainer.appendChild(prevButton);
       }
@@ -201,7 +201,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!paginationContainer.querySelector('.next')) {
         const nextButton = document.createElement('button');
         nextButton.classList.add('next');
-        nextButton.innerHTML = `<img src="https://drive.google.com/uc?id=1c_-EsZs-2DMyRKNNuKekgjtMtOavu1XH" alt="Next">`;
+        nextButton.innerHTML = `<img src="https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/icon_arrow_green.png" alt="Next">`;
         nextButton.addEventListener('click', nextSlide);
         paginationContainer.appendChild(nextButton);
       }
@@ -233,14 +233,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const randomBg = backgrounds[Math.floor(Math.random() * backgrounds.length)];
     const bgElement = slide.querySelector('.background');
     if (bgElement) {
-      bgElement.style.backgroundImage = `url('https://drive.google.com/uc?id=${randomBg}')`;
+      bgElement.style.backgroundImage = `url('https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/${randomBg}')`;
     }
 
     for (let i = 0; i < 8; i++) {
       const leaf = document.createElement('div');
       leaf.classList.add('leaves-decoration');
       const leafNum = Math.floor(Math.random() * 8) + 1;
-      leaf.style.backgroundImage = `url('https://drive.google.com/uc?id=12YksuX6D2TKdlLV1a6YcZYGPk6HGy3la')`;
+      leaf.style.backgroundImage = `url('https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/leves_${leafNum}.png')`;
       leaf.style.top = `${Math.random() * 80 + 10}%`;
       leaf.style.left = `${Math.random() * 80 + 10}%`;
       leaf.style.transform = `rotate(${Math.random() * 360}deg) scale(${Math.random() * 0.5 + 0.8})`;
@@ -253,20 +253,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
   showSlide(currentSlide);
 
-  attachImageToCard('#qualifiers-card', 1, '1Rij5Y5P_DzPOZQqGCP5aIV0CSdwQEvMf', -30, 10);
-  attachImageToCard('#group-stage-card', 4, '1wJmrlyEywxjzzBF1uUKJTKjhw99hhc4F', 30, 10);
-  attachImageToCard('#playoffs-card', 2, '17pJyqrx-pDMI1mIHXnPlSt-iZqQBWaiT', 0, 10);
+  attachImageToCard('#qualifiers-card', 1, 'icon_swords.png', -30, 10);
+  attachImageToCard('#group-stage-card', 4, 'icon_shield.png', 30, 10);
+  attachImageToCard('#playoffs-card', 2, 'icon_troph.png', 0, 10);
 
   const getRandomRotation = () => Math.random() * 30 - 15;
 
   // FAIR PLAY & MISCONDUCT
-  attachImageToCard('.slide:nth-child(12) .content-box:nth-child(1)', 1, '13HgAMjiEafOxLFFzBPzzLdajE77GDVUf', getRandomRotation(), 13);
-  attachImageToCard('.slide:nth-child(12) .content-box:nth-child(2)', 3, '1u9_J_YUIVVvqxUcfHRZKPiUXCtBLOToq', getRandomRotation(), 13);
+  attachImageToCard('.slide:nth-child(12) .content-box:nth-child(1)', 1, 'icon_sword2.png', getRandomRotation(), 13);
+  attachImageToCard('.slide:nth-child(12) .content-box:nth-child(2)', 3, 'icon_plus.png', getRandomRotation(), 13);
 
   // COMMUNICATION
-  attachImageToCard('.slide:nth-child(13) .content-box:nth-child(1)', 2, '1H_i1egN4I18OnFHXlyrBfd04gsn8Wqax', getRandomRotation(), 13);
-  attachImageToCard('.slide:nth-child(14) .content-box:nth-child(2)', 3, '1vNOKSMuy_vnwUvAmz0xEa6mBQwUuHFCs', getRandomRotation(), 13);
+  attachImageToCard('.slide:nth-child(13) .content-box:nth-child(1)', 2, 'icon_clock.png', getRandomRotation(), 13);
+  attachImageToCard('.slide:nth-child(14) .content-box:nth-child(2)', 3, 'icon_calendar.png', getRandomRotation(), 13);
 
   // CONTACTS & RESOURCES
-  attachImageToCard('.slide:nth-child(16) .content-box:nth-child(1)', 2, '1SCySAinhfiCPRNY4nvbZ_UPaMD8Bno25', getRandomRotation(), 13);
+  attachImageToCard('.slide:nth-child(16) .content-box:nth-child(1)', 2, 'icon_dude.png', getRandomRotation(), 13);
 });
