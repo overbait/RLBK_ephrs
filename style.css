@@ -75,6 +75,9 @@
       background-size: contain;
       background-repeat: no-repeat;
     }
+    .absolute.top-10.right-10 {
+        z-index: 10;
+    }
     .absolute.top-10.right-10 > img {
         opacity: 1;
     }
@@ -175,20 +178,28 @@
     .toc-container {
       color: #f5f0e6;
     }
-    .toc-list-item {
-      background-color: rgba(44, 28, 17, 0.6);
-      border: 1px solid rgba(255, 210, 125, 0.3);
-      padding: 10px;
-      border-radius: 8px;
-      text-decoration: none;
-      color: #f5f0e6;
-      transition: background-color 0.3s, transform 0.3s;
-      font-size: 1rem;
-      display: block;
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
     }
-    .toc-list-item:hover {
-      background-color: rgba(44, 28, 17, 0.8);
-      transform: translateY(-2px);
+    .toc-column {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .toc-item {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary-color);
+    }
+    .toc-sub-item {
+      font-size: 1.25rem;
+      margin-left: 2rem;
+    }
+    .toc-number {
+      color: var(--accent-color);
+      margin-right: 0.5rem;
     }
     .highlight {
       color: var(--primary-color);
@@ -336,7 +347,8 @@
     .pagination {
       position: absolute;
       bottom: 40px;
-      left: 40px;
+      left: 50%;
+      transform: translateX(-50%);
       display: flex;
       gap: 10px;
       z-index: 5;
