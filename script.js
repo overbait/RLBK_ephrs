@@ -93,29 +93,53 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  const colors = ['#C9CBA3', '#FFE1A8', '#E26D5C', '#723D46', '#472D30'];
+  const colors = [
+    ['#C9CBA3', '#FFE1A8'],
+    ['#E26D5C', '#723D46'],
+    ['#472D30', '#E26D5C'],
+    ['#FFE1A8', '#E26D5C']
+  ];
 
   document.querySelectorAll('.content-box').forEach(card => {
     const bg = document.createElement('div');
     bg.classList.add('card-bg');
-    for (let i = 0; i < 5; i++) {
-      const circle = document.createElement('div');
-      const size = Math.random() * 200 + 100;
-      circle.style.width = `${size}px`;
-      circle.style.height = `${size}px`;
-      circle.style.position = 'absolute';
-      circle.style.borderRadius = '50%';
-      circle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-      circle.style.top = `${Math.random() * 100}%`;
-      circle.style.left = `${Math.random() * 100}%`;
-      circle.style.transform = 'translate(-50%, -50%)';
-      circle.style.filter = 'blur(100px)';
-      bg.appendChild(circle);
+    for (let i = 0; i < 3; i++) {
+      const gradientShape = document.createElement('div');
+      const size = Math.random() * 400 + 200;
+      const colorPair = colors[Math.floor(Math.random() * colors.length)];
+      gradientShape.style.width = `${size}px`;
+      gradientShape.style.height = `${size}px`;
+      gradientShape.style.position = 'absolute';
+      gradientShape.style.borderRadius = `${Math.random() * 100}% ${Math.random() * 100}%`;
+      gradientShape.style.background = `radial-gradient(ellipse at center, ${colorPair[0]} 0%, ${colorPair[1]} 100%)`;
+      gradientShape.style.top = `${Math.random() * 100}%`;
+      gradientShape.style.left = `${Math.random() * 100}%`;
+      gradientShape.style.transform = 'translate(-50%, -50%)';
+      gradientShape.style.filter = 'blur(120px)';
+      gradientShape.style.opacity = '0.7';
+      bg.appendChild(gradientShape);
     }
     card.prepend(bg);
   });
 
+  const sticks = ['upscaled_stick1.png', 'upscaled_stick2.png', 'upscaled_stick3.png'];
+  document.querySelectorAll('.content-box').forEach(card => {
+    const stick = document.createElement('div');
+    stick.classList.add('stick-decoration');
+    const randomStick = sticks[Math.floor(Math.random() * sticks.length)];
+    stick.style.backgroundImage = `url('assets/${randomStick}')`;
+    card.appendChild(stick);
+  });
+
+  const backgrounds = ['background1.png', 'background2.png', 'background3.png'];
+
   slides.forEach((slide, index) => {
+    const randomBg = backgrounds[Math.floor(Math.random() * backgrounds.length)];
+    const bgElement = slide.querySelector('.background');
+    if (bgElement) {
+      bgElement.style.backgroundImage = `url('assets/${randomBg}')`;
+    }
+
     for (let i = 0; i < 8; i++) {
       const leaf = document.createElement('div');
       leaf.classList.add('leaves-decoration');
