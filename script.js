@@ -46,14 +46,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  document.querySelectorAll('.toc-item, .toc-card-title').forEach(item => {
+  document.querySelectorAll('.toc-item').forEach(item => {
     item.addEventListener('click', (e) => {
       e.preventDefault();
-      let target = e.target;
-      while (!target.getAttribute('data-slide-to')) {
-        target = target.parentElement;
-      }
-      const slideIndex = parseInt(target.getAttribute('data-slide-to'));
+      const slideIndex = parseInt(e.target.getAttribute('data-slide-to'));
       showSlide(slideIndex);
     });
   });
