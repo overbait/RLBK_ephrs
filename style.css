@@ -168,10 +168,13 @@
       position: absolute;
       left: 0;
       top: 12px;
-      width: 12px;
-      height: 12px;
-      background-color: var(--accent-color);
-      transform: rotate(45deg);
+      width: 16px;
+      height: 16px;
+      background-image: url('assets/icon_point.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-color: transparent;
+      transform: none;
     }
     .sub-item, .admin-item, .mod-item, .step-item, .schedule-detail, .contact-item, .exploit-item {
       position: relative;
@@ -183,10 +186,13 @@
       position: absolute;
       left: 5px;
       top: 12px;
-      width: 8px;
-      height: 8px;
-      background-color: var(--primary-color);
-      transform: rotate(45deg);
+      width: 12px;
+      height: 12px;
+      background-image: url('assets/icon_point2.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-color: transparent;
+      transform: none;
     }
     .toc-grid-container {
       display: grid;
@@ -227,6 +233,11 @@
       color: var(--primary-color);
       font-size: 1.5rem;
       margin-bottom: 1rem;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .toc-card-title:hover {
+      color: #ffffff;
     }
     .toc-card-items {
       display: flex;
@@ -345,6 +356,20 @@
     }
     .prize-item {
       font-size: 1.75rem;
+      position: relative;
+      padding-left: 30px;
+      margin-bottom: 12px;
+    }
+    .prize-item:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 12px;
+        width: 16px;
+        height: 16px;
+        background-image: url('assets/icon_circle.png');
+        background-size: contain;
+        background-repeat: no-repeat;
     }
     .prize-position {
       font-family: 'Cinzel', serif;

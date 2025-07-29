@@ -46,10 +46,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  document.querySelectorAll('.toc-item').forEach(item => {
+  document.querySelectorAll('.toc-item, .toc-card-title').forEach(item => {
     item.addEventListener('click', (e) => {
       e.preventDefault();
-      const slideIndex = parseInt(e.target.getAttribute('data-slide-to'));
+      let target = e.target;
+      while (!target.getAttribute('data-slide-to')) {
+        target = target.parentElement;
+      }
+      const slideIndex = parseInt(target.getAttribute('data-slide-to'));
       showSlide(slideIndex);
     });
   });
@@ -256,4 +260,15 @@ document.addEventListener("DOMContentLoaded", () => {
   attachImageToCard('#qualifiers-card', 1, 'icon_swords.png', -30, 10);
   attachImageToCard('#group-stage-card', 4, 'icon_shield.png', 30, 10);
   attachImageToCard('#playoffs-card', 2, 'icon_troph.png', 0, 10);
+
+  // FAIR PLAY & MISCONDUCT
+  attachImageToCard('.slide:nth-child(12) .content-box:nth-child(1)', 1, 'icon_sword2.png', 0, 11);
+  attachImageToCard('.slide:nth-child(12) .content-box:nth-child(2)', 3, 'icon_plus.png', 0, 1);
+
+  // COMMUNICATION
+  attachImageToCard('.slide:nth-child(13) .content-box:nth-child(1)', 2, 'icon_clock.png', 0, 10);
+  attachImageToCard('.slide:nth-child(14) .content-box:nth-child(2)', 3, 'icon_calendar.png', 0, 10);
+
+  // CONTACTS & RESOURCES
+  attachImageToCard('.slide:nth-child(16) .content-box:nth-child(1)', 2, 'icon_dude.png', 0, 1);
 });
