@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  function attachImageToCard(cardSelector, hookNumber, imageUrl, rotation = 0) {
+  function attachImageToCard(cardSelector, hookNumber, imageUrl, rotation = 0, scale = 1) {
     const card = document.querySelector(cardSelector);
     if (!card) return;
 
@@ -71,7 +71,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const img = document.createElement('img');
     img.src = `assets/${imageUrl}`;
     img.classList.add('attached-image');
-    img.style.transform = `rotate(${rotation}deg)`;
+    img.style.transform = `rotate(${rotation}deg) scale(${scale})`;
+    img.style.transformOrigin = 'center center';
 
     hook.appendChild(img);
   }
@@ -157,20 +158,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function updatePagination() {
     slides.forEach((slide, slideIndex) => {
-      const paginationContainer = slide.querySelector('.pagination');
-      if (!paginationContainer) return;
+      let paginationContainer = slide.querySelector('.pagination');
+      if (!paginationContainer) {
+        paginationContainer = document.createElement('div');
+        paginationContainer.classList.add('pagination');
+        slide.appendChild(paginationContainer);
+      }
+
+      if (!paginationContainer.querySelector('.prev')) {
+        const prevButton = document.createElement('button');
+        prevButton.classList.add('prev');
+        prevButton.innerHTML = `<img src="assets/icon_arrow_red.png" alt="Previous">`;
+        prevButton.addEventListener('click', prevSlide);
+        paginationContainer.appendChild(prevButton);
+      }
 
       let pageIndicatorContainer = paginationContainer.querySelector('.page-indicator-container');
       if (!pageIndicatorContainer) {
         pageIndicatorContainer = document.createElement('div');
         pageIndicatorContainer.classList.add('page-indicator-container');
-
-        const nextButton = paginationContainer.querySelector('.next');
-        if (nextButton) {
-          paginationContainer.insertBefore(pageIndicatorContainer, nextButton);
-        } else {
-          paginationContainer.appendChild(pageIndicatorContainer);
-        }
+        paginationContainer.appendChild(pageIndicatorContainer);
       }
 
       pageIndicatorContainer.innerHTML = '';
@@ -184,6 +191,21 @@ document.addEventListener("DOMContentLoaded", () => {
         pageIndicator.addEventListener('click', () => showSlide(pageIndex));
         pageIndicatorContainer.appendChild(pageIndicator);
       });
+
+      if (!paginationContainer.querySelector('.next')) {
+        const nextButton = document.createElement('button');
+        nextButton.classList.add('next');
+        nextButton.innerHTML = `<img src="assets/icon_arrow_green.png" alt="Next">`;
+        nextButton.addEventListener('click', nextSlide);
+        paginationContainer.appendChild(nextButton);
+      }
+
+      // Reorder elements to ensure correct layout
+      const prevButton = paginationContainer.querySelector('.prev');
+      const nextButton = paginationContainer.querySelector('.next');
+      paginationContainer.insertBefore(pageIndicatorContainer, nextButton);
+      paginationContainer.insertBefore(prevButton, pageIndicatorContainer);
+
     });
   }
 
@@ -225,5 +247,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   showSlide(currentSlide);
 
-  attachImageToCard('#qualifiers-card', 1, 'icon_swords.png', -15);
+  attachImageToCard('#qualifiers-card', 1, 'icon_swords.png', -30, 3);
+  attachImageToCard('#group-stage-card', 4, 'icon_shield.png', 30, 3);
+  attachImageToCard('#playoffs-card', 2, 'icon_troph.png', 0, 3);
 });
