@@ -132,6 +132,12 @@ document.addEventListener("DOMContentLoaded", () => {
   ];
 
   document.querySelectorAll('.content-box').forEach(card => {
+    let bgContainer = card.querySelector('.card-bg-container');
+    if (!bgContainer) {
+        bgContainer = document.createElement('div');
+        bgContainer.classList.add('card-bg-container');
+        card.prepend(bgContainer);
+    }
     const bg = document.createElement('div');
     bg.classList.add('card-bg');
     for (let i = 0; i < 3; i++) {
@@ -150,7 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
       gradientShape.style.opacity = '0.85';
       bg.appendChild(gradientShape);
     }
-    card.prepend(bg);
+    bgContainer.appendChild(bg);
   });
 
 
