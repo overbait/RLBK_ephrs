@@ -87,11 +87,11 @@ document.addEventListener("DOMContentLoaded", () => {
           label: 'Prize Pool',
           data: [2500, 500, 1000, 2000, 4000],
           backgroundColor: [
-            '#8b4513',
-            '#a9a9a9',
-            '#cd7f32',
-            '#c0c0c0',
-            '#ffd700'
+            '#006400', // Dark Green for 5th-8th
+            '#00008b', // Dark Blue for 4th
+            '#cd7f32', // Bronze for 3rd
+            '#c0c0c0', // Silver for 2nd
+            '#ffd700'  // Gold for 1st
           ],
           borderColor: '#0d0d0d',
           borderWidth: 2
@@ -247,7 +247,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   showSlide(currentSlide);
 
-  attachImageToCard('#qualifiers-card', 1, 'icon_swords.png', -30, 3);
-  attachImageToCard('#group-stage-card', 4, 'icon_shield.png', 30, 3);
-  attachImageToCard('#playoffs-card', 2, 'icon_troph.png', 0, 3);
+  attachImageToCard('#qualifiers-card', 1, 'icon_swords.png', -30, 6);
+  attachImageToCard('#group-stage-card', 4, 'icon_shield.png', 30, 6);
+  attachImageToCard('#playoffs-card', 2, 'icon_troph.png', 0, 6);
 });
