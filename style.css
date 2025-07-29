@@ -239,8 +239,8 @@
       font-size: 1rem;
       transition: color 0.2s;
     }
-    .toc-item .toc-number {
-      color: gold;
+    .toc-item .toc-number, .sub-number {
+      color: #d4af37; /* Old Gold color */
     }
     .toc-item:hover {
       color: var(--primary-color);
@@ -312,7 +312,6 @@
     }
     .sub-number {
       font-size: 1.5rem;
-      color: var(--accent-color);
       margin-right: 10px;
     }
     .step-icon {
