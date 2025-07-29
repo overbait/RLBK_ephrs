@@ -153,7 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
       gradientShape.style.left = `${Math.random() * 100}%`;
       gradientShape.style.transform = 'translate(-50%, -50%)';
       gradientShape.style.filter = 'blur(80px)';
-      gradientShape.style.opacity = '0.85';
+      gradientShape.style.opacity = '0.15';
       bg.appendChild(gradientShape);
     }
     bgContainer.appendChild(bg);
