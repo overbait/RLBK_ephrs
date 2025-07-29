@@ -76,7 +76,7 @@
       background-repeat: no-repeat;
     }
     .absolute.top-10.right-10 > img {
-        opacity: 1 !important;
+        opacity: 1;
     }
     .content {
       position: relative;
@@ -138,7 +138,6 @@
       width: 100%;
       height: 100%;
       z-index: -1;
-      opacity: 0.2;
     }
     .content-box.overflow-fix {
       padding: 15px 25px;
@@ -355,14 +354,14 @@
     }
     .stick-decoration {
       position: absolute;
-      left: -20px;
-      top: 0;
-      height: 100%;
-      width: 40px;
+      left: 5px;
+      top: 50%;
+      width: 20px;
+      height: 95%;
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
-      transform: rotate(-90deg);
+      transform: translateY(-50%);
     }
     .main-stage, .qual-bracket {
       font-family: 'Cinzel', serif;

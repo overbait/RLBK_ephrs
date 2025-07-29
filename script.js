@@ -169,10 +169,6 @@ document.addEventListener("DOMContentLoaded", () => {
       slide.appendChild(leaf);
     }
 
-    const pageNumber = document.createElement('div');
-    pageNumber.classList.add('page-number');
-    pageNumber.textContent = index + 1;
-    slide.appendChild(pageNumber);
   });
 
   showSlide(currentSlide);
