@@ -120,18 +120,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const backgrounds = ['background1.png', 'background2.png', 'background3.png'];
 
   function updatePagination() {
-    const paginationContainer = document.querySelector('.pagination');
-    if (!paginationContainer) return;
-    paginationContainer.innerHTML = '';
-    slides.forEach((_, index) => {
-      const pageIndicator = document.createElement('span');
-      pageIndicator.classList.add('page-indicator');
-      pageIndicator.textContent = index + 1;
-      if (index === currentSlide) {
-        pageIndicator.classList.add('active');
-      }
-      pageIndicator.addEventListener('click', () => showSlide(index));
-      paginationContainer.appendChild(pageIndicator);
+    slides.forEach((slide, slideIndex) => {
+      const paginationContainer = slide.querySelector('.pagination');
+      if (!paginationContainer) return;
+      paginationContainer.innerHTML = '';
+      slides.forEach((_, pageIndex) => {
+        const pageIndicator = document.createElement('span');
+        pageIndicator.classList.add('page-indicator');
+        pageIndicator.textContent = pageIndex + 1;
+        if (pageIndex === currentSlide) {
+          pageIndicator.classList.add('active');
+        }
+        pageIndicator.addEventListener('click', () => showSlide(pageIndex));
+        paginationContainer.appendChild(pageIndicator);
+      });
     });
   }
 

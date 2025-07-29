@@ -30,6 +30,10 @@
       left: 0;
       opacity: 0;
       transition: opacity 0.5s ease-in-out;
+      border: 2px solid rgba(255, 210, 125, 0.5);
+      border-radius: 15px;
+      box-sizing: border-box;
+      padding: 20px;
     }
     .slide.active {
       display: block;
@@ -346,12 +350,14 @@
     }
     .pagination {
       position: absolute;
-      bottom: 40px;
+      bottom: 10px;
       left: 50%;
       transform: translateX(-50%);
       display: flex;
       gap: 10px;
       z-index: 5;
+      background-color: #0d0d0d;
+      padding: 0 10px;
     }
     .page-indicator {
       font-family: 'South Park', sans-serif;
