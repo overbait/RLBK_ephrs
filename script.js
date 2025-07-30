@@ -77,21 +77,24 @@ document.addEventListener("DOMContentLoaded", () => {
     hook.appendChild(img);
   }
 
-  const prizeChart = document.getElementById('prizeChart');
-  if (prizeChart) {
-    new Chart(prizeChart, {
+  const prizeChartContainer = document.querySelector('.prize-chart-container');
+  if (prizeChartContainer) {
+      prizeChartContainer.innerHTML = '<canvas id="prizeChart"></canvas>';
+      const prizeChart = document.getElementById('prizeChart');
+      new Chart(prizeChart, {
       type: 'doughnut',
       data: {
-        labels: ['5th-8th Place (total)', '4th Place', '3rd Place', '2nd Place', '1st Place'],
+        labels: ['9th-16th Places', '5th-8th Places', '4th Place', '3rd Place', '2nd Place', '1st Place'],
         datasets: [{
-          label: 'Prize Pool',
-          data: [2500, 500, 1000, 2000, 4000],
+          label: 'Prize Pool ($)',
+          data: [400, 600, 200, 300, 500, 1000],
           backgroundColor: [
-            '#006400', // Dark Green for 5th-8th
-            '#00008b', // Dark Blue for 4th
-            '#cd7f32', // Bronze for 3rd
-            '#c0c0c0', // Silver for 2nd
-            '#ffd700'  // Gold for 1st
+            '#8B4513', // SaddleBrown
+            '#006400', // Dark Green
+            '#00008b', // Dark Blue
+            '#cd7f32', // Bronze
+            '#c0c0c0', // Silver
+            '#ffd700'  // Gold
           ],
           borderColor: '#0d0d0d',
           borderWidth: 2
@@ -113,7 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
           },
           title: {
             display: true,
-            text: 'Prize Pool Distribution',
+            text: '$3,000 Prize Pool Distribution',
             color: '#f5f0e6',
             font: {
               size: 18

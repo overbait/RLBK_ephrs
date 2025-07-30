@@ -16,16 +16,16 @@
       color: #f5f0e6;
     }
     .slider-container {
-      width: 2240px;
-      min-height: 1260px;
+      width: 1260px;
+      min-height: 2240px;
       position: relative;
       overflow: hidden;
-      transform: scale(0.9);
+      transform: scale(0.4);
     }
     .slide {
       display: none;
       width: 100%;
-      min-height: 1260px;
+      min-height: 2240px;
       position: absolute;
       top: 0;
       left: 0;
@@ -194,10 +194,8 @@
     }
     .toc-grid-container {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-auto-flow: column;
-      grid-template-rows: repeat(5, auto);
-      gap: 0.5rem;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
     }
     .toc-card {
       background-color: var(--content-box-bg);
@@ -426,7 +424,7 @@
     }
     .main-stage .groups-container {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: 1fr;
       gap: 20px;
     }
     .main-stage .group-table {
@@ -495,39 +493,35 @@
     .schedule-timeline::before {
       content: '';
       position: absolute;
-      left: 50%;
+      left: 20px;
       width: 4px;
       height: 100%;
       background: var(--accent-color);
-      transform: translateX(-50%);
     }
     .timeline-item {
       position: relative;
-      width: 50%;
-      padding: 10px 40px;
+      width: 100%;
+      padding: 10px 40px 10px 60px;
       box-sizing: border-box;
     }
     .timeline-item:nth-child(odd) {
       left: 0;
-      text-align: right;
+      text-align: left;
     }
     .timeline-item:nth-child(even) {
-      left: 50%;
+      left: 0;
     }
     .timeline-item::after {
       content: '';
       position: absolute;
       width: 25px;
       height: 25px;
-      right: -17px;
+      left: 8px;
       background-color: white;
       border: 4px solid var(--accent-color);
       top: 15px;
       border-radius: 50%;
       z-index: 1;
-    }
-    .timeline-item:nth-child(even)::after {
-      left: -16px;
     }
     .timeline-date {
       font-family: 'Cinzel', serif;
