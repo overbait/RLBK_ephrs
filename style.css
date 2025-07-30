@@ -16,16 +16,16 @@
       color: #f5f0e6;
     }
     .slider-container {
-      width: 1260px;
+      width: 100%;
+      max-width: 1260px;
       min-height: 1780px;
       position: relative;
       overflow: hidden;
-      transform: scale(0.5);
     }
     .slide {
       display: none;
       width: 100%;
-      min-height: 1780px;
+      min-height: 1260px;
       position: absolute;
       top: 0;
       left: 0;
@@ -369,13 +369,26 @@
       font-weight: 700;
       color: var(--primary-color);
     }
+    .btn-primary {
+        background-color: var(--accent-color);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 0.25rem;
+        text-decoration: none;
+        transition: background-color 0.2s;
+    }
+    .btn-primary:hover {
+        background-color: #c05626;
+    }
     .toc-list-item {
       display: flex;
       align-items: baseline;
       margin-bottom: 1rem;
-      font-size: 1.5rem;
+      font-size: 1.75rem;
       cursor: pointer;
       transition: color 0.2s;
+      text-decoration: none;
+      color: #f5f0e6;
     }
     .toc-list-item:hover, .toc-list-item:hover .toc-list-dots {
       color: var(--primary-color);
@@ -383,7 +396,7 @@
     }
     .toc-list-item.sub-item {
       padding-left: 3rem;
-      font-size: 1.25rem;
+      font-size: 1.5rem;
     }
     .toc-list-number {
       color: var(--primary-color);
@@ -433,8 +446,8 @@
       cursor: pointer;
     }
     .pagination .prev img, .pagination .next img {
-      width: 50px;
-      height: 50px;
+      width: 60px;
+      height: 60px;
       transition: transform 0.2s;
     }
     .pagination .prev:hover img, .pagination .next:hover img {

@@ -46,11 +46,20 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  document.querySelectorAll('.toc-item').forEach(item => {
+  document.querySelectorAll('.toc-list-item').forEach(item => {
     item.addEventListener('click', (e) => {
       e.preventDefault();
-      const slideIndex = parseInt(e.target.getAttribute('data-slide-to'));
-      showSlide(slideIndex);
+      // Find the closest parent with the data-slide-to attribute
+      let target = e.target;
+      while (target && !target.hasAttribute('data-slide-to')) {
+        target = target.parentElement;
+      }
+      if (target) {
+        const slideIndex = parseInt(target.getAttribute('data-slide-to'));
+        if (!isNaN(slideIndex)) {
+            showSlide(slideIndex);
+        }
+      }
     });
   });
 
