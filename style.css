@@ -368,6 +368,40 @@
       font-weight: 700;
       color: var(--primary-color);
     }
+.seeding-item {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 12px;
+}
+.seeding-item:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 12px;
+  width: 16px;
+  height: 16px;
+  background-image: url('https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/icon_circle.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.seeding-sub-item {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 8px;
+  margin-left: 30px;
+}
+.seeding-sub-item:before {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 12px;
+  width: 12px;
+  height: 12px;
+  background-image: url('https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/icon_point.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
     .btn-primary {
         background-color: var(--accent-color);
         color: white;
@@ -587,6 +621,13 @@
       background: var(--content-box-bg);
       position: relative;
       border-radius: 6px;
+}
+.important-notice {
+  background-color: rgba(224, 102, 54, 0.2); /* A semi-transparent accent color */
+  border-left: 4px solid var(--accent-color);
+  padding: 1rem;
+  border-radius: 4px;
+  margin: 1rem 0;
     }
     .schedule-title {
       font-family: 'Cinzel', serif;
