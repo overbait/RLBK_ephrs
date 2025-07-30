@@ -115,16 +115,16 @@
       font-size: 2.5rem;
     }
     .text-2xl {
-      font-size: 2rem;
+      font-size: 2.25rem;
     }
     .text-xl {
-      font-size: 1.5rem;
+      font-size: 1.75rem;
     }
     .text-lg {
-      font-size: 1.25rem;
+      font-size: 1.5rem;
     }
     .text-base {
-      font-size: 1rem;
+      font-size: 1.15rem;
     }
     .text-sm {
       font-size: 0.875rem;
@@ -585,7 +585,7 @@
     .timeline-item {
       position: relative;
       width: 50%;
-      padding: 10px 40px;
+      padding: 10px 20px;
       box-sizing: border-box;
     }
     .timeline-item:nth-child(odd) {
@@ -617,7 +617,7 @@
       color: var(--primary-color);
     }
     .timeline-content {
-      padding: 20px 30px;
+      padding: 15px 25px;
       background: var(--content-box-bg);
       position: relative;
       border-radius: 6px;
