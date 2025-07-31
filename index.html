@@ -22,7 +22,7 @@
       </div>
       <div class="content flex flex-col justify-center items-center h-full py-8 px-10">
         <div class="text-center mb-8">
-          <div class="logo-container flex justify-center">
+          <div class="logo-container flex justify-center logo-raised">
             <img class="logo" src="https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/Logo_main.png" alt="Epohers Logo" style="max-width: 400px; filter: drop-shadow(6px 6px 16px rgba(0, 0, 0, 0.9));">
           </div>
           <h1 class="section-title text-7xl mb-10">EPOHERS WORLD CUP</h1>
@@ -339,20 +339,41 @@
                     <div class="provision-item text-xl">Maps cannot be repeated during the series.</div>
 
                     <h3 class="subsection-title text-2xl mt-6 mb-2">Map Pool:</h3>
-                    <div class="grid grid-cols-2 md:grid-cols-3 gap-2 mt-2">
-                        <div class="step-item text-xl">Dry Arabia</div>
-                        <div class="step-item text-xl">Cliffside</div>
-                        <div class="step-item text-xl">EGC – Gorge</div>
-                        <div class="step-item text-xl">EGC – Holy Island</div>
-                        <div class="step-item text-xl">EGC – Archipelago</div>
-                        <div class="step-item text-xl">Baldland</div>
-                        <div class="step-item text-xl">Hill and Dale</div>
+                    <div class="grid grid-cols-4 gap-4 mt-2">
+                        <div class="map-card">
+                            <img src="assets/dry-arabia.png" alt="Dry Arabia" class="map-image">
+                            <div class="map-name">Dry Arabia</div>
+                        </div>
+                        <div class="map-card">
+                            <img src="assets/cliffside.png" alt="Cliffside" class="map-image">
+                            <div class="map-name">Cliffside</div>
+                        </div>
+                        <div class="map-card">
+                            <img src="assets/EGC-gorge.png" alt="EGC – Gorge" class="map-image">
+                            <div class="map-name">EGC – Gorge</div>
+                        </div>
+                        <div class="map-card">
+                            <img src="assets/holy-island.png" alt="EGC – Holy Island" class="map-image">
+                            <div class="map-name">EGC – Holy Island</div>
+                        </div>
+                        <div class="map-card">
+                            <img src="assets/archipelago.png" alt="EGC – Archipelago" class="map-image">
+                            <div class="map-name">EGC – Archipelago</div>
+                        </div>
+                        <div class="map-card">
+                            <img src="assets/baldland.png" alt="Baldland" class="map-image">
+                            <div class="map-name">Baldland</div>
+                        </div>
+                        <div class="map-card">
+                            <img src="assets/hill-and-dale.png" alt="Hill and Dale" class="map-image">
+                            <div class="map-name">Hill and Dale</div>
+                        </div>
                     </div>
                     <h3 class="subsection-title text-2xl mt-6 mb-2">Map Draft Presets:</h3>
                     <div class="flex justify-center gap-4">
-                        <a href="#" class="btn-primary">BO3 – link</a>
-                        <a href="#" class="btn-primary">BO5 – link</a>
-                        <a href="#" class="btn-primary">BO7 – link</a>
+                        <a href="#" class="btn-primary btn-color-1">BO3 – link</a>
+                        <a href="#" class="btn-primary btn-color-2">BO5 – link</a>
+                        <a href="#" class="btn-primary btn-color-3">BO7 – link</a>
                     </div>
                 </div>
                 <div class="content-box rounded-md">
@@ -360,10 +381,10 @@
                     <div class="provision-item text-xl">Use standard Age of Empires IV civ drafting rules or await official presets.</div>
                     <h3 class="section-header text-2xl mt-4 mb-2">5.3.1 Civilization draft presets:</h3>
                     <div class="flex justify-center gap-4">
-                        <a href="#" class="btn-primary">Game – link</a>
-                        <a href="#" class="btn-primary">BO3 – link</a>
-                        <a href="#" class="btn-primary">BO5 – link</a>
-                        <a href="#" class="btn-primary">BO7 – link</a>
+                        <a href="#" class="btn-primary btn-color-4">Game – link</a>
+                        <a href="#" class="btn-primary btn-color-5">BO3 – link</a>
+                        <a href="#" class="btn-primary btn-color-6">BO5 – link</a>
+                        <a href="#" class="btn-primary btn-color-1">BO7 – link</a>
                     </div>
                 </div>
             </div>
@@ -550,7 +571,12 @@
             <h2 class="section-header text-3xl mb-4">11.1 Coordination and Communication</h2>
             <div class="provision-item text-lg">All tournament communication happens on the official Epohers Discord server.</div>
             <div class="important-notice">
-              <div class="provision-item text-lg">Submit results and drafts in designated channels: <span class="highlight">#quals-results</span> for qualifiers, <span class="highlight">#main-results</span> for the main stage.</div>
+              <div class="provision-item text-lg">Submit results and drafts in designated channels:
+                <ul class="list-disc list-inside ml-4 mt-2">
+                  <li><span class="highlight">#quals-results</span> for qualifiers</li>
+                  <li><span class="highlight">#main-results</span> for the main stage</li>
+                </ul>
+              </div>
             </div>
             <div class="provision-item text-lg">Announcements are in <span class="highlight">#ep-world-cup-news</span>.</div>
             <div class="provision-item text-lg">Discussion channels: <span class="highlight">#ep-world-cup-chat</span> (open) and <span class="highlight">#players-only</span> (participants only).</div>
