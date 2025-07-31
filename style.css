@@ -379,6 +379,16 @@
       font-weight: 700;
       color: var(--primary-color);
     }
+    .discord-chat-box {
+      background-color: #36393f;
+      border-radius: 5px;
+      padding: 15px;
+      margin-top: 10px;
+      font-family: 'Consolas', 'Courier New', monospace;
+      font-size: 1.25rem;
+      line-height: 1.6;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
     .color-panel {
       background-color: rgba(0, 0, 0, 0.2);
       border: 1px solid rgba(255, 210, 125, 0.3);
@@ -480,7 +490,7 @@
     .btn-primary {
         background-color: var(--accent-color);
         color: white;
-        padding: 1rem 2rem;
+        padding: 0.5rem 2rem;
         border-radius: 0.25rem;
         text-decoration: none;
         transition: all 0.2s;
