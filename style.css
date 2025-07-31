@@ -405,13 +405,15 @@
     .btn-primary {
         background-color: var(--accent-color);
         color: white;
-        padding: 0.5rem 1rem;
+        padding: 0.75rem 1.5rem;
         border-radius: 0.25rem;
         text-decoration: none;
-        transition: background-color 0.2s;
+        transition: all 0.2s;
+        box-shadow: 0 0 15px rgba(224, 102, 54, 0.7);
     }
     .btn-primary:hover {
         background-color: #c05626;
+        box-shadow: 0 0 25px rgba(224, 102, 54, 1);
     }
     .toc-list-item {
       display: flex;
