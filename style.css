@@ -86,7 +86,7 @@
         opacity: 1;
     }
     .logo-raised {
-        transform: translateY(-40px);
+        transform: translateY(-80px);
     }
     .content {
       position: relative;
@@ -371,6 +371,13 @@
       font-weight: 700;
       color: var(--primary-color);
     }
+    .date-button {
+        background-color: rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(255, 210, 125, 0.4);
+        padding: 0.25rem 0.75rem;
+        border-radius: 6px;
+        display: inline-block;
+    }
 .seeding-item {
   position: relative;
   padding-left: 30px;
@@ -412,7 +419,9 @@
         border-radius: 0.25rem;
         text-decoration: none;
         transition: all 0.2s;
-        box-shadow: 0 0 15px rgba(224, 102, 54, 0.7);
+        box-shadow: 0 0 8px rgba(224, 102, 54, 0.5);
+        font-family: 'South Park', sans-serif;
+        font-size: 1.5rem;
     }
     .btn-primary:hover {
         background-color: #c05626;
@@ -622,6 +631,10 @@
     .timeline-item:nth-child(even)::after {
       left: -16px;
     }
+    .exploit-item-detailed {
+        font-size: 1.75rem;
+        margin-bottom: 1rem;
+    }
     .timeline-date {
       font-family: 'Cinzel', serif;
       font-size: 1.5rem;
@@ -646,7 +659,6 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
-      background-color: rgba(0,0,0,0.2);
       padding: 1rem;
       border-radius: 6px;
     }
@@ -656,6 +668,7 @@
       object-fit: cover;
       border-radius: 6px;
       margin-bottom: 0.5rem;
+      border: 2px solid rgba(255, 210, 125, 0.5);
     }
     .map-name {
       font-size: 1.25rem;
