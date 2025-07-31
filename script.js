@@ -46,11 +46,20 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  document.querySelectorAll('.toc-item').forEach(item => {
+  document.querySelectorAll('.toc-list-item').forEach(item => {
     item.addEventListener('click', (e) => {
       e.preventDefault();
-      const slideIndex = parseInt(e.target.getAttribute('data-slide-to'));
-      showSlide(slideIndex);
+      // Find the closest parent with the data-slide-to attribute
+      let target = e.target;
+      while (target && !target.hasAttribute('data-slide-to')) {
+        target = target.parentElement;
+      }
+      if (target) {
+        const slideIndex = parseInt(target.getAttribute('data-slide-to'));
+        if (!isNaN(slideIndex)) {
+            showSlide(slideIndex);
+        }
+      }
     });
   });
 
@@ -69,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const img = document.createElement('img');
-    img.src = `assets/${imageUrl}`;
+    img.src = `https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/${imageUrl}`;
     img.classList.add('attached-image');
     img.style.transform = `rotate(${rotation}deg) scale(${scale})`;
     img.style.transformOrigin = 'center center';
@@ -77,21 +86,24 @@ document.addEventListener("DOMContentLoaded", () => {
     hook.appendChild(img);
   }
 
-  const prizeChart = document.getElementById('prizeChart');
-  if (prizeChart) {
-    new Chart(prizeChart, {
+  const prizeChartContainer = document.querySelector('.prize-chart-container');
+  if (prizeChartContainer) {
+      prizeChartContainer.innerHTML = '<canvas id="prizeChart"></canvas>';
+      const prizeChart = document.getElementById('prizeChart');
+      new Chart(prizeChart, {
       type: 'doughnut',
       data: {
-        labels: ['5th-8th Place (total)', '4th Place', '3rd Place', '2nd Place', '1st Place'],
+        labels: ['9th-16th Places', '5th-8th Places', '4th Place', '3rd Place', '2nd Place', '1st Place'],
         datasets: [{
-          label: 'Prize Pool',
-          data: [2500, 500, 1000, 2000, 4000],
+          label: 'Prize Pool ($)',
+          data: [400, 600, 200, 300, 500, 1000],
           backgroundColor: [
-            '#006400', // Dark Green for 5th-8th
-            '#00008b', // Dark Blue for 4th
-            '#cd7f32', // Bronze for 3rd
-            '#c0c0c0', // Silver for 2nd
-            '#ffd700'  // Gold for 1st
+            '#8B4513', // SaddleBrown
+            '#006400', // Dark Green
+            '#00008b', // Dark Blue
+            '#cd7f32', // Bronze
+            '#c0c0c0', // Silver
+            '#ffd700'  // Gold
           ],
           borderColor: '#0d0d0d',
           borderWidth: 2
@@ -113,7 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
           },
           title: {
             display: true,
-            text: 'Prize Pool Distribution',
+            text: '$3,000 Prize Pool Distribution',
             color: '#f5f0e6',
             font: {
               size: 18
@@ -174,7 +186,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!paginationContainer.querySelector('.prev')) {
         const prevButton = document.createElement('button');
         prevButton.classList.add('prev');
-        prevButton.innerHTML = `<img src="assets/icon_arrow_red.png" alt="Previous">`;
+        prevButton.innerHTML = `<img src="https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/icon_arrow_red.png" alt="Previous">`;
         prevButton.addEventListener('click', prevSlide);
         paginationContainer.appendChild(prevButton);
       }
@@ -201,7 +213,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!paginationContainer.querySelector('.next')) {
         const nextButton = document.createElement('button');
         nextButton.classList.add('next');
-        nextButton.innerHTML = `<img src="assets/icon_arrow_green.png" alt="Next">`;
+        nextButton.innerHTML = `<img src="https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/icon_arrow_green.png" alt="Next">`;
         nextButton.addEventListener('click', nextSlide);
         paginationContainer.appendChild(nextButton);
       }
@@ -233,14 +245,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const randomBg = backgrounds[Math.floor(Math.random() * backgrounds.length)];
     const bgElement = slide.querySelector('.background');
     if (bgElement) {
-      bgElement.style.backgroundImage = `url('assets/${randomBg}')`;
+      bgElement.style.backgroundImage = `url('https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/${randomBg}')`;
     }
 
     for (let i = 0; i < 8; i++) {
       const leaf = document.createElement('div');
       leaf.classList.add('leaves-decoration');
       const leafNum = Math.floor(Math.random() * 8) + 1;
-      leaf.style.backgroundImage = `url('assets/leves_${leafNum}.png')`;
+      leaf.style.backgroundImage = `url('https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/leves_${leafNum}.png')`;
       leaf.style.top = `${Math.random() * 80 + 10}%`;
       leaf.style.left = `${Math.random() * 80 + 10}%`;
       leaf.style.transform = `rotate(${Math.random() * 360}deg) scale(${Math.random() * 0.5 + 0.8})`;
