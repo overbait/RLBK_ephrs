@@ -127,13 +127,13 @@
       font-size: 2.25rem;
     }
     .text-xl {
-      font-size: 1.75rem;
+      font-size: 2rem;
     }
     .text-lg {
-      font-size: 1.5rem;
+      font-size: 1.75rem;
     }
     .text-base {
-      font-size: 1.15rem;
+      font-size: 1.4rem;
     }
     .text-sm {
       font-size: 0.875rem;
@@ -695,7 +695,7 @@
       left: -16px;
     }
     .exploit-item-detailed {
-        font-size: 1.75rem;
+        font-size: 2rem;
         margin-bottom: 1rem;
     }
     .timeline-date {
