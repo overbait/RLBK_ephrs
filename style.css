@@ -377,6 +377,63 @@
       font-weight: 700;
       color: var(--primary-color);
     }
+    .color-panel {
+      background-color: rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 210, 125, 0.3);
+      border-radius: 6px;
+      padding: 20px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      width: 400px;
+    }
+
+    .color-panel-tag {
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      background-color: var(--primary-color);
+      color: #0d0d0d;
+      font-family: 'South Park', sans-serif;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      font-weight: bold;
+    }
+
+    .player-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      flex-grow: 1;
+    }
+
+    .player-name {
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      color: #f5f0e6;
+      font-size: 1.2rem;
+    }
+
+    .color-box-group {
+      display: flex;
+      gap: 8px;
+    }
+
+    .color-box {
+      width: 40px;
+      height: 40px;
+      border-radius: 4px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .vs-separator {
+      font-family: 'South Park', sans-serif;
+      color: var(--primary-color);
+      font-size: 1.5rem;
+    }
     .date-button {
         background-color: rgba(0, 0, 0, 0.3);
         border: 1px solid rgba(255, 210, 125, 0.4);
