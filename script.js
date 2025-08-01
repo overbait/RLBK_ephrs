@@ -86,54 +86,6 @@ document.addEventListener("DOMContentLoaded", () => {
     hook.appendChild(img);
   }
 
-  const prizeChartContainer = document.querySelector('.prize-chart-container');
-  if (prizeChartContainer) {
-      prizeChartContainer.innerHTML = '<canvas id="prizeChart"></canvas>';
-      const prizeChart = document.getElementById('prizeChart');
-      new Chart(prizeChart, {
-        type: 'doughnut',
-        data: {
-          labels: [
-              '1st Place', '2nd Place', '3rd Place', '4th Place',
-              '5th-8th Places', '9th-12th Places', '13th-16th Places'
-          ],
-          datasets: [{
-            label: 'Prize Pool ($)',
-            data: [ 1000, 500, 300, 200, 600, 300, 100 ],
-            backgroundColor: [
-              '#ffd700', '#c0c0c0', '#cd7f32', '#00008b',
-              '#006400', '#8B4513', '#472D30'
-            ],
-            borderColor: '#0d0d0d',
-            borderWidth: 2
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: {
-              position: 'top',
-              labels: {
-                color: '#f5f0e6',
-                font: {
-                  size: 14
-                }
-              }
-            },
-            title: {
-              display: true,
-              text: '$3,000 Prize Pool Distribution',
-              color: '#f5f0e6',
-              font: {
-                size: 18
-              }
-            }
-          }
-        }
-      });
-  }
-
   const colors = [
     ['#C9CBA3', '#FFE1A8'],
     ['#E26D5C', '#723D46'],
