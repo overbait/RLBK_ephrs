@@ -1,5 +1,6 @@
 const puppeteer = require('puppeteer');
 const path = require('path');
+const fs = require('fs');
 
 (async () => {
   const browser = await puppeteer.launch({
@@ -8,13 +9,10 @@ const path = require('path');
   });
   const page = await browser.newPage();
 
-  // Construct the absolute path to the HTML file
-  const filePath = path.resolve(__dirname, 'index.html');
-
-  await page.goto(`file://${filePath}`, {
-    waitUntil: 'networkidle0',
-    timeout: 60000
-  });
+  // Read the HTML file
+  const html = fs.readFileSync('index.html', 'utf-8');
+  // Set the content of the page
+  await page.setContent(html, { waitUntil: 'networkidle0' });
 
   // Wait for the last slide's content to be ready
   await page.waitForSelector('#slide-12 .content-box', { timeout: 60000 });
