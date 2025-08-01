@@ -102,7 +102,9 @@ async function generatePdf() {
             opacity: 1 !important;
             width: 100%;
             height: 100%;
-            position: static !important;
+            top: 0;
+            left: 0;
+            /* Keep the slide's original absolute positioning, but relative to .pdf-page */
           }
         </style>
       </head>
