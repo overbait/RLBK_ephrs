@@ -9,7 +9,8 @@ const fs = require('fs');
       '--no-sandbox',
       '--disable-setuid-sandbox',
       '--disable-dev-shm-usage',
-      '--disable-gpu'
+      '--disable-gpu',
+      '--allow-file-access-from-files'
     ]
   });
   const page = await browser.newPage();
@@ -25,6 +26,14 @@ const fs = require('fs');
 
   // Wait for the last slide's content to be ready
   await page.waitForSelector('#slide-12 .content-box', { timeout: 60000 });
+
+  // Change body background to red for debugging
+  await page.evaluate(() => {
+    document.body.style.backgroundColor = 'red';
+  });
+
+  // Take a screenshot for debugging
+  await page.screenshot({ path: 'screenshot.png' });
 
   await page.emulateMediaType('screen');
   await page.pdf({
