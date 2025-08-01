@@ -137,7 +137,7 @@
         <div class="mb-16 text-center">
           <h1 class="section-title text-5xl">2. Brackets & Schedule</h1>
         </div>
-        <div class="grid grid-cols-1 gap-8">
+        <div class="grid grid-cols-1 gap-4">
           <div class="content-box p-6 rounded-md">
             <h2 class="section-header text-3xl mb-4"><span class="sub-number">2.1</span> Detailed Schedule</h2>
             <div class="schedule-item text-xl">
@@ -190,8 +190,10 @@
           </div>
           <div class="content-box rounded-md text-center mt-8">
             <h2 class="section-header text-3xl mb-4"><span class="sub-number">2.2</span> Tournament Brackets</h2>
-            <div class="provision-item text-3xl"><span class="highlight">Qualifications</span> – <a class="resource-link" href="https://docs.google.com/spreadsheets/d/15NbnUrzQlXH52Zu-0GF7Rhsi1YPiMO-o-S8BdPPYiWAv/edit?gid=0">Link</a></div>
-            <div class="provision-item text-3xl"><span class="highlight">Main Stage</span> – <a class="resource-link" href="https://docs.google.com/spreadsheets/d/1Prwscw5IbfP0Kg35zs18jchq7yCkiQiwvAZKbDjBicw/edit?gid=0">Link</a></div>
+            <div class="flex justify-center items-center gap-8">
+                <div class="provision-item text-3xl"><span class="highlight">Qualifications</span> – <a class="resource-link" href="https://docs.google.com/spreadsheets/d/15NbnUrzQlXH52Zu-0GF7Rhsi1YPiMO-o-S8BdPPYiWAv/edit?gid=0">Link</a></div>
+                <div class="provision-item text-3xl"><span class="highlight">Main Stage</span> – <a class="resource-link" href="https://docs.google.com/spreadsheets/d/1Prwscw5IbfP0Kg35zs18jchq7yCkiQiwvAZKbDjBicw/edit?gid=0">Link</a></div>
+            </div>
           </div>
         </div>
       </div>
@@ -215,26 +217,94 @@
             <div class="provision-item text-xl">Tournament in single format - 1v1.</div>
             <div class="provision-item text-xl">The tournament consists of 3 stages: qualifiers, group stage and playoffs.</div>
           </div>
-          <div class="flex flex-col items-center justify-center w-full">
-            <div id="qualifiers-card" class="content-box rounded-md overflow-fix text-center p-6 relative w-11/12">
+          <div class="flex flex-col w-full">
+            <div id="qualifiers-card" class="content-box rounded-md overflow-fix p-6 relative w-full mb-4">
               <h2 class="format-title text-3xl">3.2 Qualifiers</h2>
               <p class="format-item text-lg mt-2">Single-elimination 48-6 bracket. Top 48 players by seeding can participate.</p>
               <p class="format-item text-lg mt-2">2 qualifiers, 6 players advance from each (12 total). 4 players are invited directly.</p>
               <p class="format-item text-lg"><span class="highlight">All matches are Best-of-3</span></p>
+                <div class="bracket qualifier-bracket">
+                    <!-- Round 1: 16 players / 8 matches -->
+                    <div class="round round1">
+                    <div class="match"><div class="player">Team 1</div><div class="player">Team 2</div></div>
+                    <div class="match"><div class="player">Team 3</div><div class="player">Team 4</div></div>
+                    <div class="match"><div class="player">Team 5</div><div class="player">Team 6</div></div>
+                    <div class="match"><div class="player">Team 7</div><div class="player">Team 8</div></div>
+                    <div class="match"><div class="player">Team 9</div><div class="player">Team 10</div></div>
+                    <div class="match"><div class="player">Team 11</div><div class="player">Team 12</div></div>
+                    <div class="match"><div class="player">Team 13</div><div class="player">Team 14</div></div>
+                    <div class="match"><div class="player">Team 15</div><div class="player">Team 16</div></div>
+                    </div>
+                    <!-- Round 2: Quarterfinals (8 players / 4 matches) -->
+                    <div class="round round2">
+                    <div class="match"><div class="player">Winner 1/2</div><div class="player">Winner 3/4</div></div>
+                    <div class="match"><div class="player">Winner 5/6</div><div class="player">Winner 7/8</div></div>
+                    <div class="match"><div class="player">Winner 9/10</div><div class="player">Winner 11/12</div></div>
+                    <div class="match"><div class="player">Winner 13/14</div><div class="player">Winner 15/16</div></div>
+                    </div>
+                    <!-- Round 3: Semifinals (4 players / 2 matches) -->
+                    <div class="round round3">
+                    <div class="match"><div class="player">Winner QF1</div><div class="player">Winner QF2</div></div>
+                    <div class="match"><div class="player">Winner QF3</div><div class="player">Winner QF4</div></div>
+                    </div>
+                    <!-- Round 4: Final (2 players / 1 match) -->
+                    <div class="round round4">
+                    <div class="match"><div class="player">Winner SF1</div><div class="player">Winner SF2</div></div>
+                    </div>
+                </div>
             </div>
-            <img src="https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/icon_arrow.png" alt="arrow" class="my-6 h-12" style="transform: rotate(90deg);">
-            <div id="group-stage-card" class="content-box rounded-md overflow-fix text-center p-6 relative w-11/12">
+            <div id="group-stage-card" class="content-box rounded-md overflow-fix p-6 relative w-full mb-4">
               <h2 class="format-title text-3xl">3.3 Group Stage</h2>
               <p class="format-item text-lg mt-2">Sixteen players are seeded into four groups of four.</p>
               <p class="format-item text-lg mt-2">Top two from each group advance (GSL format).</p>
               <p class="format-item text-lg"><span class="highlight">All matches are Best-of-5</span></p>
+                <div class="bracket group-bracket">
+                    <!-- Initial Matches -->
+                    <div class="round initial-matches">
+                    <div class="match"><div class="player">Player A</div><div class="player">Player B</div></div>
+                    <div class="match"><div class="player">Player C</div><div class="player">Player D</div></div>
+                    </div>
+                    <!-- Winners' Match -->
+                    <div class="round winners-match">
+                    <div class="match"><div class="player">Winner of Match 1</div><div class="player">Winner of Match 2</div></div>
+                    </div>
+                    <!-- Losers' Match -->
+                    <div class="round losers-match">
+                    <div class="match"><div class="player">Loser of Match 1</div><div class="player">Loser of Match 2</div></div>
+                    </div>
+                    <!-- Decider Match -->
+                    <div class="round decider-match">
+                    <div class="match"><div class="player">Loser of Winners Match</div><div class="player">Winner of Losers Match</div></div>
+                    </div>
+                </div>
             </div>
-            <img src="https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/icon_arrow.png" alt="arrow" class="my-6 h-12" style="transform: rotate(90deg);">
-            <div id="playoffs-card" class="content-box rounded-md overflow-fix text-center p-6 relative w-11/12">
+            <div id="playoffs-card" class="content-box rounded-md overflow-fix p-6 relative w-full">
               <h2 class="format-title text-3xl">3.4 Playoffs</h2>
               <p class="format-item text-lg mt-2">Single-elimination bracket for eight players with a 3rd-place match.</p>
               <p class="format-item text-lg"><span class="highlight">Quarters/3rd Place: Best-of-5</span></p>
               <p class="format-item text-lg"><span class="highlight">Semis/Grand Final: Best-of-7</span></p>
+                <div class="bracket playoff-bracket">
+                    <!-- Round 1: Quarterfinals (8 players / 4 matches) -->
+                    <div class="round round1">
+                    <div class="match"><div class="player">Team 1</div><div class="player">Team 2</div></div>
+                    <div class="match"><div class="player">Team 3</div><div class="player">Team 4</div></div>
+                    <div class="match"><div class="player">Team 5</div><div class="player">Team 6</div></div>
+                    <div class="match"><div class="player">Team 7</div><div class="player">Team 8</div></div>
+                    </div>
+                    <!-- Round 2: Semifinals (4 players / 2 matches) -->
+                    <div class="round round2">
+                    <div class="match"><div class="player">Winner QF1</div><div class="player">Winner QF2</div></div>
+                    <div class="match"><div class="player">Winner QF3</div><div class="player">Winner QF4</div></div>
+                    </div>
+                    <!-- Round 3: Final (2 players / 1 match) -->
+                    <div class="round round3">
+                    <div class="match"><div class="player">Winner SF1</div><div class="player">Winner SF2</div></div>
+                    </div>
+                    <!-- Third Place Match -->
+                    <div class="round third-place">
+                    <div class="match"><div class="player">Loser SF1</div><div class="player">Loser SF2</div></div>
+                    </div>
+                </div>
             </div>
           </div>
         </div>
@@ -313,8 +383,8 @@
             <div class="grid grid-cols-1 gap-4">
                 <div class="content-box rounded-md">
                     <h2 class="section-header text-3xl mb-4">5.1 Global drafts rules</h2>
-                    <div class="provision-item text-xl">5.1.1. Players must draft maps before the civilizations.</div>
-                    <div class="provision-item text-xl">5.1.2. The higher-seeded player can choose to be the host or guest for the draft.</div>
+                    <div class="provision-item text-xl"><span class="section-number">5.1.1.</span> Players must draft maps before the civilizations.</div>
+                    <div class="provision-item text-xl"><span class="section-number">5.1.2.</span> The higher-seeded player can choose to be the host or guest for the draft.</div>
                 </div>
                 <div class="content-box rounded-md">
                     <h2 class="section-header text-3xl mb-4">5.2 Map Rules</h2>
@@ -369,7 +439,7 @@
                 </div>
                 <div class="content-box rounded-md">
                     <h2 class="section-header text-3xl mb-4">5.3 Civilizations</h2>
-                    <div class="provision-item text-xl">Players must draft maps according to the draft links provided below.</div>
+                    <div class="provision-item text-xl">Players must draft civs according to the draft links provided below.</div>
                     <h3 class="section-header text-2xl mt-4 mb-2">5.3.1 Civilization draft presets:</h3>
                     <div class="flex justify-center gap-4">
                         <a href="#" class="btn-primary btn-color-4">Game</a>
@@ -391,19 +461,19 @@
             <img src="https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/Logo_main.png" alt="Epohers Logo" class="w-24">
         </div>
         <div class="content flex flex-col h-full py-16 px-10">
-            <div class="mb-8 text-center">
+            <div class="mb-4 text-center">
                 <h1 class="section-title text-5xl">6. SERVER & LOBBY CONFIGURATION</h1>
             </div>
-            <div class="grid grid-cols-1 gap-6">
+            <div class="grid grid-cols-1 gap-4">
                 <div class="content-box rounded-md">
                     <h2 class="section-header text-3xl mb-4">6.1 Server Rules</h2>
-                    <div class="provision-item text-xl">6.1.1 Each player must have a stable internet connection, no other party can be responsible for the quality of a player’s internet connection.</div>
-                    <div class="provision-item text-xl">6.1.2 Players must find an agreement on which server to play on before the lobby is hosted.</div>
-                    <div class="provision-item text-xl">6.1.3 If the players can’t find an agreement on which server to play on, there 2 options:</div>
-                    <div class="sub-item text-xl ml-4">Players flip a coin to determine which server they will play on the first game. After that, they rotate between servers.</div>
-                    <div class="sub-item text-xl ml-4">Tournament admin will automatically select a server that seems geographically fair of both players, regardless of latency.</div>
-                    <div class="provision-item text-xl font-bold mt-4">Predefined server list:</div>
-                    <div class="ml-8 grid grid-cols-2 gap-x-8 gap-y-1 mt-2 text-lg">
+                    <div class="provision-item text-lg"><span class="section-number">6.1.1</span> Each player must have a stable internet connection, no other party can be responsible for the quality of a player’s internet connection.</div>
+                    <div class="provision-item text-lg"><span class="section-number">6.1.2</span> Players must find an agreement on which server to play on before the lobby is hosted.</div>
+                    <div class="provision-item text-lg"><span class="section-number">6.1.3</span> If the players can’t find an agreement on which server to play on, there 2 options:</div>
+                    <div class="sub-item text-lg ml-4">Players flip a coin to determine which server they will play on the first game. After that, they rotate between servers.</div>
+                    <div class="sub-item text-lg ml-4">Tournament admin will automatically select a server that seems geographically fair of both players, regardless of latency.</div>
+                    <div class="provision-item text-lg font-bold mt-2">Predefined server list:</div>
+                    <div class="ml-8 grid grid-cols-2 gap-x-4 gap-y-1 mt-2 text-base">
                         <div><span class="highlight">Australia vs Brazil:</span> Europe</div>
                         <div><span class="highlight">Australia/Asia/Korea vs Europe/UK:</span> US (W)</div>
                         <div><span class="highlight">Australia vs India:</span> Asia</div>
@@ -416,7 +486,7 @@
                         <div><span class="highlight">Europe vs US (E):</span> UK</div>
                     </div>
                 </div>
-                <div class="content-box rounded-md"><h2 class="section-header text-3xl mb-4">6.2 Lobby settings</h2><div class="provision-item text-lg">Any lobby not following these settings must be restarted.</div><div class="provision-item text-lg">6.2.2 The higher seeded player can choose to be or not the host of lobby.</div><div class="grid grid-cols-2 gap-x-8 gap-y-2 mt-4 text-xl"><div><span class="highlight">Observers:</span> 5-min delay</div><div><span class="highlight">Game mod:</span> Standard</div><div><span class="highlight">Win conditions:</span> Landmarks/Sacred/Wonders</div><div><span class="highlight">Tuning pack:</span> None</div><div><span class="highlight">Pause:</span> Allowed</div><div><span class="highlight">Display Player Scores:</span> None</div><div><span class="highlight">Resources:</span> Standard</div><div><span class="highlight">Starting age:</span> Age I</div><div><span class="highlight">Map state:</span> Concealed</div><div><span class="highlight">Map size:</span> Micro (2 players)</div><div><span class="highlight">Public game</span></div><div><span class="highlight">Biome:</span> European temperate</div><div><span class="highlight">Team starting locations:</span> Team Together</div></div></div>
+                <div class="content-box rounded-md"><h2 class="section-header text-3xl mb-4">6.2 Lobby settings</h2><div class="provision-item text-lg">Any lobby not following these settings must be restarted.</div><div class="provision-item text-lg"><span class="section-number">6.2.2</span> The higher seeded player can choose to be or not the host of lobby.</div><div class="grid grid-cols-2 gap-x-4 gap-y-1 mt-2 text-base"><div><span class="highlight">Observers:</span> 5-min delay</div><div><span class="highlight">Game mod:</span> Standard</div><div><span class="highlight">Win conditions:</span> Landmarks/Sacred/Wonders</div><div><span class="highlight">Tuning pack:</span> None</div><div><span class="highlight">Pause:</span> Allowed</div><div><span class="highlight">Display Player Scores:</span> None</div><div><span class="highlight">Resources:</span> Standard</div><div><span class="highlight">Starting age:</span> Age I</div><div><span class="highlight">Map state:</span> Concealed</div><div><span class="highlight">Map size:</span> Micro (2 players)</div><div><span class="highlight">Public game</span></div><div><span class="highlight">Biome:</span> European temperate</div></div></div>
                 <div class="content-box rounded-md">
                     <h2 class="section-header text-3xl mb-4">6.3 Player colors</h2>
                     <div class="provision-item text-xl">Players must use assigned colors consistently throughout the event.</div>
@@ -527,9 +597,9 @@
         <div class="grid grid-cols-1 gap-8">
             <div class="content-box rounded-md">
                 <h2 class="section-header text-3xl mb-4">8.1 Cheating and exploits</h2>
-                <div class="provision-item text-xl">8.1.1. Cheating or hacking is not allowed. The use of  any external software to achieve victory or gain an advantage in the game is prohibited.</div>
-                <div class="provision-item text-xl">8.1.2 The use of any bugs, glitches, exploits, and other unauthorized methods to achieve victory or gain an advantage in the game is prohibited.</div>
-                <div class="provision-item text-xl">8.1.3 List of known exploits:</div>
+                <div class="provision-item text-xl"><span class="section-number">8.1.1.</span> Cheating or hacking is not allowed. The use of  any external software to achieve victory or gain an advantage in the game is prohibited.</div>
+                <div class="provision-item text-xl"><span class="section-number">8.1.2</span> The use of any bugs, glitches, exploits, and other unauthorized methods to achieve victory or gain an advantage in the game is prohibited.</div>
+                <div class="provision-item text-xl"><span class="section-number">8.1.3</span> List of known exploits:</div>
                 <div class="sub-item text-xl ml-4">Using an unfinished building with zero villager build time to tether sheep.</div>
                 <div class="sub-item text-xl ml-4">Intentionally denying fish by placing building foundations on top of them.</div>
                 <div class="sub-item text-xl ml-4">Intentionally cancelling buildings with Jeanne d’Arc in order to gain more experience.</div>
@@ -537,9 +607,9 @@
             </div>
             <div class="content-box rounded-md">
                 <h2 class="section-header text-3xl mb-4">8.2 Bad manners & Fair play</h2>
-                <div class="provision-item text-xl">8.2.1 All players must be respectful to tournament participants, organizers, casters, spectators and any other people involved in the event.</div>
-                <div class="provision-item text-xl">8.2.2 Impersonating another person or misleading the organizers and other tournament participants by changing nicknames, accounts, etc., is prohibited.</div>
-                <div class="provision-item text-xl">8.2.3 Using external assistance during tournament matches, such as verbal (hints, coaching) or physical (transferring control, including remote access), is prohibited.</div>
+                <div class="provision-item text-xl"><span class="section-number">8.2.1</span> All players must be respectful to tournament participants, organizers, casters, spectators and any other people involved in the event.</div>
+                <div class="provision-item text-xl"><span class="section-number">8.2.2</span> Impersonating another person or misleading the organizers and other tournament participants by changing nicknames, accounts, etc., is prohibited.</div>
+                <div class="provision-item text-xl"><span class="section-number">8.2.3</span> Using external assistance during tournament matches, such as verbal (hints, coaching) or physical (transferring control, including remote access), is prohibited.</div>
             </div>
         </div>
       </div>
@@ -587,7 +657,7 @@
                 </div>
                 <div class="provision-item text-lg">All important tournament announcements are in <span class="highlight">#ep-world-cup-news</span>.</div>
                 <div class="provision-item text-lg">Tournament discussion channels: <span class="highlight">#ep-world-cup-chat</span> (open) and <span class="highlight">#players-only</span> (only for participants).</div>
-                <div class="provision-item text-lg">9.2.1 For any questions may contact the tournament admins personally</div>
+                <div class="provision-item text-lg"><span class="section-number">9.2.1</span> For any questions may contact the tournament admins personally</div>
             </div>
             <div class="content-box rounded-md">
                 <h2 class="section-header text-3xl mb-4">9.3 Technical Details</h2>
@@ -634,12 +704,12 @@
           </div>
           <div class="content-box rounded-md">
             <h2 class="section-header text-3xl mb-4 text-center">10.2 Payouts</h2>
-            <div class="provision-item text-lg">10.2.1 The tournament admin will contact the winning players after the end of the tournament to payout their winnings.</div>
-            <div class="provision-item text-lg">10.2.2 There are 2 available methods to claim winnings:</div>
+            <div class="provision-item text-lg"><span class="section-number">10.2.1</span> The tournament admin will contact the winning players after the end of the tournament to payout their winnings.</div>
+            <div class="provision-item text-lg"><span class="section-number">10.2.2</span> There are 2 available methods to claim winnings:</div>
             <div class="sub-item text-lg ml-4"><span class="highlight">PayPal</span> - funds are transferred to the PayPal wallet;</div>
-            <div class="sub-item text-lg ml-4"><span class="highlight" style="color: #4B0082;">MirPay</span> - funds are transferred to bank or service account which working with MirPay system.</div>
+            <div class="sub-item text-lg ml-4"><span class="highlight" style="color: #FF69B4;">MirPay</span> - funds are transferred to bank or service account which working with MirPay system.</div>
             <div class="provision-item text-lg">Prize payouts are not guaranteed through any other channels.</div>
-            <div class="provision-item text-lg">10.2.3 All commission costs are paid by the recipient.</div>
+            <div class="provision-item text-lg"><span class="section-number">10.2.3</span> All commission costs are paid by the recipient.</div>
           </div>
         </div>
       </div>
@@ -660,13 +730,13 @@
         <div class="grid grid-cols-1 gap-8">
           <div class="content-box rounded-md">
             <h2 class="section-header text-3xl mb-4">11.2 Content creating</h2>
-            <div class="provision-item text-lg">11.2.1 The event is open casting, anyone may use tournament games to make media content.</div>
-            <div class="provision-item text-lg">11.2.2 Players wishing to cast their POV must set delay according to lobby settings.</div>
-            <div class="provision-item text-lg">11.2.3 Casters wishing to cast the event must:</div>
+            <div class="provision-item text-lg"><span class="section-number">11.2.1</span> The event is open casting, anyone may use tournament games to make media content.</div>
+            <div class="provision-item text-lg"><span class="section-number">11.2.2</span> Players wishing to cast their POV must set delay according to lobby settings.</div>
+            <div class="provision-item text-lg"><span class="section-number">11.2.3</span> Casters wishing to cast the event must:</div>
             <div class="sub-item text-lg ml-4">display the Epohers World Cup logo,</div>
             <div class="sub-item text-lg ml-4">include “Epohers World Cup” in the stream title.</div>
-            <div class="provision-item text-lg">11.2.4 Free to use tournament assets - <a href="https://drive.google.com/drive/folders/1tx0dXjd95qNlSjHHehrcJvh3mDKQl4S_?usp=sharing" class="resource-link">https://drive.google.com/drive/folders/1tx0dXjd95qNlSjHHehrcJvh3mDKQl4S_?usp=sharing</a>.</div>
-            <div class="provision-item text-lg">11.2.5 Organizers have the right to involve players to creating media content (photo, video, interview, etc.).</div>
+            <div class="provision-item text-lg"><span class="section-number">11.2.4</span> Free to use tournament assets - <a href="https://drive.google.com/drive/folders/1tx0dXjd95qNlSjHHehrcJvh3mDKQl4S_?usp=sharing" class="resource-link">https://drive.google.com/drive/folders/1tx0dXjd95qNlSjHHehrcJvh3mDKQl4S_?usp=sharing</a>.</div>
+            <div class="provision-item text-lg"><span class="section-number">11.2.5</span> Organizers have the right to involve players to creating media content (photo, video, interview, etc.).</div>
           </div>
         </div>
       </div>

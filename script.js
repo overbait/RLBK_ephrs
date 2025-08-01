@@ -270,7 +270,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const getRandomRotation = () => Math.random() * 30 - 15;
 
   // FAIR PLAY & MISCONDUCT
-  attachImageToCard('.slide:nth-child(10) .content-box:nth-child(1)', 1, 'icon_sword2.png', getRandomRotation(), 13);
+  attachImageToCard('.slide:nth-child(10) .content-box:nth-child(1)', 2, 'icon_sword2.png', getRandomRotation(), 13);
   attachImageToCard('.slide:nth-child(10) .content-box:nth-child(2)', 3, 'icon_plus.png', getRandomRotation(), 13);
 
   // COMMUNICATION
