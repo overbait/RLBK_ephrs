@@ -11,13 +11,13 @@
 <body>
   <div class="slider-container">
     <!-- Slide 1: Cover -->
-    <div class="slide active">
+    <div class="slide active" id="slide-0" style="display: block; opacity: 1;">
       <div class="background"></div>
       <div class="overlay"></div>
       <div class="edge-vignette"></div>
       <div class="pagination">
-        <button class="prev"><img src="https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/icon_arrow_red.png" alt="Previous"></button>
-        <button class="next"><img src="https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/icon_arrow_green.png" alt="Next"></button>
+        <a href="#slide-12"><button class="prev"><img src="https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/icon_arrow_red.png" alt="Previous"></button></a>
+        <a href="#slide-1"><button class="next"><img src="https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/icon_arrow_green.png" alt="Next"></button></a>
       </div>
       <div class="content flex flex-col justify-center items-center h-full py-8 px-10">
         <div class="text-center mb-8">
@@ -40,11 +40,14 @@
       </div>
     </div>
     <!-- Slide 2: Table of Contents -->
-    <div class="slide">
+    <div class="slide" id="slide-1" style="display: block; opacity: 1;">
         <div class="background"></div>
         <div class="overlay"></div>
         <div class="edge-vignette"></div>
-        <div class="pagination"></div>
+        <div class="pagination">
+            <a href="#slide-4"><button class="prev"><img src="https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/icon_arrow_red.png" alt="Previous"></button></a>
+            <a href="#slide-6"><button class="next"><img src="https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/icon_arrow_green.png" alt="Next"></button></a>
+        </div>
         <div class="absolute bottom-10 right-10">
             <img src="https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/Logo_main.png" alt="Epohers Logo" class="w-24">
         </div>
@@ -53,45 +56,48 @@
                 <h1 class="section-title text-5xl">TABLE OF CONTENTS</h1>
             </div>
             <div class="content-box rounded-md text-2xl">
-                <a href="#" class="toc-list-item" data-slide-to="2"><span class="toc-list-number">1</span><span class="toc-list-title">General Provisions</span><span class="toc-list-dots"></span><span class="toc-list-page">3</span></a>
-                <a href="#" class="toc-list-item" data-slide-to="3"><span class="toc-list-number">2</span><span class="toc-list-title">Brackets & Schedule</span><span class="toc-list-dots"></span><span class="toc-list-page">4</span></a>
-                <a href="#" class="toc-list-item sub-item" data-slide-to="3"><span class="toc-list-number">2.1</span><span class="toc-list-title">Schedule</span><span class="toc-list-dots"></span><span class="toc-list-page">4</span></a>
-                <a href="#" class="toc-list-item sub-item" data-slide-to="3"><span class="toc-list-number">2.2</span><span class="toc-list-title">Tournament brackets</span><span class="toc-list-dots"></span><span class="toc-list-page">4</span></a>
-                <a href="#" class="toc-list-item" data-slide-to="4"><span class="toc-list-number">3</span><span class="toc-list-title">Tournament Format</span><span class="toc-list-dots"></span><span class="toc-list-page">5</span></a>
-                <a href="#" class="toc-list-item sub-item" data-slide-to="4"><span class="toc-list-number">3.1</span><span class="toc-list-title">General information</span><span class="toc-list-dots"></span><span class="toc-list-page">5</span></a>
-                <a href="#" class="toc-list-item sub-item" data-slide-to="4"><span class="toc-list-number">3.2</span><span class="toc-list-title">Qualifiers</span><span class="toc-list-dots"></span><span class="toc-list-page">5</span></a>
-                <a href="#" class="toc-list-item sub-item" data-slide-to="4"><span class="toc-list-number">3.3</span><span class="toc-list-title">Group Stage</span><span class="toc-list-dots"></span><span class="toc-list-page">5</span></a>
-                <a href="#" class="toc-list-item sub-item" data-slide-to="4"><span class="toc-list-number">3.4</span><span class="toc-list-title">Playoffs</span><span class="toc-list-dots"></span><span class="toc-list-page">5</span></a>
-                <a href="#" class="toc-list-item" data-slide-to="5"><span class="toc-list-number">4</span><span class="toc-list-title">Registration & Seeding</span><span class="toc-list-dots"></span><span class="toc-list-page">6</span></a>
-                <a href="#" class="toc-list-item sub-item" data-slide-to="5"><span class="toc-list-number">4.1</span><span class="toc-list-title">Registration</span><span class="toc-list-dots"></span><span class="toc-list-page">6</span></a>
-                <a href="#" class="toc-list-item sub-item" data-slide-to="5"><span class="toc-list-number">4.2</span><span class="toc-list-title">Seeding</span><span class="toc-list-dots"></span><span class="toc-list-page">6</span></a>
-                <a href="#" class="toc-list-item" data-slide-to="6"><span class="toc-list-number">5</span><span class="toc-list-title">Maps & Civilizations Rules</span><span class="toc-list-dots"></span><span class="toc-list-page">7</span></a>
-                <a href="#" class="toc-list-item sub-item" data-slide-to="6"><span class="toc-list-number">5.1</span><span class="toc-list-title">Common info</span><span class="toc-list-dots"></span><span class="toc-list-page">7</span></a>
-                <a href="#" class="toc-list-item sub-item" data-slide-to="6"><span class="toc-list-number">5.2</span><span class="toc-list-title">Maps</span><span class="toc-list-dots"></span><span class="toc-list-page">7</span></a>
-                <a href="#" class="toc-list-item sub-item" data-slide-to="6"><span class="toc-list-number">5.3</span><span class="toc-list-title">Civilizations</span><span class="toc-list-dots"></span><span class="toc-list-page">7</span></a>
-                <a href="#" class="toc-list-item" data-slide-to="7"><span class="toc-list-number">6</span><span class="toc-list-title">Server & Lobby Configuration</span><span class="toc-list-dots"></span><span class="toc-list-page">8</span></a>
-                <a href="#" class="toc-list-item sub-item" data-slide-to="7"><span class="toc-list-number">6.1</span><span class="toc-list-title">Server rules</span><span class="toc-list-dots"></span><span class="toc-list-page">8</span></a>
-                <a href="#" class="toc-list-item sub-item" data-slide-to="7"><span class="toc-list-number">6.2</span><span class="toc-list-title">Lobby settings</span><span class="toc-list-dots"></span><span class="toc-list-page">8</span></a>
-                <a href="#" class="toc-list-item" data-slide-to="8"><span class="toc-list-number">7</span><span class="toc-list-title">Game Rules</span><span class="toc-list-dots"></span><span class="toc-list-page">9</span></a>
-                <a href="#" class="toc-list-item sub-item" data-slide-to="8"><span class="toc-list-number">7.1</span><span class="toc-list-title">In-game rules</span><span class="toc-list-dots"></span><span class="toc-list-page">9</span></a>
-                <a href="#" class="toc-list-item sub-item" data-slide-to="8"><span class="toc-list-number">7.2</span><span class="toc-list-title">Game restarts</span><span class="toc-list-dots"></span><span class="toc-list-page">9</span></a>
-                <a href="#" class="toc-list-item sub-item" data-slide-to="8"><span class="toc-list-number">7.3</span><span class="toc-list-title">Game mods</span><span class="toc-list-dots"></span><span class="toc-list-page">9</span></a>
-                <a href="#" class="toc-list-item" data-slide-to="9"><span class="toc-list-number">8</span><span class="toc-list-title">Game Exploits & Fair Play</span><span class="toc-list-dots"></span><span class="toc-list-page">10</span></a>
-                <a href="#" class="toc-list-item" data-slide-to="10"><span class="toc-list-number">9</span><span class="toc-list-title">Communication & Technical</span><span class="toc-list-dots"></span><span class="toc-list-page">11</span></a>
-                <a href="#" class="toc-list-item sub-item" data-slide-to="10"><span class="toc-list-number">9.1</span><span class="toc-list-title">Coordination</span><span class="toc-list-dots"></span><span class="toc-list-page">11</span></a>
-                <a href="#" class="toc-list-item sub-item" data-slide-to="10"><span class="toc-list-number">9.2</span><span class="toc-list-title">Communication</span><span class="toc-list-dots"></span><span class="toc-list-page">11</span></a>
-                <a href="#" class="toc-list-item sub-item" data-slide-to="10"><span class="toc-list-number">9.3</span><span class="toc-list-title">Technical Details</span><span class="toc-list-dots"></span><span class="toc-list-page">11</span></a>
-                <a href="#" class="toc-list-item" data-slide-to="11"><span class="toc-list-number">10</span><span class="toc-list-title">Prize Pool & Payouts</span><span class="toc-list-dots"></span><span class="toc-list-page">12</span></a>
-                <a href="#" class="toc-list-item" data-slide-to="12"><span class="toc-list-number">11</span><span class="toc-list-title">Other Rules</span><span class="toc-list-dots"></span><span class="toc-list-page">13</span></a>
+                <a href="#slide-2" class="toc-list-item"><span class="toc-list-number">1</span><span class="toc-list-title">General Provisions</span><span class="toc-list-dots"></span><span class="toc-list-page">3</span></a>
+                <a href="#slide-3" class="toc-list-item"><span class="toc-list-number">2</span><span class="toc-list-title">Brackets & Schedule</span><span class="toc-list-dots"></span><span class="toc-list-page">4</span></a>
+                <a href="#slide-3" class="toc-list-item sub-item"><span class="toc-list-number">2.1</span><span class="toc-list-title">Schedule</span><span class="toc-list-dots"></span><span class="toc-list-page">4</span></a>
+                <a href="#slide-3" class="toc-list-item sub-item"><span class="toc-list-number">2.2</span><span class="toc-list-title">Tournament brackets</span><span class="toc-list-dots"></span><span class="toc-list-page">4</span></a>
+                <a href="#slide-4" class="toc-list-item"><span class="toc-list-number">3</span><span class="toc-list-title">Tournament Format</span><span class="toc-list-dots"></span><span class="toc-list-page">5</span></a>
+                <a href="#slide-4" class="toc-list-item sub-item"><span class="toc-list-number">3.1</span><span class="toc-list-title">General information</span><span class="toc-list-dots"></span><span class="toc-list-page">5</span></a>
+                <a href="#slide-4" class="toc-list-item sub-item"><span class="toc-list-number">3.2</span><span class="toc-list-title">Qualifiers</span><span class="toc-list-dots"></span><span class="toc-list-page">5</span></a>
+                <a href="#slide-4" class="toc-list-item sub-item"><span class="toc-list-number">3.3</span><span class="toc-list-title">Group Stage</span><span class="toc-list-dots"></span><span class="toc-list-page">5</span></a>
+                <a href="#slide-4" class="toc-list-item sub-item"><span class="toc-list-number">3.4</span><span class="toc-list-title">Playoffs</span><span class="toc-list-dots"></span><span class="toc-list-page">5</span></a>
+                <a href="#slide-5" class="toc-list-item"><span class="toc-list-number">4</span><span class="toc-list-title">Registration & Seeding</span><span class="toc-list-dots"></span><span class="toc-list-page">6</span></a>
+                <a href="#slide-5" class="toc-list-item sub-item"><span class="toc-list-number">4.1</span><span class="toc-list-title">Registration</span><span class="toc-list-dots"></span><span class="toc-list-page">6</span></a>
+                <a href="#slide-5" class="toc-list-item sub-item"><span class="toc-list-number">4.2</span><span class="toc-list-title">Seeding</span><span class="toc-list-dots"></span><span class="toc-list-page">6</span></a>
+                <a href="#slide-6" class="toc-list-item"><span class="toc-list-number">5</span><span class="toc-list-title">Maps & Civilizations Rules</span><span class="toc-list-dots"></span><span class="toc-list-page">7</span></a>
+                <a href="#slide-6" class="toc-list-item sub-item"><span class="toc-list-number">5.1</span><span class="toc-list-title">Common info</span><span class="toc-list-dots"></span><span class="toc-list-page">7</span></a>
+                <a href="#slide-6" class="toc-list-item sub-item"><span class="toc-list-number">5.2</span><span class="toc-list-title">Maps</span><span class="toc-list-dots"></span><span class="toc-list-page">7</span></a>
+                <a href="#slide-6" class="toc-list-item sub-item"><span class="toc-list-number">5.3</span><span class="toc-list-title">Civilizations</span><span class="toc-list-dots"></span><span class="toc-list-page">7</span></a>
+                <a href="#slide-7" class="toc-list-item"><span class="toc-list-number">6</span><span class="toc-list-title">Server & Lobby Configuration</span><span class="toc-list-dots"></span><span class="toc-list-page">8</span></a>
+                <.a href="#slide-7" class="toc-list-item sub-item"><span class="toc-list-number">6.1</span><span class="toc-list-title">Server rules</span><span class="toc-list-dots"></span><span class="toc-list-page">8</span></a>
+                <a href="#slide-7" class="toc-list-item sub-item"><span class="toc-list-number">6.2</span><span class="toc-list-title">Lobby settings</span><span class="toc-list-dots"></span><span class="toc-list-page">8</span></a>
+                <a href="#slide-8" class="toc-list-item"><span class="toc-list-number">7</span><span class="toc-list-title">Game Rules</span><span class="toc-list-dots"></span><span class="toc-list-page">9</span></a>
+                <a href="#slide-8" class="toc-list-item sub-item"><span class="toc-list-number">7.1</span><span class="toc-list-title">In-game rules</span><span class="toc-list-dots"></span><span class="toc-list-page">9</span></a>
+                <a href="#slide-8" class="toc-list-item sub-item"><span class="toc-list-number">7.2</span><span class="toc-list-title">Game restarts</span><span class="toc-list-dots"></span><span class="toc-list-page">9</span></a>
+                <a href="#slide-8" class="toc-list-item sub-item"><span class="toc-list-number">7.3</span><span class="toc-list-title">Game mods</span><span class="toc-list-dots"></span><span class="toc-list-page">9</span></a>
+                <a href="#slide-9" class="toc-list-item"><span class="toc-list-number">8</span><span class="toc-list-title">Game Exploits & Fair Play</span><span class="toc-list-dots"></span><span class="toc-list-page">10</span></a>
+                <a href="#slide-10" class="toc-list-item"><span class="toc-list-number">9</span><span class="toc-list-title">Communication & Technical</span><span class="toc-list-dots"></span><span class="toc-list-page">11</span></a>
+                <a href="#slide-10" class="toc-list-item sub-item"><span class="toc-list-number">9.1</span><span class="toc-list-title">Coordination</span><span class="toc-list-dots"></span><span class="toc-list-page">11</span></a>
+                <a href="#slide-10" class="toc-list-item sub-item"><span class="toc-list-number">9.2</span><span class="toc-list-title">Communication</span><span class="toc-list-dots"></span><span class="toc-list-page">11</span></a>
+                <a href="#slide-10" class="toc-list-item sub-item"><span class="toc-list-number">9.3</span><span class="toc-list-title">Technical Details</span><span class="toc-list-dots"></span><span class="toc-list-page">11</span></a>
+                <a href="#slide-11" class="toc-list-item"><span class="toc-list-number">10</span><span class="toc-list-title">Prize Pool & Payouts</span><span class="toc-list-dots"></span><span class="toc-list-page">12</span></a>
+                <a href="#slide-12" class="toc-list-item"><span class="toc-list-number">11</span><span class="toc-list-title">Other Rules</span><span class="toc-list-dots"></span><span class="toc-list-page">13</span></a>
             </div>
         </div>
     </div>
     <!-- Slide 3: General Provisions -->
-    <div class="slide">
+    <div class="slide" id="slide-2" style="display: block; opacity: 1;">
       <div class="background"></div>
       <div class="overlay"></div>
       <div class="edge-vignette"></div>
-      <div class="pagination"></div>
+      <div class="pagination">
+        <a href="#slide-0"><button class="prev"><img src="https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/icon_arrow_red.png" alt="Previous"></button></a>
+        <a href="#slide-2"><button class="next"><img src="https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/icon_arrow_green.png" alt="Next"></button></a>
+      </div>
       <div class="absolute bottom-10 right-10">
         <img src="https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/Logo_main.png" alt="Epohers Logo" class="w-24">
       </div>
@@ -125,11 +131,14 @@
       </div>
     </div>
     <!-- Slide 4: Schedule -->
-    <div class="slide">
+    <div class="slide" id="slide-3" style="display: block; opacity: 1;">
       <div class="background"></div>
       <div class="overlay"></div>
       <div class="edge-vignette"></div>
-      <div class="pagination"></div>
+      <div class="pagination">
+        <a href="#slide-1"><button class="prev"><img src="https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/icon_arrow_red.png" alt="Previous"></button></a>
+        <a href="#slide-3"><button class="next"><img src="https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/icon_arrow_green.png" alt="Next"></button></a>
+      </div>
       <div class="absolute bottom-10 right-10">
         <img src="https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/Logo_main.png" alt="Epohers Logo" class="w-24">
       </div>
@@ -199,11 +208,14 @@
       </div>
     </div>
     <!-- Slide 6: Tournament Format -->
-    <div class="slide">
+    <div class="slide" id="slide-4" style="display: block; opacity: 1;">
       <div class="background"></div>
       <div class="overlay"></div>
       <div class="edge-vignette"></div>
-      <div class="pagination"></div>
+      <div class="pagination">
+        <a href="#slide-2"><button class="prev"><img src="https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/icon_arrow_red.png" alt="Previous"></button></a>
+        <a href="#slide-4"><button class="next"><img src="https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/icon_arrow_green.png" alt="Next"></button></a>
+      </div>
       <div class="absolute bottom-10 right-10">
         <img src="https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/Logo_main.png" alt="Epohers Logo" class="w-24">
       </div>
@@ -244,11 +256,14 @@
       </div>
     </div>
     <!-- Slide 7: Registration & Seeding -->
-    <div class="slide">
+    <div class="slide" id="slide-5" style="display: block; opacity: 1;">
       <div class="background"></div>
       <div class="overlay"></div>
       <div class="edge-vignette"></div>
-      <div class="pagination"></div>
+      <div class="pagination">
+        <a href="#slide-3"><button class="prev"><img src="https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/icon_arrow_red.png" alt="Previous"></button></a>
+        <a href="#slide-5"><button class="next"><img src="https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/icon_arrow_green.png" alt="Next"></button></a>
+      </div>
       <div class="absolute bottom-10 right-10">
         <img src="https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/Logo_main.png" alt="Epohers Logo" class="w-24">
       </div>
@@ -301,11 +316,14 @@
       </div>
     </div>
     <!-- Slide 8: Maps & Civilizations Rules -->
-    <div class="slide">
+    <div class="slide" id="slide-6" style="display: block; opacity: 1;">
         <div class="background"></div>
         <div class="overlay"></div>
         <div class="edge-vignette"></div>
-        <div class="pagination"></div>
+        <div class="pagination">
+            <a href="#slide-5"><button class="prev"><img src="https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/icon_arrow_red.png" alt="Previous"></button></a>
+            <a href="#slide-7"><button class="next"><img src="https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/icon_arrow_green.png" alt="Next"></button></a>
+        </div>
         <div class="absolute bottom-10 right-10">
             <img src="https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/Logo_main.png" alt="Epohers Logo" class="w-24">
         </div>
@@ -385,11 +403,14 @@
         </div>
     </div>
     <!-- Slide 9: Server & Lobby Configuration -->
-    <div class="slide">
+    <div class="slide" id="slide-7" style="display: block; opacity: 1;">
         <div class="background"></div>
         <div class="overlay"></div>
         <div class="edge-vignette"></div>
-        <div class="pagination"></div>
+        <div class="pagination">
+            <a href="#slide-6"><button class="prev"><img src="https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/icon_arrow_red.png" alt="Previous"></button></a>
+            <a href="#slide-8"><button class="next"><img src="https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/icon_arrow_green.png" alt="Next"></button></a>
+        </div>
         <div class="absolute bottom-10 right-10">
             <img src="https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/Logo_main.png" alt="Epohers Logo" class="w-24">
         </div>
@@ -471,11 +492,14 @@
         </div>
     </div>
     <!-- Slide 10: Game Rules -->
-    <div class="slide">
+    <div class="slide" id="slide-8" style="display: block; opacity: 1;">
         <div class="background"></div>
         <div class="overlay"></div>
         <div class="edge-vignette"></div>
-        <div class="pagination"></div>
+        <div class="pagination">
+            <a href="#slide-7"><button class="prev"><img src="https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/icon_arrow_red.png" alt="Previous"></button></a>
+            <a href="#slide-9"><button class="next"><img src="https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/icon_arrow_green.png" alt="Next"></button></a>
+        </div>
         <div class="absolute bottom-10 right-10">
             <img src="https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/Logo_main.png" alt="Epohers Logo" class="w-24">
         </div>
@@ -515,11 +539,14 @@
         </div>
     </div>
     <!-- Slide 11: Game Exploits & Fair Play -->
-    <div class="slide">
+    <div class="slide" id="slide-9" style="display: block; opacity: 1;">
       <div class="background"></div>
       <div class="overlay"></div>
       <div class="edge-vignette"></div>
-      <div class="pagination"></div>
+      <div class="pagination">
+        <a href="#slide-8"><button class="prev"><img src="https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/icon_arrow_red.png" alt="Previous"></button></a>
+        <a href="#slide-10"><button class="next"><img src="https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/icon_arrow_green.png" alt="Next"></button></a>
+      </div>
       <div class="absolute bottom-10 right-10">
         <img src="https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/Logo_main.png" alt="Epohers Logo" class="w-24">
       </div>
@@ -548,11 +575,14 @@
       </div>
     </div>
     <!-- Slide 12: Communication & Technical -->
-    <div class="slide">
+    <div class="slide" id="slide-10" style="display: block; opacity: 1;">
       <div class="background"></div>
       <div class="overlay"></div>
       <div class="edge-vignette"></div>
-      <div class="pagination"></div>
+      <div class="pagination">
+        <a href="#slide-9"><button class="prev"><img src="https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/icon_arrow_red.png" alt="Previous"></button></a>
+        <a href="#slide-11"><button class="next"><img src="https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/icon_arrow_green.png" alt="Next"></button></a>
+      </div>
       <div class="absolute bottom-10 right-10">
         <img src="https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/Logo_main.png" alt="Epohers Logo" class="w-24">
       </div>
@@ -605,11 +635,14 @@
       </div>
     </div>
     <!-- Slide 13: Prize Pool & Payouts -->
-    <div class="slide">
+    <div class="slide" id="slide-11" style="display: block; opacity: 1;">
       <div class="background"></div>
       <div class="overlay"></div>
       <div class="edge-vignette"></div>
-      <div class="pagination"></div>
+      <div class="pagination">
+        <a href="#slide-10"><button class="prev"><img src="https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/icon_arrow_red.png" alt="Previous"></button></a>
+        <a href="#slide-12"><button class="next"><img src="https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/icon_arrow_green.png" alt="Next"></button></a>
+      </div>
       <div class="absolute bottom-10 right-10">
         <img src="https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/Logo_main.png" alt="Epohers Logo" class="w-24">
       </div>
@@ -648,11 +681,14 @@
       </div>
     </div>
     <!-- Slide 14: Other Rules -->
-    <div class="slide">
+    <div class="slide" id="slide-12" style="display: block; opacity: 1;">
       <div class="background"></div>
       <div class="overlay"></div>
       <div class="edge-vignette"></div>
-      <div class="pagination"></div>
+      <div class="pagination">
+        <a href="#slide-11"><button class="prev"><img src="https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/icon_arrow_red.png" alt="Previous"></button></a>
+        <a href="#slide-0"><button class="next"><img src="https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/icon_arrow_green.png" alt="Next"></button></a>
+      </div>
       <div class="absolute bottom-10 right-10">
         <img src="https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/Logo_main.png" alt="Epohers Logo" class="w-24">
       </div>
