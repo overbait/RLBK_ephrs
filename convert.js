@@ -16,6 +16,7 @@ const path = require('path');
     timeout: 60000
   });
 
+  await page.emulateMediaType('screen');
   await page.pdf({
     path: 'presentation.pdf',
     format: 'A4',
@@ -26,7 +27,8 @@ const path = require('path');
         bottom: 0,
         left: 0
     },
-    timeout: 60000
+    timeout: 60000,
+    quality: 50
   });
 
   await browser.close();
