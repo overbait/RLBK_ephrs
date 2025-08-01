@@ -87,24 +87,27 @@ async function generatePdf() {
         <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
         <style>
-          html, body { margin: 0; padding: 0; background-color: #0d0d0d; }
+          html, body {
+            margin: 0;
+            padding: 0;
+            width: 1260px;
+            height: 1782px; /* Set an explicit height */
+            background-color: #0d0d0d;
+          }
           .pdf-page {
             width: 1260px;
             height: 1782px;
             overflow: hidden;
             position: relative;
-            /* This is the key for PDF conversion: each .pdf-page will be a new page */
             page-break-after: always;
+            page-break-inside: avoid; /* Be more explicit */
+            display: block;
           }
-          /* Ensure the .slide div inside our container is visible and sized correctly */
           .pdf-page .slide {
             display: block !important;
             opacity: 1 !important;
             width: 100%;
             height: 100%;
-            top: 0;
-            left: 0;
-            /* Keep the slide's original absolute positioning, but relative to .pdf-page */
           }
         </style>
       </head>
