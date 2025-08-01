@@ -1,140 +1,141 @@
 const puppeteer = require('puppeteer');
+const { PDFDocument, StandardFonts } = require('pdf-lib');
 const fs = require('fs').promises;
+const path = require('path');
 
 async function generatePdf() {
     console.log("Launching browser...");
-    // Note: Puppeteer downloads a compatible browser, so this should work in the environment.
-    const browser = await puppeteer.launch({
-        headless: true,
-        // Arguments required for running in a sandboxed environment like a Docker container
-        args: ['--no-sandbox', '--disable-setuid-sandbox']
-    });
+    const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
     const page = await browser.newPage();
     await page.setViewport({ width: 1260, height: 1782 });
 
-    console.log("Navigating to local index.html...");
-    // We use file:// protocol to open the local HTML file.
-    await page.goto(`file://${__dirname}/index.html`, {
-        // Wait until the network is idle, meaning all external resources like CSS and images are loaded.
-        waitUntil: 'networkidle0'
-    });
+    console.log("Navigating to index.html...");
+    await page.goto(`file://${__dirname}/index.html`, { waitUntil: 'networkidle0' });
 
-    console.log("Injecting CSS to disable animations for clean capture...");
-    await page.addStyleTag({
-        content: `
-      /* Disable all transitions and animations */
-      * { transition: none !important; animation: none !important; }
-      /* Hide the original JS-based pagination controls */
-      .pagination { display: none !important; }
-    `
+    await page.evaluate(() => {
+        if (typeof window.showSlide !== 'function') {
+            const slides = document.querySelectorAll(".slide");
+            window.showSlide = function(n) {
+                slides.forEach((s, i) => {
+                    s.style.display = i === n ? 'block' : 'none';
+                });
+            };
+            window.showSlide(0);
+        }
     });
 
     const slideCount = await page.evaluate(() => document.querySelectorAll('.slide').length);
     console.log(`Found ${slideCount} slides.`);
 
-    const slideHtmls = [];
+    const tempPdfPaths = [];
+    const linkAreas = [];
+
     for (let i = 0; i < slideCount; i++) {
-        console.log(`Rendering slide ${i + 1}/${slideCount}...`);
-        await page.evaluate((slideIndex) => {
-            // This is the global function from the site's script.js
-            showSlide(slideIndex);
-        }, i);
-
-        // Wait a moment for JS to render everything (random leaves, backgrounds, etc.)
-        await new Promise(resolve => setTimeout(resolve, 1000));
-
-        const html = await page.evaluate(() => {
-            const activeSlide = document.querySelector('.slide.active');
-            return activeSlide ? activeSlide.outerHTML : '';
-        });
-        slideHtmls.push(html);
-    }
-
-    console.log("Assembling final HTML for PDF conversion...");
-    let finalBodyHtml = '';
-    for (let i = 0; i < slideHtmls.length; i++) {
-        let html = slideHtmls[i];
         const pageNum = i + 1;
+        console.log(`Rendering slide ${pageNum}/${slideCount}...`);
 
-        // Convert the table of contents' JS links (data-slide-to) to standard PDF anchor links
-        html = html.replace(/data-slide-to="(\d+)"/g, (match, slideIndex) => {
-            return `href="#page-${parseInt(slideIndex, 10) + 1}"`;
-        });
+        await page.evaluate((index) => window.showSlide(index), i);
+        await new Promise(resolve => setTimeout(resolve, 1500));
 
-        // Create a new set of navigation controls specifically for the PDF
-        const prevLink = pageNum > 1 ? `<a href="#page-${pageNum - 1}" style="color: white; margin-right: 40px; text-decoration: none;">&lt; PREV</a>` : '<span style="margin-right: 40px; opacity: 0.2;">&lt; PREV</span>';
-        const nextLink = pageNum < slideHtmls.length ? `<a href="#page-${pageNum + 1}" style="color: white; margin-left: 40px; text-decoration: none;">NEXT &gt;</a>` : '<span style="margin-left: 40px; opacity: 0.2;">NEXT &gt;</span>';
+        if (i === 1) { // Table of Contents slide
+            console.log("Capturing Table of Contents link coordinates...");
+            const tocLinks = await page.evaluate(() => {
+                const links = [];
+                document.querySelectorAll('.toc-list-item').forEach(link => {
+                    const rect = link.getBoundingClientRect();
+                    const targetSlide = parseInt(link.getAttribute('data-slide-to'), 10);
+                    if (!isNaN(targetSlide) && rect.width > 0 && rect.height > 0) {
+                        links.push({
+                            rect: { x: rect.x, y: rect.y, width: rect.width, height: rect.height },
+                            targetPage: targetSlide + 1
+                        });
+                    }
+                });
+                return links;
+            });
+            if (tocLinks.length > 0) {
+                linkAreas.push({ page: pageNum, links: tocLinks });
+            }
+        }
 
-        const pdfNav = `
-            <div style="position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 1000; font-family: 'South Park', sans-serif; font-size: 24px; color: var(--primary-color); text-shadow: 1px 1px 2px #000;">
-                ${prevLink}
-                <span>${pageNum} / ${slideHtmls.length}</span>
-                ${nextLink}
-            </div>
-        `;
+        const navLinks = [
+            { rect: { x: 490, y: 1700, width: 60, height: 60 }, targetPage: pageNum - 1 },
+            { rect: { x: 710, y: 1700, width: 60, height: 60 }, targetPage: pageNum + 1 }
+        ].filter(link => link.targetPage > 0 && link.targetPage <= slideCount);
 
-        // Wrap each slide's HTML in a container div that defines a PDF page, and add our new navigation
-        finalBodyHtml += `<div id="page-${pageNum}" class="pdf-page">${html}${pdfNav}</div>`;
+        if (navLinks.length > 0) {
+            linkAreas.push({ page: pageNum, links: navLinks });
+        }
+
+        const tempPdfPath = path.join(__dirname, `temp-page-${pageNum}.pdf`);
+        await page.pdf({ path: tempPdfPath, width: '1260px', height: '1782px', printBackground: true });
+        tempPdfPaths.push(tempPdfPath);
+        console.log(`Generated ${tempPdfPath}`);
+    }
+    await browser.close();
+
+    console.log("Merging individual PDFs...");
+    const finalPdfDoc = await PDFDocument.create();
+    for (const tempPdfPath of tempPdfPaths) {
+        const pdfBytes = await fs.readFile(tempPdfPath);
+        const doc = await PDFDocument.load(pdfBytes);
+        const [copiedPage] = await finalPdfDoc.copyPages(doc, [0]);
+        finalPdfDoc.addPage(copiedPage);
     }
 
-    // Create the full HTML document structure
-    const finalHtml = `
-      <!DOCTYPE html>
-      <html lang="en">
-      <head>
-        <meta charset="UTF-8">
-        <title>Handbook PDF</title>
-        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="style.css">
-        <style>
-          html, body {
-            margin: 0;
-            padding: 0;
-            width: 1260px;
-            height: 1782px; /* Set an explicit height */
-            background-color: #0d0d0d;
-          }
-          .pdf-page {
-            width: 1260px;
-            height: 1782px;
-            overflow: hidden;
-            position: relative;
-            page-break-after: always;
-            page-break-inside: avoid; /* Be more explicit */
-            display: block;
-          }
-          .pdf-page .slide {
-            display: block !important;
-            opacity: 1 !important;
-            width: 100%;
-            height: 100%;
-          }
-        </style>
-      </head>
-      <body>
-        ${finalBodyHtml}
-      </body>
-      </html>
-    `;
+    console.log("Adding link annotations using low-level API...");
+    const pages = finalPdfDoc.getPages();
+    const pageHeight = pages[0].getHeight();
 
-    console.log("Setting final content for the browser...");
-    // Load our newly created static HTML into the browser
-    await page.setContent(finalHtml, { waitUntil: 'networkidle0' });
+    linkAreas.forEach(area => {
+        const pageIndex = area.page - 1;
+        if (pageIndex < 0 || pageIndex >= pages.length) return;
+        const page = pages[pageIndex];
 
-    console.log("Generating PDF document...");
-    await page.pdf({
-        path: 'handbook.pdf',
-        width: '1260px',
-        height: '1782px',
-        printBackground: true,
-        margin: { top: 0, right: 0, bottom: 0, left: 0 }
+        area.links.forEach(link => {
+            const y = pageHeight - link.rect.y - link.rect.height;
+            const targetPageIndex = link.targetPage - 1;
+
+            if (targetPageIndex < 0 || targetPageIndex >= pages.length) return;
+
+            const targetPage = pages[targetPageIndex];
+            const action = finalPdfDoc.context.obj({
+                Type: 'Action',
+                S: 'GoTo',
+                D: [targetPage.ref, 'XYZ', null, pageHeight, null],
+            });
+
+            const rect = [
+                link.rect.x,
+                y,
+                link.rect.x + link.rect.width,
+                y + link.rect.height
+            ];
+
+            const annot = finalPdfDoc.context.obj({
+                Type: 'Annot',
+                Subtype: 'Link',
+                Rect: rect,
+                Border: [0, 0, 0], // No visible border
+                Action: action,
+            });
+
+            page.node.addAnnot(annot);
+        });
     });
 
-    console.log("PDF generation complete: handbook.pdf");
-    await browser.close();
+    const finalPdfBytes = await finalPdfDoc.save();
+    await fs.writeFile('handbook.pdf', finalPdfBytes);
+    console.log("Final PDF 'handbook.pdf' created successfully.");
+
+    console.log("Cleaning up temporary files...");
+    for (const tempPdfPath of tempPdfPaths) {
+        await fs.unlink(tempPdfPath);
+    }
+    console.log("Cleanup complete.");
 }
 
 generatePdf().catch(error => {
-    console.error("An error occurred during PDF generation:", error);
+    console.error("An error occurred:", error);
     process.exit(1);
 });
