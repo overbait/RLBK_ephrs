@@ -21,31 +21,29 @@ async function generatePdf() {
         const pageNum = i + 1;
         console.log(`Rendering slide ${pageNum}/${slideCount}...`);
 
-        // Show the correct slide
         await page.evaluate((index) => {
             if (typeof window.showSlide === 'function') {
                 window.showSlide(index);
             }
         }, i);
-        await new Promise(resolve => setTimeout(resolve, 1000)); // Wait for render
+        await new Promise(resolve => setTimeout(resolve, 1000));
 
-        // --- NEW STRATEGY: Inject HTML links before printing ---
         console.log("Injecting temporary HTML links...");
         await page.evaluate((currentPage, totalPages) => {
-            // Make a helper to wrap elements in a link
             const wrapInLink = (element, targetPage) => {
-                if (!element) return;
+                if (!element || element.querySelector('a')) return;
                 const link = document.createElement('a');
-                // Using a URN is a standard way to create special link types
                 link.href = `urn:pdf-page:${targetPage}`;
-                link.style.display = 'block'; // Make the link cover the whole element
-                link.style.height = '100%';
-                element.style.position = 'relative'; // Ensure the link positions correctly
+
+                // Wrap the content of the element in the link
+                while (element.firstChild) {
+                    link.appendChild(element.firstChild);
+                }
                 element.appendChild(link);
             };
 
-            // 1. Table of Contents Links
-            if (currentPage === 2) { // TOC is on slide index 1 (page 2)
+            // Wrap TOC items
+            if (currentPage === 2) {
                 document.querySelectorAll('.toc-list-item').forEach(item => {
                     const targetSlide = parseInt(item.getAttribute('data-slide-to'), 10);
                     if (!isNaN(targetSlide)) {
@@ -54,33 +52,23 @@ async function generatePdf() {
                 });
             }
 
-            // 2. Pagination Icon Links (Prev/Next)
+            // Wrap pagination icons
             const prevIcon = document.querySelector('.pagination .prev');
-            const nextIcon = document.querySelector('.pagination .next');
-            if (prevIcon && currentPage > 1) {
-                wrapInLink(prevIcon, currentPage - 1);
-            }
-            if (nextIcon && currentPage < totalPages) {
-                wrapInLink(nextIcon, currentPage + 1);
-            }
+            if (prevIcon && currentPage > 1) wrapInLink(prevIcon, currentPage - 1);
 
-            // 3. Pagination Page Number Links
+            const nextIcon = document.querySelector('.pagination .next');
+            if (nextIcon && currentPage < totalPages) wrapInLink(nextIcon, currentPage + 1);
+
+            // Wrap pagination numbers
             document.querySelectorAll('.page-indicator').forEach(indicator => {
                 const targetPage = parseInt(indicator.textContent, 10);
-                if (!isNaN(targetPage)) {
-                    wrapInLink(indicator, targetPage);
-                }
+                if (!isNaN(targetPage)) wrapInLink(indicator, targetPage);
             });
 
         }, pageNum, slideCount);
 
         const tempPdfPath = path.join(__dirname, `temp-page-${pageNum}.pdf`);
-        await page.pdf({
-            path: tempPdfPath,
-            width: '1260px',
-            height: '1782px',
-            printBackground: true,
-        });
+        await page.pdf({ path: tempPdfPath, width: '1260px', height: '1782px', printBackground: true });
         tempPdfPaths.push(tempPdfPath);
         console.log(`Generated ${tempPdfPath}`);
     }
@@ -95,20 +83,39 @@ async function generatePdf() {
         finalPdfDoc.addPage(copiedPage);
     }
 
-    // --- NEW STRATEGY: Find and update link annotations ---
+    console.log("Updating link annotations with correct GoTo actions...");
     const pages = finalPdfDoc.getPages();
-    for (let i = 0; i < pages.length; i++) {
-        const page = pages[i];
-        const annots = page.getAnnotations();
+    for (const page of pages) {
+        // Correctly get the array of annotation references
+        const annots = page.node.Annots()?.asArray() || [];
 
-        for (const annot of annots) {
-            const uri = annot.getURI();
-            if (uri && uri.startsWith('urn:pdf-page:')) {
-                const targetPageNum = parseInt(uri.substring('urn:pdf-page:'.length), 10);
-                if (!isNaN(targetPageNum) && targetPageNum > 0 && targetPageNum <= pages.length) {
-                    const targetPageIndex = targetPageNum - 1;
-                    // Modify the annotation to be a GoTo action instead of a URI action
-                    annot.setGoTo(pages[targetPageIndex]);
+        for (const annotRef of annots) {
+            const annot = finalPdfDoc.context.lookup(annotRef);
+            const action = annot.get(finalPdfDoc.context.obj('A'));
+
+            // Check if it's a URI action
+            if (action?.get(finalPdfDoc.context.obj('S'))?.toString() === '/URI') {
+                const uri = action.get(finalPdfDoc.context.obj('URI'))?.toString();
+
+                // Check if it's one of our special placeholder links
+                if (uri && uri.includes('urn:pdf-page:')) {
+                    // pdf-lib wraps strings in parentheses, so we remove them.
+                    const cleanedUri = uri.substring(1, uri.length - 1);
+                    const targetPageNum = parseInt(cleanedUri.substring('urn:pdf-page:'.length), 10);
+
+                    if (!isNaN(targetPageNum) && targetPageNum > 0 && targetPageNum <= pages.length) {
+                        const targetPageIndex = targetPageNum - 1;
+
+                        // Create a new GoTo action pointing to the correct page
+                        const newAction = finalPdfDoc.context.obj({
+                            Type: 'Action',
+                            S: 'GoTo',
+                            D: [pages[targetPageIndex].ref, 'XYZ', null, null, null],
+                        });
+
+                        // Replace the old URI action with our new GoTo action
+                        annot.set(finalPdfDoc.context.obj('A'), newAction);
+                    }
                 }
             }
         }
