@@ -16,6 +16,9 @@ const path = require('path');
     timeout: 60000
   });
 
+  // Wait for 5 seconds to ensure everything is rendered
+  await new Promise(resolve => setTimeout(resolve, 5000));
+
   await page.emulateMediaType('screen');
   await page.pdf({
     path: 'presentation.pdf',
