@@ -469,13 +469,13 @@
 /* Horizontal Bracket Styles */
 .qualifier-bracket-horizontal {
   flex-direction: column;
-  gap: 10px;
+  gap: 5px;
 }
 .qualifier-bracket-horizontal .round {
   flex-direction: row;
   justify-content: space-around;
   width: 100%;
-  gap: 10px;
+  gap: 5px;
 }
 .qualifier-bracket-horizontal .match {
     display: flex;
@@ -485,7 +485,7 @@
 }
 .qualifier-bracket-horizontal .player {
     border: 1px solid #ffd27d;
-    width: 120px;
+    width: 80px;
     text-align: center;
 }
 .qualifier-bracket-horizontal .player:not(:last-child) {
