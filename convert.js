@@ -12,7 +12,11 @@ const fs = require('fs');
   // Read the HTML file
   const html = fs.readFileSync('index.html', 'utf-8');
   // Set the content of the page
-  await page.setContent(html, { waitUntil: 'networkidle0' });
+  await page.setContent(html, {
+    waitUntil: 'networkidle0',
+    // Set the base URL to the project root
+    baseURL: `file://${__dirname}/`
+  });
 
   // Wait for the last slide's content to be ready
   await page.waitForSelector('#slide-12 .content-box', { timeout: 60000 });
