@@ -16,8 +16,8 @@ const path = require('path');
     timeout: 60000
   });
 
-  // Wait for 5 seconds to ensure everything is rendered
-  await new Promise(resolve => setTimeout(resolve, 5000));
+  // Wait for the last slide's content to be ready
+  await page.waitForSelector('#slide-12 .content-box', { timeout: 60000 });
 
   await page.emulateMediaType('screen');
   await page.pdf({
