@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const slides = document.querySelectorAll(".slide");
   let currentSlide = 0;
 
-  function showSlide(n) {
+  window.showSlide = function(n) {
     slides.forEach(slide => {
       slide.classList.remove('active');
       slide.style.display = 'none';
