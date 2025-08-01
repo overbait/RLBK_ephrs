@@ -465,11 +465,17 @@
 .group-bracket .winners-match { margin-top: 30px; }
 .group-bracket .losers-match { margin-top: 0; }
 .group-bracket .decider-match { margin-top: 30px; }
+.group-bracket .match::before, .group-bracket .match::after, .group-bracket .round::after, .group-bracket .player::after, .group-bracket .player::before {
+    display: none;
+}
+.group-bracket .match {
+    margin-bottom: 5px;
+}
 
 /* Horizontal Bracket Styles */
 .qualifier-bracket-horizontal {
   flex-direction: column;
-  gap: 5px;
+  gap: 0px;
 }
 .qualifier-bracket-horizontal .round {
   flex-direction: row;
