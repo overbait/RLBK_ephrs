@@ -15,13 +15,16 @@ const fs = require('fs');
   });
   const page = await browser.newPage();
 
-  // Read the HTML file
-  const html = fs.readFileSync('index.html', 'utf-8');
+  // Read the HTML file and the CSS file
+  let html = fs.readFileSync('index.html', 'utf-8');
+  const css = fs.readFileSync('style.css', 'utf-8');
+
+  // Inline the CSS
+  html = html.replace('<link rel="stylesheet" href="style.css">', `<style>${css}</style>`);
+
   // Set the content of the page
   await page.setContent(html, {
-    waitUntil: 'networkidle0',
-    // Set the base URL to the project root
-    baseURL: `file://${__dirname}/`
+    waitUntil: 'networkidle0'
   });
 
   // Wait for the last slide's content to be ready
