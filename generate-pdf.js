@@ -37,6 +37,7 @@ async function generatePdf() {
         await page.evaluate((index) => window.showSlide(index), i);
         await new Promise(resolve => setTimeout(resolve, 1500));
 
+        // --- Get Link Coordinates ---
         if (i === 1) { // Table of Contents slide
             console.log("Capturing Table of Contents link coordinates...");
             const tocLinks = await page.evaluate(() => {
@@ -58,6 +59,7 @@ async function generatePdf() {
             }
         }
 
+        // Add navigation link areas for all pages
         const navLinks = [
             { rect: { x: 490, y: 1700, width: 60, height: 60 }, targetPage: pageNum - 1 },
             { rect: { x: 710, y: 1700, width: 60, height: 60 }, targetPage: pageNum + 1 }
@@ -66,6 +68,36 @@ async function generatePdf() {
         if (navLinks.length > 0) {
             linkAreas.push({ page: pageNum, links: navLinks });
         }
+
+        // --- New: Get coordinates for the page number indicators ---
+        // This is tricky because the pagination is added by the original script.
+        // We will add our own pagination and get the links from that.
+        // Let's modify the original pagination to make it easier to grab.
+        await page.evaluate(() => {
+            document.querySelectorAll('.page-indicator').forEach(indicator => {
+                indicator.classList.add('pdf-page-link');
+            });
+        });
+
+        const pageIndicatorLinks = await page.evaluate(() => {
+            const links = [];
+            document.querySelectorAll('.pdf-page-link').forEach(indicator => {
+                const rect = indicator.getBoundingClientRect();
+                const pageNum = parseInt(indicator.textContent, 10);
+                if (!isNaN(pageNum) && rect.width > 0 && rect.height > 0) {
+                    links.push({
+                        rect: { x: rect.x, y: rect.y, width: rect.width, height: rect.height },
+                        targetPage: pageNum
+                    });
+                }
+            });
+            return links;
+        });
+
+        if (pageIndicatorLinks.length > 0) {
+            linkAreas.push({ page: pageNum, links: pageIndicatorLinks });
+        }
+
 
         const tempPdfPath = path.join(__dirname, `temp-page-${pageNum}.pdf`);
         await page.pdf({ path: tempPdfPath, width: '1260px', height: '1782px', printBackground: true });
