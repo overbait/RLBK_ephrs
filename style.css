@@ -465,6 +465,60 @@
 .group-bracket .winners-match { margin-top: 30px; }
 .group-bracket .losers-match { margin-top: 0; }
 .group-bracket .decider-match { margin-top: 30px; }
+
+/* Horizontal Bracket Styles */
+.qualifier-bracket-horizontal {
+  flex-direction: column;
+  gap: 10px;
+}
+.qualifier-bracket-horizontal .round {
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  gap: 10px;
+}
+.qualifier-bracket-horizontal .match {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+.qualifier-bracket-horizontal .player {
+    border: 1px solid #ffd27d;
+    width: 120px;
+    text-align: center;
+}
+.qualifier-bracket-horizontal .player:not(:last-child) {
+  margin-bottom: 10px;
+}
+.qualifier-bracket-horizontal .match::after {
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 10px;
+    background-color: #ffd27d;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.qualifier-bracket-horizontal .round1 .match::before {
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 10px;
+    background-color: #ffd27d;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.qualifier-bracket-horizontal .round:not(:last-child)::after {
+    display:none;
+}
+.qualifier-bracket-horizontal .match .player:first-child::after,
+.qualifier-bracket-horizontal .match .player:first-child::before,
+.qualifier-bracket-horizontal .match .player:last-child::before {
+    display: none;
+}
     .section-number {
       background-color: rgba(0, 0, 0, 0.4);
       color: #cccccc;
