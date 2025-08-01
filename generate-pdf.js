@@ -1,10 +1,10 @@
 const puppeteer = require('puppeteer');
-const { PDFDocument, StandardFonts } = require('pdf-lib');
+const { PDFDocument } = require('pdf-lib');
 const fs = require('fs').promises;
 const path = require('path');
 
 async function generatePdf() {
-    console.log("Launching browser...");
+    console.log("--- Starting PDF Generation ---");
     const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
     const page = await browser.newPage();
     await page.setViewport({ width: 1260, height: 1782 });
@@ -12,101 +12,81 @@ async function generatePdf() {
     console.log("Navigating to index.html...");
     await page.goto(`file://${__dirname}/index.html`, { waitUntil: 'networkidle0' });
 
-    await page.evaluate(() => {
-        if (typeof window.showSlide !== 'function') {
-            const slides = document.querySelectorAll(".slide");
-            window.showSlide = function(n) {
-                slides.forEach((s, i) => {
-                    s.style.display = i === n ? 'block' : 'none';
-                });
-            };
-            window.showSlide(0);
-        }
-    });
-
     const slideCount = await page.evaluate(() => document.querySelectorAll('.slide').length);
     console.log(`Found ${slideCount} slides.`);
 
     const tempPdfPaths = [];
-    const linkAreas = [];
 
     for (let i = 0; i < slideCount; i++) {
         const pageNum = i + 1;
         console.log(`Rendering slide ${pageNum}/${slideCount}...`);
 
-        await page.evaluate((index) => window.showSlide(index), i);
-        await new Promise(resolve => setTimeout(resolve, 1500));
+        // Show the correct slide
+        await page.evaluate((index) => {
+            if (typeof window.showSlide === 'function') {
+                window.showSlide(index);
+            }
+        }, i);
+        await new Promise(resolve => setTimeout(resolve, 1000)); // Wait for render
 
-        // --- Get Link Coordinates ---
-        if (i === 1) { // Table of Contents slide
-            console.log("Capturing Table of Contents link coordinates...");
-            const tocLinks = await page.evaluate(() => {
-                const links = [];
-                document.querySelectorAll('.toc-list-item').forEach(link => {
-                    const rect = link.getBoundingClientRect();
-                    const targetSlide = parseInt(link.getAttribute('data-slide-to'), 10);
-                    if (!isNaN(targetSlide) && rect.width > 0 && rect.height > 0) {
-                        links.push({
-                            rect: { x: rect.x, y: rect.y, width: rect.width, height: rect.height },
-                            targetPage: targetSlide + 1
-                        });
+        // --- NEW STRATEGY: Inject HTML links before printing ---
+        console.log("Injecting temporary HTML links...");
+        await page.evaluate((currentPage, totalPages) => {
+            // Make a helper to wrap elements in a link
+            const wrapInLink = (element, targetPage) => {
+                if (!element) return;
+                const link = document.createElement('a');
+                // Using a URN is a standard way to create special link types
+                link.href = `urn:pdf-page:${targetPage}`;
+                link.style.display = 'block'; // Make the link cover the whole element
+                link.style.height = '100%';
+                element.style.position = 'relative'; // Ensure the link positions correctly
+                element.appendChild(link);
+            };
+
+            // 1. Table of Contents Links
+            if (currentPage === 2) { // TOC is on slide index 1 (page 2)
+                document.querySelectorAll('.toc-list-item').forEach(item => {
+                    const targetSlide = parseInt(item.getAttribute('data-slide-to'), 10);
+                    if (!isNaN(targetSlide)) {
+                        wrapInLink(item, targetSlide + 1);
                     }
                 });
-                return links;
-            });
-            if (tocLinks.length > 0) {
-                linkAreas.push({ page: pageNum, links: tocLinks });
             }
-        }
 
-        // Add navigation link areas for all pages
-        const navLinks = [
-            { rect: { x: 490, y: 1700, width: 60, height: 60 }, targetPage: pageNum - 1 },
-            { rect: { x: 710, y: 1700, width: 60, height: 60 }, targetPage: pageNum + 1 }
-        ].filter(link => link.targetPage > 0 && link.targetPage <= slideCount);
+            // 2. Pagination Icon Links (Prev/Next)
+            const prevIcon = document.querySelector('.pagination .prev');
+            const nextIcon = document.querySelector('.pagination .next');
+            if (prevIcon && currentPage > 1) {
+                wrapInLink(prevIcon, currentPage - 1);
+            }
+            if (nextIcon && currentPage < totalPages) {
+                wrapInLink(nextIcon, currentPage + 1);
+            }
 
-        if (navLinks.length > 0) {
-            linkAreas.push({ page: pageNum, links: navLinks });
-        }
-
-        // --- New: Get coordinates for the page number indicators ---
-        // This is tricky because the pagination is added by the original script.
-        // We will add our own pagination and get the links from that.
-        // Let's modify the original pagination to make it easier to grab.
-        await page.evaluate(() => {
+            // 3. Pagination Page Number Links
             document.querySelectorAll('.page-indicator').forEach(indicator => {
-                indicator.classList.add('pdf-page-link');
-            });
-        });
-
-        const pageIndicatorLinks = await page.evaluate(() => {
-            const links = [];
-            document.querySelectorAll('.pdf-page-link').forEach(indicator => {
-                const rect = indicator.getBoundingClientRect();
-                const pageNum = parseInt(indicator.textContent, 10);
-                if (!isNaN(pageNum) && rect.width > 0 && rect.height > 0) {
-                    links.push({
-                        rect: { x: rect.x, y: rect.y, width: rect.width, height: rect.height },
-                        targetPage: pageNum
-                    });
+                const targetPage = parseInt(indicator.textContent, 10);
+                if (!isNaN(targetPage)) {
+                    wrapInLink(indicator, targetPage);
                 }
             });
-            return links;
-        });
 
-        if (pageIndicatorLinks.length > 0) {
-            linkAreas.push({ page: pageNum, links: pageIndicatorLinks });
-        }
-
+        }, pageNum, slideCount);
 
         const tempPdfPath = path.join(__dirname, `temp-page-${pageNum}.pdf`);
-        await page.pdf({ path: tempPdfPath, width: '1260px', height: '1782px', printBackground: true });
+        await page.pdf({
+            path: tempPdfPath,
+            width: '1260px',
+            height: '1782px',
+            printBackground: true,
+        });
         tempPdfPaths.push(tempPdfPath);
         console.log(`Generated ${tempPdfPath}`);
     }
     await browser.close();
 
-    console.log("Merging individual PDFs...");
+    console.log("--- Merging PDFs and Correcting Links ---");
     const finalPdfDoc = await PDFDocument.create();
     for (const tempPdfPath of tempPdfPaths) {
         const pdfBytes = await fs.readFile(tempPdfPath);
@@ -115,52 +95,30 @@ async function generatePdf() {
         finalPdfDoc.addPage(copiedPage);
     }
 
-    console.log("Adding link annotations using low-level API...");
+    // --- NEW STRATEGY: Find and update link annotations ---
     const pages = finalPdfDoc.getPages();
-    const pageHeight = pages[0].getHeight();
+    for (let i = 0; i < pages.length; i++) {
+        const page = pages[i];
+        const annots = page.getAnnotations();
 
-    linkAreas.forEach(area => {
-        const pageIndex = area.page - 1;
-        if (pageIndex < 0 || pageIndex >= pages.length) return;
-        const page = pages[pageIndex];
-
-        area.links.forEach(link => {
-            const y = pageHeight - link.rect.y - link.rect.height;
-            const targetPageIndex = link.targetPage - 1;
-
-            if (targetPageIndex < 0 || targetPageIndex >= pages.length) return;
-
-            const targetPage = pages[targetPageIndex];
-            const action = finalPdfDoc.context.obj({
-                Type: 'Action',
-                S: 'GoTo',
-                D: [targetPage.ref, 'XYZ', null, pageHeight, null],
-            });
-
-            const rect = [
-                link.rect.x,
-                y,
-                link.rect.x + link.rect.width,
-                y + link.rect.height
-            ];
-
-            const annot = finalPdfDoc.context.obj({
-                Type: 'Annot',
-                Subtype: 'Link',
-                Rect: rect,
-                Border: [0, 0, 0], // No visible border
-                Action: action,
-            });
-
-            page.node.addAnnot(annot);
-        });
-    });
+        for (const annot of annots) {
+            const uri = annot.getURI();
+            if (uri && uri.startsWith('urn:pdf-page:')) {
+                const targetPageNum = parseInt(uri.substring('urn:pdf-page:'.length), 10);
+                if (!isNaN(targetPageNum) && targetPageNum > 0 && targetPageNum <= pages.length) {
+                    const targetPageIndex = targetPageNum - 1;
+                    // Modify the annotation to be a GoTo action instead of a URI action
+                    annot.setGoTo(pages[targetPageIndex]);
+                }
+            }
+        }
+    }
 
     const finalPdfBytes = await finalPdfDoc.save();
     await fs.writeFile('handbook.pdf', finalPdfBytes);
     console.log("Final PDF 'handbook.pdf' created successfully.");
 
-    console.log("Cleaning up temporary files...");
+    console.log("--- Cleaning Up Temporary Files ---");
     for (const tempPdfPath of tempPdfPaths) {
         await fs.unlink(tempPdfPath);
     }
@@ -168,6 +126,6 @@ async function generatePdf() {
 }
 
 generatePdf().catch(error => {
-    console.error("An error occurred:", error);
+    console.error("An error occurred during PDF generation:", error);
     process.exit(1);
 });
