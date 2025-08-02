@@ -16,7 +16,7 @@
       min-height: 100vh;
       font-family: 'Roboto', sans-serif;
       color: #f5f0e6;
-      line-height: 1.6;
+      line-height: 1.8;
     }
     .slider-container {
       width: 1260px;
@@ -318,6 +318,36 @@
       font-weight: 700;
       color: var(--primary-color);
     }
+    .collage-container {
+        position: relative;
+        width: 100%;
+        height: 400px; /* Adjust as needed */
+        margin-top: 2rem;
+    }
+    .collage-image {
+        position: absolute;
+        max-width: 150px; /* Adjust as needed */
+        border: 3px solid white;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+    .collage-image:nth-child(1) { top: 10%; left: 15%; transform: rotate(-15deg); width: 250px; }
+    .collage-image:nth-child(2) { top: 50%; left: 5%; transform: rotate(5deg); }
+    .collage-image:nth-child(3) { top: 15%; left: 70%; transform: rotate(20deg); }
+    .collage-image:nth-child(4) { top: 60%; left: 80%; transform: rotate(-5deg); }
+    .collage-image:nth-child(5) { top: 70%; left: 20%; transform: rotate(10deg); }
+    .collage-image:nth-child(6) { top: 5%; left: 40%; transform: rotate(-10deg); }
+    .collage-image:nth-child(7) { top: 55%; left: 50%; transform: rotate(15deg); }
+    .collage-image:nth-child(8) { top: 20%; left: 5%; transform: rotate(-20deg); }
+    .collage-image:nth-child(9) { top: 75%; left: 65%; transform: rotate(8deg); }
+    .collage-image:nth-child(10) { top: 30%; left: 85%; transform: rotate(-12deg); }
+    .collage-image:nth-child(11) { top: 45%; left: 30%; transform: rotate(3deg); }
+    .collage-image:nth-child(12) { top: 80%; left: 40%; transform: rotate(-8deg); }
+    .collage-image:nth-child(13) { top: 25%; left: 30%; transform: rotate(12deg); }
+    .collage-image:nth-child(14) { top: 60%; left: 5%; transform: rotate(-15deg); }
+    .collage-image:nth-child(15) { top: 10%; left: 80%; transform: rotate(10deg); }
+    .collage-image:nth-child(16) { top: 85%; left: 10%; transform: rotate(5deg); }
+    .collage-image:nth-child(17) { top: 40%; left: 60%; transform: rotate(-3deg); width: 200px;}
+    .collage-image:nth-child(18) { top: 70%; left: 90%; transform: rotate(18deg); }
     .rule-icon {
       font-size: 2rem;
       line-height: 1;
@@ -730,6 +760,15 @@
     }
     .btn-primary:hover {
         background-color: #c05626;
+    }
+    .btn-gsl {
+        font-family: 'Cinzel', serif;
+        border: 1px solid rgba(255, 210, 125, 0.4);
+        background-color: transparent;
+        color: var(--primary-color);
+    }
+    .btn-gsl:hover {
+        background-color: rgba(255, 210, 125, 0.1);
     }
     .btn-color-1 { background-color: #414833; }
     .btn-color-2 { background-color: #582F0E; }

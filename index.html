@@ -48,7 +48,7 @@
         <div class="absolute bottom-10 right-10">
             <img src="assets/Logo_main-min.png" alt="Epohers Logo" class="w-24">
         </div>
-        <div class="content flex flex-col h-full py-16 px-10">
+        <div class="content flex flex-col h-full py-8 px-10">
             <div class="mb-8 text-center">
                 <h1 class="section-title text-5xl">TABLE OF CONTENTS</h1>
             </div>
@@ -83,7 +83,7 @@
                 <a href="#" class="toc-list-item sub-item" data-slide-to="10"><span class="toc-list-number">9.3</span><span class="toc-list-title">Technical Details</span><span class="toc-list-dots"></span><span class="toc-list-page">11</span></a>
                 <a href="#" class="toc-list-item" data-slide-to="11"><span class="toc-list-number">10</span><span class="toc-list-title">Prize Pool & Payouts</span><span class="toc-list-dots"></span><span class="toc-list-page">12</span></a>
                 <a href="#" class="toc-list-item" data-slide-to="12"><span class="toc-list-number">11</span><span class="toc-list-title">Content creating</span><span class="toc-list-dots"></span><span class="toc-list-page">13</span></a>
-                <a href="#" class="toc-list-item" data-slide-to="13"><span class="toc-list-number">12</span><span class="toc-list-title">Appendix: About GSL format</span><span class="toc-list-dots"></span><span class="toc-list-page">14</span></a>
+                <a href="#" class="toc-list-item" data-slide-to="14"><span class="toc-list-number">12</span><span class="toc-list-title">Appendix: About GSL format</span><span class="toc-list-dots"></span><span class="toc-list-page">14</span></a>
             </div>
         </div>
     </div>
@@ -234,7 +234,7 @@
                         <p class="format-item text-lg mt-2">Top two from each group advance (GSL format).</p>
                         <p class="format-item text-lg"><span class="highlight">All matches are Best-of-5</span></p>
                     </div>
-                    <a href="#" data-slide-to="13" class="btn-primary btn-color-1" style="font-size: 1.5rem; padding: 1rem 1.5rem; text-align: center;">About GSL format</a>
+                    <a href="#" data-slide-to="14" class="btn-gsl" style="font-size: 1.5rem; padding: 1rem 1.5rem; text-align: center;">About GSL format</a>
                 </div>
               <img src="assets/GSLStage-min.png" alt="Group Stage Bracket" class="format-bracket-image-gsl">
             </div>
@@ -335,42 +335,46 @@
                     <div class="provision-item text-xl">Maps cannot be repeated during the series.</div>
 
                     <h3 class="subsection-title text-2xl mt-6 mb-2">Map Pool:</h3>
-                    <div class="grid grid-cols-4 gap-2 mt-2">
-                        <div class="map-card">
-                            <img src="assets/dry-arabia-min.png" alt="Dry Arabia" class="map-image">
-                            <div class="map-name">Dry Arabia</div>
+                    <div class="flex flex-col items-center gap-2 mt-2">
+                        <div class="flex justify-center gap-2">
+                            <div class="map-card">
+                                <img src="assets/dry-arabia-min.png" alt="Dry Arabia" class="map-image">
+                                <div class="map-name">Dry Arabia</div>
+                            </div>
+                            <div class="map-card">
+                                <img src="assets/cliffside-min.png" alt="Cliffside" class="map-image">
+                                <div class="map-name">Cliffside</div>
+                            </div>
+                            <div class="map-card">
+                                <img src="assets/EGC-gorge-min.png" alt="EGC – Gorge" class="map-image">
+                                <div class="map-name">EGC – Gorge</div>
+                            </div>
+                            <div class="map-card">
+                                <img src="assets/holy-island-min.png" alt="EGC – Holy Island" class="map-image">
+                                <div class="map-name">EGC – Holy Island</div>
+                            </div>
+                            <div class="map-card">
+                                <img src="assets/archipelago-min.png" alt="EGC – Archipelago" class="map-image">
+                                <div class="map-name">EGC – Archipelago</div>
+                            </div>
                         </div>
-                        <div class="map-card">
-                            <img src="assets/cliffside-min.png" alt="Cliffside" class="map-image">
-                            <div class="map-name">Cliffside</div>
-                        </div>
-                        <div class="map-card">
-                            <img src="assets/EGC-gorge-min.png" alt="EGC – Gorge" class="map-image">
-                            <div class="map-name">EGC – Gorge</div>
-                        </div>
-                        <div class="map-card">
-                            <img src="assets/holy-island-min.png" alt="EGC – Holy Island" class="map-image">
-                            <div class="map-name">EGC – Holy Island</div>
-                        </div>
-                        <div class="map-card">
-                            <img src="assets/archipelago-min.png" alt="EGC – Archipelago" class="map-image">
-                            <div class="map-name">EGC – Archipelago</div>
-                        </div>
-                        <div class="map-card">
-                            <img src="assets/baldland-min.png" alt="Baldland" class="map-image">
-                            <div class="map-name">Baldland</div>
-                        </div>
-                        <div class="map-card">
-                            <img src="assets/hill-and-dale-min.png" alt="Hill and Dale" class="map-image">
-                            <div class="map-name">Hill and Dale</div>
-                        </div>
-                        <div class="map-card">
-                            <img src="assets/icon_circle-min.png" alt="Empty Map" class="map-image map-placeholder">
-                            <div class="map-name">-map name-</div>
-                        </div>
-                        <div class="map-card">
-                            <img src="assets/icon_circle-min.png" alt="Empty Map" class="map-image map-placeholder">
-                            <div class="map-name">-map name-</div>
+                        <div class="flex justify-center gap-2">
+                            <div class="map-card">
+                                <img src="assets/baldland-min.png" alt="Baldland" class="map-image">
+                                <div class="map-name">Baldland</div>
+                            </div>
+                            <div class="map-card">
+                                <img src="assets/hill-and-dale-min.png" alt="Hill and Dale" class="map-image">
+                                <div class="map-name">Hill and Dale</div>
+                            </div>
+                            <div class="map-card">
+                                <img src="assets/icon_circle-min.png" alt="Empty Map" class="map-image map-placeholder">
+                                <div class="map-name">-map name-</div>
+                            </div>
+                            <div class="map-card">
+                                <img src="assets/icon_circle-min.png" alt="Empty Map" class="map-image map-placeholder">
+                                <div class="map-name">-map name-</div>
+                            </div>
                         </div>
                     </div>
                     <div class="flex justify-between items-center mt-6">
@@ -577,7 +581,7 @@
         <div class="grid grid-cols-1 gap-8">
             <div class="content-box rounded-md">
                 <h2 class="section-header text-3xl mb-4">9.1 Coordination</h2>
-                <div class="provision-item text-lg">All players must:</div>
+                <div class="text-lg" style="color: var(--primary-color);">All players must:</div>
                 <div class="provision-item text-lg flex items-center">be on the official Epohers Discord Server: <a href="https://discord.gg/WWt2VUncCJ" class="discord-button" style="margin-left: 10px;"><img src="assets/discord-min.png" alt="Discord"></a></div>
                 <div class="provision-item text-lg">Regularly check the platform for updates.</div>
             </div>
@@ -677,7 +681,7 @@
         </div>
         <div class="grid grid-cols-1 gap-8">
           <div class="content-box rounded-md">
-            <h2 class="section-header text-3xl mb-4">11.2 Content creating</h2>
+            <h2 class="section-header text-3xl mb-4">11.1 Content creating</h2>
             <div class="provision-item text-lg">The event is open casting, anyone may use tournament games to make media content.</div>
             <div class="provision-item text-lg">Players wishing to cast their POV must set delay according to lobby settings.</div>
             <div class="provision-item text-lg">Casters wishing to cast the event must:</div>
@@ -685,6 +689,26 @@
             <div class="sub-item text-lg ml-4">include “Epohers World Cup” in the stream title.</div>
             <div class="provision-item text-lg">Free to use tournament assets - <a href="https://drive.google.com/drive/folders/1tx0dXjd95qNlSjHHehrcJvh3mDKQl4S_?usp=sharing" class="btn-primary btn-color-2" style="margin-left: 10px; font-size: 1.5rem; padding: 0.2rem 1rem;">Google drive</a></div>
             <div class="provision-item text-lg">Organizers have the right to involve players to creating media content (photo, video, interview, etc.).</div>
+          </div>
+          <div class="collage-container">
+              <img src="assets/Logo_main-min.png" class="collage-image">
+              <img src="assets/leves_1-min.png" class="collage-image">
+              <img src="assets/leves_2-min.png" class="collage-image">
+              <img src="assets/leves_3-min.png" class="collage-image">
+              <img src="assets/leves_4-min.png" class="collage-image">
+              <img src="assets/leves_5-min.png" class="collage-image">
+              <img src="assets/leves_6-min.png" class="collage-image">
+              <img src="assets/leves_7-min.png" class="collage-image">
+              <img src="assets/icon_swords-min.png" class="collage-image">
+              <img src="assets/icon_troph2-min.png" class="collage-image">
+              <img src="assets/icon_troph-min.png" class="collage-image">
+              <img src="assets/icon_plus-min.png" class="collage-image">
+              <img src="assets/icon_clock-min.png" class="collage-image">
+              <img src="assets/icon_megaphone-min.png" class="collage-image">
+              <img src="assets/icon_calendar-min.png" class="collage-image">
+              <img src="assets/icon_arrow-min.png" class="collage-image">
+              <img src="assets/text new-min.png" class="collage-image">
+              <img src="assets/icon_sword2-min.png" class="collage-image">
           </div>
         </div>
       </div>
@@ -714,6 +738,10 @@
               <p class="format-item text-lg mt-2">Top two from each group advance (GSL format).</p>
               <p class="format-item text-lg"><span class="highlight">All matches are Best-of-5</span></p>
               <img src="assets/GSLStage-min.png" alt="Group Stage Bracket" class="format-bracket-image-gsl">
+                <div class="mt-4 text-lg">
+                    <div style="color: #90ee90;">&larr; means advancing to the next stage</div>
+                    <div style="color: #f08080;">&larr; means elimination</div>
+                </div>
             </div>
         </div>
     </div>
