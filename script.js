@@ -63,6 +63,21 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  document.addEventListener('click', function(e) {
+    let target = e.target;
+    while (target && !target.hasAttribute('data-slide-to')) {
+        target = target.parentElement;
+    }
+
+    if (target) {
+        e.preventDefault();
+        const slideIndex = parseInt(target.getAttribute('data-slide-to'));
+        if (!isNaN(slideIndex)) {
+            showSlide(slideIndex);
+        }
+    }
+  });
+
   function attachImageToCard(cardSelector, hookNumber, imageUrl, rotation = 0, scale = 1) {
     const card = document.querySelector(cardSelector);
     if (!card) return;

@@ -16,7 +16,7 @@
       min-height: 100vh;
       font-family: 'Roboto', sans-serif;
       color: #f5f0e6;
-      line-height: 1.8;
+      line-height: 2.0;
     }
     .slider-container {
       width: 1260px;
@@ -327,7 +327,6 @@
     .collage-image {
         position: absolute;
         max-width: 150px; /* Adjust as needed */
-        border: 3px solid white;
         box-shadow: 0 4px 8px rgba(0,0,0,0.3);
     }
     .collage-image:nth-child(1) { top: 10%; left: 15%; transform: rotate(-15deg); width: 250px; }
@@ -764,7 +763,7 @@
     .btn-gsl {
         font-family: 'Cinzel', serif;
         border: 1px solid rgba(255, 210, 125, 0.4);
-        background-color: transparent;
+        background-color: rgba(255, 210, 125, 0.1);
         color: var(--primary-color);
     }
     .btn-gsl:hover {
