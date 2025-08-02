@@ -16,7 +16,6 @@
       min-height: 100vh;
       font-family: 'Roboto', sans-serif;
       color: #f5f0e6;
-      line-height: 1.6;
     }
     .slider-container {
       width: 1260px;
@@ -174,8 +173,7 @@
     .provision-item, .schedule-item, .format-item, .rule-item, .resource-item {
       position: relative;
       padding-left: 30px;
-      margin-bottom: 4px;
-      padding-bottom: 8px;
+      margin-bottom: 12px;
     }
     .provision-item:before, .schedule-item:before, .format-item:before, .rule-item:before, .resource-item:before {
       content: '';
@@ -191,8 +189,7 @@
     .sub-item, .admin-item, .mod-item, .step-item, .schedule-detail, .contact-item, .exploit-item {
       position: relative;
       padding-left: 25px;
-      margin-bottom: 2px;
-      padding-bottom: 6px;
+      margin-bottom: 8px;
     }
     .sub-item:before, .admin-item:before, .mod-item:before, .step-item:before, .schedule-detail:before, .contact-item:before, .exploit-item:before {
       content: '';
