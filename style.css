@@ -51,6 +51,7 @@
       background-image: url('assets/background1.png');
       background-size: cover;
       background-position: center;
+      filter: blur(8px);
       opacity: 0.85;
     }
     .overlay {
