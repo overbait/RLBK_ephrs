@@ -235,4 +235,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // CONTACTS & RESOURCES
   attachImageToCard('.slide:nth-child(13) .content-box:nth-child(1)', 2, 'icon_dude-min.png', getRandomRotation(), 13);
+  attachImageToCard('#lobby-settings-card', 2, 'icon_calendar2-min.png', getRandomRotation(), 13);
 });
