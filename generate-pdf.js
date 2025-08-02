@@ -28,29 +28,27 @@ async function generatePdf() {
         }, i);
         await new Promise(resolve => setTimeout(resolve, 1000));
 
-        console.log("Injecting temporary HTML links with corrected append logic...");
+        console.log("Injecting temporary HTML links with definitive logic...");
         await page.evaluate((currentPage, totalPages) => {
             const activeSlide = document.querySelector('.slide.active');
             if (!activeSlide) return;
 
-            const createLinkOverlay = (element, targetPage) => {
-                if (!element || targetPage < 1 || targetPage > totalPages) return;
+            const createLinkOverlay = (element, targetPage, rectOverride = null) => {
+                if (!element && !rectOverride) return;
+                if (targetPage < 1 || targetPage > totalPages) return;
 
-                const rect = element.getBoundingClientRect();
+                const rect = rectOverride || element.getBoundingClientRect();
                 if (rect.width === 0 || rect.height === 0) return;
 
                 const link = document.createElement('a');
                 link.href = `urn:pdf-page:${targetPage}`;
                 link.style.position = 'absolute';
-                // Position relative to the slide, not the viewport
-                link.style.left = `${rect.left}px`;
-                link.style.top = `${rect.top}px`;
+                link.style.left = `${rect.x}px`;
+                link.style.top = `${rect.y}px`;
                 link.style.width = `${rect.width}px`;
                 link.style.height = `${rect.height}px`;
                 link.style.zIndex = '100';
 
-                // *** THE CRITICAL FIX IS HERE ***
-                // Append to the active slide, not the body.
                 activeSlide.appendChild(link);
             };
 
@@ -72,15 +70,15 @@ async function generatePdf() {
                 }
             });
 
-            // 3. Prev/Next Icon links
-            const prevIcon = document.querySelector('.pagination .prev img');
-            if (prevIcon && currentPage > 1) {
-                createLinkOverlay(prevIcon, currentPage - 1);
-            }
+            // 3. Prev/Next Icon links - using fixed coordinates appended to the active slide
+            const prevIconRect = { x: 530, y: 1700, width: 60, height: 60 };
+            const nextIconRect = { x: 670, y: 1700, width: 60, height: 60 };
 
-            const nextIcon = document.querySelector('.pagination .next img');
-            if (nextIcon && currentPage < totalPages) {
-                createLinkOverlay(nextIcon, currentPage + 1);
+            if (currentPage > 1) {
+                createLinkOverlay(null, currentPage - 1, prevIconRect);
+            }
+            if (currentPage < totalPages) {
+                createLinkOverlay(null, currentPage + 1, nextIconRect);
             }
 
         }, pageNum, slideCount);
