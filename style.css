@@ -175,7 +175,7 @@
       position: relative;
       padding-left: 30px;
       margin-bottom: 4px;
-      line-height: 1.8;
+      padding-bottom: 8px;
     }
     .provision-item:before, .schedule-item:before, .format-item:before, .rule-item:before, .resource-item:before {
       content: '';
@@ -192,7 +192,7 @@
       position: relative;
       padding-left: 25px;
       margin-bottom: 2px;
-      line-height: 1.8;
+      padding-bottom: 6px;
     }
     .sub-item:before, .admin-item:before, .mod-item:before, .step-item:before, .schedule-detail:before, .contact-item:before, .exploit-item:before {
       content: '';
