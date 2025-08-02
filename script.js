@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!paginationContainer.querySelector('.prev')) {
         const prevButton = document.createElement('button');
         prevButton.classList.add('prev');
-        prevButton.innerHTML = `<img src="assets/icon_arrow_red.png" alt="Previous">`;
+        prevButton.innerHTML = `<img src="assets/icon_arrow_red-min.png" alt="Previous">`;
         prevButton.addEventListener('click', prevSlide);
         paginationContainer.appendChild(prevButton);
       }
@@ -163,7 +163,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!paginationContainer.querySelector('.next')) {
         const nextButton = document.createElement('button');
         nextButton.classList.add('next');
-        nextButton.innerHTML = `<img src="assets/icon_arrow_green.png" alt="Next">`;
+        nextButton.innerHTML = `<img src="assets/icon_arrow_green-min.png" alt="Next">`;
         nextButton.addEventListener('click', nextSlide);
         paginationContainer.appendChild(nextButton);
       }
@@ -215,20 +215,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
   showSlide(currentSlide);
 
-  attachImageToCard('#qualifiers-card', 2, 'icon_swords.png', -30, 10);
-  attachImageToCard('#group-stage-card', 4, 'icon_shield.png', 30, 10);
-  attachImageToCard('#playoffs-card', 2, 'icon_troph.png', 0, 10);
+  attachImageToCard('#qualifiers-card', 2, 'icon_swords-min.png', -30, 10);
+  attachImageToCard('#group-stage-card', 4, 'icon_shield-min.png', 30, 10);
+  attachImageToCard('#playoffs-card', 2, 'icon_troph-min.png', 0, 10);
 
   const getRandomRotation = () => Math.random() * 30 - 15;
 
   // FAIR PLAY & MISCONDUCT
-  attachImageToCard('.slide:nth-child(10) .content-box:nth-child(1)', 2, 'icon_sword2.png', getRandomRotation(), 13);
-  attachImageToCard('.slide:nth-child(10) .content-box:nth-child(2)', 3, 'icon_plus.png', getRandomRotation(), 13);
+  attachImageToCard('.slide:nth-child(10) .content-box:nth-child(1)', 2, 'icon_sword2-min.png', getRandomRotation(), 13);
+  attachImageToCard('.slide:nth-child(10) .content-box:nth-child(2)', 3, 'icon_plus-min.png', getRandomRotation(), 13);
 
   // COMMUNICATION
-  attachImageToCard('.slide:nth-child(11) .content-box:nth-child(1)', 2, 'icon_clock.png', getRandomRotation(), 13);
-  attachImageToCard('.slide:nth-child(11) .content-box:nth-child(2)', 3, 'icon_calendar.png', getRandomRotation(), 13);
+  attachImageToCard('.slide:nth-child(11) .content-box:nth-child(1)', 2, 'icon_clock-min.png', getRandomRotation(), 13);
+  attachImageToCard('.slide:nth-child(11) .content-box:nth-child(2)', 3, 'icon_calendar-min.png', getRandomRotation(), 13);
 
   // CONTACTS & RESOURCES
-  attachImageToCard('.slide:nth-child(13) .content-box:nth-child(1)', 2, 'icon_dude.png', getRandomRotation(), 13);
+  attachImageToCard('.slide:nth-child(13) .content-box:nth-child(1)', 2, 'icon_dude-min.png', getRandomRotation(), 13);
 });
