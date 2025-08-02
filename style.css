@@ -16,7 +16,7 @@
       min-height: 100vh;
       font-family: 'Roboto', sans-serif;
       color: #f5f0e6;
-      line-height: 2.0;
+      line-height: 1.6;
     }
     .slider-container {
       width: 1260px;
@@ -174,7 +174,7 @@
     .provision-item, .schedule-item, .format-item, .rule-item, .resource-item {
       position: relative;
       padding-left: 30px;
-      margin-bottom: 12px;
+      margin-bottom: 4px;
       line-height: 1.8;
     }
     .provision-item:before, .schedule-item:before, .format-item:before, .rule-item:before, .resource-item:before {
@@ -191,7 +191,7 @@
     .sub-item, .admin-item, .mod-item, .step-item, .schedule-detail, .contact-item, .exploit-item {
       position: relative;
       padding-left: 25px;
-      margin-bottom: 8px;
+      margin-bottom: 2px;
       line-height: 1.8;
     }
     .sub-item:before, .admin-item:before, .mod-item:before, .step-item:before, .schedule-detail:before, .contact-item:before, .exploit-item:before {
