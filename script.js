@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const img = document.createElement('img');
-    img.src = `https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/${imageUrl}`;
+    img.src = `assets/${imageUrl}`;
     img.classList.add('attached-image');
     img.style.transform = `rotate(${rotation}deg) scale(${scale})`;
     img.style.transformOrigin = 'center center';
@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
-  const backgrounds = ['background1.png', 'background2.png', 'background3.png'];
+  const backgrounds = ['background1-min.png', 'background2-min.png', 'background3-min.png'];
 
   function updatePagination() {
     slides.forEach((slide, slideIndex) => {
@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!paginationContainer.querySelector('.prev')) {
         const prevButton = document.createElement('button');
         prevButton.classList.add('prev');
-        prevButton.innerHTML = `<img src="https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/icon_arrow_red.png" alt="Previous">`;
+        prevButton.innerHTML = `<img src="assets/icon_arrow_red.png" alt="Previous">`;
         prevButton.addEventListener('click', prevSlide);
         paginationContainer.appendChild(prevButton);
       }
@@ -163,7 +163,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!paginationContainer.querySelector('.next')) {
         const nextButton = document.createElement('button');
         nextButton.classList.add('next');
-        nextButton.innerHTML = `<img src="https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/icon_arrow_green.png" alt="Next">`;
+        nextButton.innerHTML = `<img src="assets/icon_arrow_green.png" alt="Next">`;
         nextButton.addEventListener('click', nextSlide);
         paginationContainer.appendChild(nextButton);
       }
@@ -195,14 +195,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const randomBg = backgrounds[Math.floor(Math.random() * backgrounds.length)];
     const bgElement = slide.querySelector('.background');
     if (bgElement) {
-      bgElement.style.backgroundImage = `url('https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/${randomBg}')`;
+      bgElement.style.backgroundImage = `url('assets/${randomBg}')`;
     }
 
     for (let i = 0; i < 8; i++) {
       const leaf = document.createElement('div');
       leaf.classList.add('leaves-decoration');
       const leafNum = Math.floor(Math.random() * 8) + 1;
-      leaf.style.backgroundImage = `url('https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/leves_${leafNum}.png')`;
+      leaf.style.backgroundImage = `url('assets/leves_${leafNum}-min.png')`;
       leaf.style.top = `${Math.random() * 80 + 10}%`;
       leaf.style.left = `${Math.random() * 80 + 10}%`;
       leaf.style.transform = `rotate(${Math.random() * 360}deg) scale(${Math.random() * 0.5 + 0.8})`;

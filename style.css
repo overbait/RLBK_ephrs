@@ -48,7 +48,7 @@
       width: 100%;
       height: 100%;
       z-index: 1;
-      background-image: url('https://raw.githubusercontent.com/overbait/RLBK_ephrs/optimize-pdf-generation/assets/background1-min.png');
+      background-image: url('assets/background1-min.png');
       background-size: cover;
       background-position: center;
       opacity: 0.85;
@@ -105,7 +105,7 @@
     }
     @font-face {
       font-family: 'South Park';
-      src: url('https://raw.githubusercontent.com/overbait/RLBK_ephrs/feature/redesign-slides/assets/fonts_spfont%202.ttf') format('truetype');
+      src: url('assets/fonts_spfont 2.ttf') format('truetype');
     }
     .section-title {
       font-family: 'South Park', sans-serif;
@@ -182,7 +182,7 @@
       top: 12px;
       width: 16px;
       height: 16px;
-      background-image: url('https://raw.githubusercontent.com/overbait/RLBK_ephrs/optimize-pdf-generation/assets/icon_point-min.png');
+      background-image: url('assets/icon_point-min.png');
       background-size: contain;
       background-repeat: no-repeat;
     }
@@ -198,7 +198,7 @@
       top: 12px;
       width: 12px;
       height: 12px;
-      background-image: url('https://raw.githubusercontent.com/overbait/RLBK_ephrs/optimize-pdf-generation/assets/icon_point2-min.png');
+      background-image: url('assets/icon_point2-min.png');
       background-size: contain;
       background-repeat: no-repeat;
     }
@@ -367,7 +367,7 @@
         top: 12px;
         width: 16px;
         height: 16px;
-        background-image: url('https://raw.githubusercontent.com/overbait/RLBK_ephrs/optimize-pdf-generation/assets/icon_circle-min.png');
+        background-image: url('assets/icon_circle-min.png');
         background-size: contain;
         background-repeat: no-repeat;
     }
@@ -695,7 +695,7 @@
   top: 12px;
   width: 16px;
   height: 16px;
-  background-image: url('https://raw.githubusercontent.com/overbait/RLBK_ephrs/optimize-pdf-generation/assets/icon_circle-min.png');
+  background-image: url('assets/icon_circle-min.png');
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -713,7 +713,7 @@
   top: 12px;
   width: 12px;
   height: 12px;
-  background-image: url('https://raw.githubusercontent.com/overbait/RLBK_ephrs/optimize-pdf-generation/assets/icon_point-min.png');
+  background-image: url('assets/icon_point-min.png');
   background-size: contain;
   background-repeat: no-repeat;
 }
