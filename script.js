@@ -227,7 +227,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // NEW IMAGES
   attachImageToCard('.slide:nth-child(3) .content-box:nth-child(4)', 2, 'icon_megaphone-min.png', getRandomRotation(), 13);
-  attachImageToCard('.slide:nth-child(10) .content-box:nth-child(2)', 2, 'icon_plus2-min.png', getRandomRotation(), 13);
+  attachImageToCard('#game-restarts-card', 2, 'icon_plus2-min.png', getRandomRotation(), 13);
 
   // COMMUNICATION
   attachImageToCard('.slide:nth-child(11) .content-box:nth-child(1)', 2, 'icon_clock-min.png', getRandomRotation(), 13);
