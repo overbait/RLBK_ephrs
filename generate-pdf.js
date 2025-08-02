@@ -28,51 +28,59 @@ async function generatePdf() {
         }, i);
         await new Promise(resolve => setTimeout(resolve, 1000));
 
-        console.log("Injecting temporary HTML links with robust logic...");
+        console.log("Injecting temporary HTML links with corrected append logic...");
         await page.evaluate((currentPage, totalPages) => {
-            const createLinkOverlay = (rect, targetPage) => {
-                if (!rect || targetPage < 1 || targetPage > totalPages) return;
+            const activeSlide = document.querySelector('.slide.active');
+            if (!activeSlide) return;
+
+            const createLinkOverlay = (element, targetPage) => {
+                if (!element || targetPage < 1 || targetPage > totalPages) return;
+
+                const rect = element.getBoundingClientRect();
+                if (rect.width === 0 || rect.height === 0) return;
 
                 const link = document.createElement('a');
                 link.href = `urn:pdf-page:${targetPage}`;
                 link.style.position = 'absolute';
-                link.style.left = `${rect.x}px`;
-                link.style.top = `${rect.y}px`;
+                // Position relative to the slide, not the viewport
+                link.style.left = `${rect.left}px`;
+                link.style.top = `${rect.top}px`;
                 link.style.width = `${rect.width}px`;
                 link.style.height = `${rect.height}px`;
                 link.style.zIndex = '100';
-                // Append to body to ensure it's on top of everything in a known context
-                document.body.appendChild(link);
+
+                // *** THE CRITICAL FIX IS HERE ***
+                // Append to the active slide, not the body.
+                activeSlide.appendChild(link);
             };
 
-            // 1. Table of Contents links (using getBoundingClientRect)
+            // 1. Table of Contents links
             if (currentPage === 2) {
                 document.querySelectorAll('.toc-list-item').forEach(item => {
                     const targetSlide = parseInt(item.getAttribute('data-slide-to'), 10);
                     if (!isNaN(targetSlide)) {
-                        createLinkOverlay(item.getBoundingClientRect(), targetSlide + 1);
+                        createLinkOverlay(item, targetSlide + 1);
                     }
                 });
             }
 
-            // 2. Page number links (using getBoundingClientRect)
+            // 2. Page number links
             document.querySelectorAll('.page-indicator').forEach(indicator => {
                 const targetPage = parseInt(indicator.textContent, 10);
                 if (!isNaN(targetPage)) {
-                    createLinkOverlay(indicator.getBoundingClientRect(), targetPage);
+                    createLinkOverlay(indicator, targetPage);
                 }
             });
 
-            // 3. Prev/Next Icon links (using fixed coordinates as a fallback)
-            // These coordinates are based on visual inspection of the layout.
-            const prevIconRect = { x: 530, y: 1700, width: 60, height: 60 };
-            const nextIconRect = { x: 670, y: 1700, width: 60, height: 60 };
-
-            if (currentPage > 1) {
-                createLinkOverlay(prevIconRect, currentPage - 1);
+            // 3. Prev/Next Icon links
+            const prevIcon = document.querySelector('.pagination .prev img');
+            if (prevIcon && currentPage > 1) {
+                createLinkOverlay(prevIcon, currentPage - 1);
             }
-            if (currentPage < totalPages) {
-                createLinkOverlay(nextIconRect, currentPage + 1);
+
+            const nextIcon = document.querySelector('.pagination .next img');
+            if (nextIcon && currentPage < totalPages) {
+                createLinkOverlay(nextIcon, currentPage + 1);
             }
 
         }, pageNum, slideCount);
