@@ -16,6 +16,7 @@
       min-height: 100vh;
       font-family: 'Roboto', sans-serif;
       color: #f5f0e6;
+      line-height: 1.6;
     }
     .slider-container {
       width: 1260px;
@@ -1000,6 +1001,10 @@
     .map-name {
       font-size: 1.25rem;
       color: var(--primary-color);
+    }
+    .map-placeholder {
+        opacity: 0.5;
+        background-color: rgba(0,0,0,0.3);
     }
     .schedule-title {
       font-family: 'Cinzel', serif;

@@ -234,6 +234,6 @@ document.addEventListener("DOMContentLoaded", () => {
   attachImageToCard('.slide:nth-child(11) .content-box:nth-child(2)', 3, 'icon_calendar-min.png', getRandomRotation(), 13);
 
   // CONTACTS & RESOURCES
-  attachImageToCard('.slide:nth-child(13) .content-box:nth-child(1)', 2, 'icon_dude-min.png', getRandomRotation(), 13);
+  // attachImageToCard('.slide:nth-child(13) .content-box:nth-child(1)', 2, 'icon_dude-min.png', getRandomRotation(), 13);
   attachImageToCard('#lobby-settings-card', 2, 'icon_calendar2-min.png', getRandomRotation(), 13);
 });
