@@ -4,38 +4,44 @@ const fs = require('fs').promises;
 const path = require('path');
 
 async function generatePdf() {
-    console.log("--- Starting PDF Generation ---");
+    console.log("--- Starting PDF Generation with Clean Slate Strategy ---");
     const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
-    const page = await browser.newPage();
-    await page.setViewport({ width: 1260, height: 1782 });
 
-    console.log("Navigating to index.html...");
-    await page.goto(`file://${__dirname}/index.html`, { waitUntil: 'networkidle0' });
+    // Read the base HTML and CSS content once
+    const htmlTemplate = await fs.readFile('index.html', 'utf-8');
+    const cssContent = await fs.readFile('style.css', 'utf-8');
 
-    const slideCount = await page.evaluate(() => document.querySelectorAll('.slide').length);
-    console.log(`Found ${slideCount} slides.`);
-
+    const slideCount = 13; // We know there are 13 slides
     const tempPdfPaths = [];
 
     for (let i = 0; i < slideCount; i++) {
         const pageNum = i + 1;
-        console.log(`Rendering slide ${pageNum}/${slideCount}...`);
+        console.log(`Processing slide ${pageNum}/${slideCount}...`);
 
-        await page.evaluate((index) => {
-            if (typeof window.showSlide === 'function') {
-                window.showSlide(index);
-            }
-        }, i);
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        const page = await browser.newPage();
+        await page.setViewport({ width: 1260, height: 1782 });
 
-        console.log("Injecting temporary HTML links with definitive logic...");
+        // Use setContent to load the base HTML
+        await page.setContent(htmlTemplate, { waitUntil: 'networkidle0' });
+
+        // Inject the page's own CSS, as setContent doesn't automatically load local stylesheets
+        await page.addStyleTag({ content: cssContent });
+
+        // Now, run the script to make a specific slide active and add links
         await page.evaluate((currentPage, totalPages) => {
+            // Activate the correct slide
+            document.querySelectorAll('.slide').forEach((slide, index) => {
+                slide.classList.remove('active');
+                if (index === currentPage - 1) {
+                    slide.classList.add('active');
+                }
+            });
+
             const activeSlide = document.querySelector('.slide.active');
             if (!activeSlide) return;
 
             const createLinkOverlay = (element, targetPage, rectOverride = null) => {
-                if (!element && !rectOverride) return;
-                if (targetPage < 1 || targetPage > totalPages) return;
+                if ((!element && !rectOverride) || targetPage < 1 || targetPage > totalPages) return;
 
                 const rect = rectOverride || element.getBoundingClientRect();
                 if (rect.width === 0 || rect.height === 0) return;
@@ -43,8 +49,8 @@ async function generatePdf() {
                 const link = document.createElement('a');
                 link.href = `urn:pdf-page:${targetPage}`;
                 link.style.position = 'absolute';
-                link.style.left = `${rect.x}px`;
-                link.style.top = `${rect.y}px`;
+                link.style.left = `${rect.left}px`;
+                link.style.top = `${rect.top}px`;
                 link.style.width = `${rect.width}px`;
                 link.style.height = `${rect.height}px`;
                 link.style.zIndex = '100';
@@ -52,41 +58,37 @@ async function generatePdf() {
                 activeSlide.appendChild(link);
             };
 
-            // 1. Table of Contents links
+            // 1. TOC links
             if (currentPage === 2) {
-                document.querySelectorAll('.toc-list-item').forEach(item => {
+                activeSlide.querySelectorAll('.toc-list-item').forEach(item => {
                     const targetSlide = parseInt(item.getAttribute('data-slide-to'), 10);
-                    if (!isNaN(targetSlide)) {
-                        createLinkOverlay(item, targetSlide + 1);
-                    }
+                    if (!isNaN(targetSlide)) createLinkOverlay(item, targetSlide + 1);
                 });
             }
 
             // 2. Page number links
-            document.querySelectorAll('.page-indicator').forEach(indicator => {
+            activeSlide.querySelectorAll('.page-indicator').forEach(indicator => {
                 const targetPage = parseInt(indicator.textContent, 10);
-                if (!isNaN(targetPage)) {
-                    createLinkOverlay(indicator, targetPage);
-                }
+                if (!isNaN(targetPage)) createLinkOverlay(indicator, targetPage);
             });
 
-            // 3. Prev/Next Icon links - using fixed coordinates appended to the active slide
-            const prevIconRect = { x: 530, y: 1700, width: 60, height: 60 };
-            const nextIconRect = { x: 670, y: 1700, width: 60, height: 60 };
+            // 3. Prev/Next Icon links
+            const prevIcon = activeSlide.querySelector('.pagination .prev img');
+            if (prevIcon && currentPage > 1) createLinkOverlay(prevIcon, currentPage - 1);
 
-            if (currentPage > 1) {
-                createLinkOverlay(null, currentPage - 1, prevIconRect);
-            }
-            if (currentPage < totalPages) {
-                createLinkOverlay(null, currentPage + 1, nextIconRect);
-            }
+            const nextIcon = activeSlide.querySelector('.pagination .next img');
+            if (nextIcon && currentPage < totalPages) createLinkOverlay(nextIcon, currentPage + 1);
 
         }, pageNum, slideCount);
+
+        // Wait for any final rendering
+        await new Promise(resolve => setTimeout(resolve, 500));
 
         const tempPdfPath = path.join(__dirname, `temp-page-${pageNum}.pdf`);
         await page.pdf({ path: tempPdfPath, width: '1260px', height: '1782px', printBackground: true });
         tempPdfPaths.push(tempPdfPath);
         console.log(`Generated ${tempPdfPath}`);
+        await page.close(); // Close the page to free memory
     }
     await browser.close();
 
