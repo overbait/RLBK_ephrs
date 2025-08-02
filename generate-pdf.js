@@ -4,32 +4,37 @@ const fs = require('fs').promises;
 const path = require('path');
 
 async function generatePdf() {
-    console.log("--- Starting PDF Generation with Correct Page Loading Strategy ---");
+    console.log("--- Starting PDF Generation with Simple and Robust Strategy ---");
     const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
+    const page = await browser.newPage();
+    await page.setViewport({ width: 1260, height: 1782 });
 
-    const slideCount = 13;
+    console.log("Navigating to index.html...");
+    // Load the page once
+    await page.goto(`file://${__dirname}/index.html`, { waitUntil: 'networkidle0' });
+
+    const slideCount = await page.evaluate(() => document.querySelectorAll('.slide').length);
+    console.log(`Found ${slideCount} slides.`);
+
     const tempPdfPaths = [];
 
     for (let i = 0; i < slideCount; i++) {
         const pageNum = i + 1;
         console.log(`Processing slide ${pageNum}/${slideCount}...`);
 
-        // Create a new, clean page for each slide
-        const page = await browser.newPage();
-        await page.setViewport({ width: 1260, height: 1782 });
-
-        // Use goto() to ensure the page's own scripts (like script.js) are executed
-        await page.goto(`file://${__dirname}/index.html`, { waitUntil: 'networkidle0' });
-
-        // Now that the page is loaded and its scripts have run,
-        // we can manipulate it to show the correct slide and add our links.
-        await page.evaluate((currentPage, totalPages) => {
-            // 1. Show the correct slide
+        // Show the correct slide using the page's own function
+        await page.evaluate((index) => {
             if (typeof window.showSlide === 'function') {
-                window.showSlide(currentPage - 1);
+                window.showSlide(index);
             }
+        }, i);
 
-            // 2. Create Link Overlays
+        // *** THE CRITICAL FIX IS HERE ***
+        // Wait for a significant time to ensure the page's JS (updatePagination) has finished.
+        await new Promise(resolve => setTimeout(resolve, 2000));
+
+        // Inject links
+        await page.evaluate((currentPage, totalPages) => {
             const activeSlide = document.querySelector('.slide.active');
             if (!activeSlide) return;
 
@@ -51,7 +56,6 @@ async function generatePdf() {
                 activeSlide.appendChild(link);
             };
 
-            // Link TOC
             if (currentPage === 2) {
                 activeSlide.querySelectorAll('.toc-list-item').forEach(item => {
                     const targetSlide = parseInt(item.getAttribute('data-slide-to'), 10);
@@ -59,13 +63,11 @@ async function generatePdf() {
                 });
             }
 
-            // Link page numbers
             activeSlide.querySelectorAll('.page-indicator').forEach(indicator => {
                 const targetPage = parseInt(indicator.textContent, 10);
                 if (!isNaN(targetPage)) createLinkOverlay(indicator, targetPage);
             });
 
-            // Link Prev/Next Icons
             const prevIcon = activeSlide.querySelector('.pagination .prev img');
             if (prevIcon && currentPage > 1) createLinkOverlay(prevIcon, currentPage - 1);
 
@@ -74,13 +76,10 @@ async function generatePdf() {
 
         }, pageNum, slideCount);
 
-        await new Promise(resolve => setTimeout(resolve, 500));
-
         const tempPdfPath = path.join(__dirname, `temp-page-${pageNum}.pdf`);
         await page.pdf({ path: tempPdfPath, width: '1260px', height: '1782px', printBackground: true });
         tempPdfPaths.push(tempPdfPath);
         console.log(`Generated ${tempPdfPath}`);
-        await page.close();
     }
     await browser.close();
 
