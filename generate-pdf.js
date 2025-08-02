@@ -2,6 +2,7 @@ const puppeteer = require('puppeteer');
 const { PDFDocument } = require('pdf-lib');
 const fs = require('fs').promises;
 const path = require('path');
+const { exec } = require('child_process');
 
 async function generatePdf() {
     console.log("--- Starting PDF Generation with Simple and Robust Strategy ---");
@@ -77,7 +78,12 @@ async function generatePdf() {
         }, pageNum, slideCount);
 
         const tempPdfPath = path.join(__dirname, `temp-page-${pageNum}.pdf`);
-        await page.pdf({ path: tempPdfPath, width: '1260px', height: '1782px', printBackground: true });
+        await page.pdf({
+            path: tempPdfPath,
+            width: '1260px',
+            height: '1782px',
+            printBackground: true,
+        });
         tempPdfPaths.push(tempPdfPath);
         console.log(`Generated ${tempPdfPath}`);
     }
@@ -121,15 +127,36 @@ async function generatePdf() {
         }
     }
 
-    const finalPdfBytes = await finalPdfDoc.save();
+    const finalPdfBytes = await finalPdfDoc.save({ useObjectStreams: false });
     await fs.writeFile('handbook.pdf', finalPdfBytes);
     console.log("Final PDF 'handbook.pdf' created successfully.");
+
+    await optimizeWithGhostscript('handbook.pdf', 'handbook-optimized.pdf');
 
     console.log("--- Cleaning Up Temporary Files ---");
     for (const tempPdfPath of tempPdfPaths) {
         await fs.unlink(tempPdfPath);
     }
     console.log("Cleanup complete.");
+}
+
+function optimizeWithGhostscript(inputPath, outputPath) {
+    return new Promise((resolve, reject) => {
+        const command = `
+            gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook \
+            -dNOPAUSE -dQUIET -dBATCH -sOutputFile=${outputPath} ${inputPath}
+        `;
+        exec(command, (error, stdout, stderr) => {
+            if (error) {
+                console.warn("Ghostscript optimization failed. Make sure Ghostscript is installed and in your PATH.", stderr);
+                // If Ghostscript fails, we still have the unoptimized PDF, so we can resolve.
+                resolve();
+            } else {
+                console.log("Ghostscript optimization successful.");
+                fs.rename(outputPath, inputPath).then(resolve).catch(reject);
+            }
+        });
+    });
 }
 
 generatePdf().catch(error => {
