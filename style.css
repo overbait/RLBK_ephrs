@@ -813,6 +813,7 @@
     .toc-list-item.sub-item {
       padding-left: 3rem;
       font-size: 1.5rem;
+      margin-bottom: 0.5rem;
     }
     .toc-list-number {
       color: var(--primary-color);
