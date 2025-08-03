@@ -57,20 +57,11 @@ async function generatePdf() {
                 activeSlide.appendChild(link);
             };
 
-            activeSlide.querySelectorAll('.toc-list-item').forEach(item => {
-                const targetSlide = parseInt(item.getAttribute('data-slide-to'), 10);
-                if (!isNaN(targetSlide)) createLinkOverlay(item, targetSlide + 1);
-            });
-
-            // Specific fix for the GSL button on slide 5, just in case.
-            if (currentPage === 5) {
-                const gslButton = activeSlide.querySelector('.btn-gsl');
-                if (gslButton) {
-                    const targetSlide = parseInt(gslButton.getAttribute('data-slide-to'), 10);
-                    if (!isNaN(targetSlide)) {
-                        createLinkOverlay(gslButton, targetSlide + 1);
-                    }
-                }
+            if (currentPage === 2) {
+                activeSlide.querySelectorAll('.toc-list-item').forEach(item => {
+                    const targetSlide = parseInt(item.getAttribute('data-slide-to'), 10);
+                    if (!isNaN(targetSlide)) createLinkOverlay(item, targetSlide + 1);
+                });
             }
 
             activeSlide.querySelectorAll('.page-indicator').forEach(indicator => {

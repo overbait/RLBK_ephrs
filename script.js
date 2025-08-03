@@ -192,20 +192,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  function showSlide(n) {
-    slides.forEach(slide => {
-      slide.classList.remove('active');
-      slide.style.display = 'none';
-    });
-    slides[n].style.display = "block";
-    // A small delay to allow the display property to be set before adding the active class for the transition
-    setTimeout(() => {
-      slides[n].classList.add('active');
-    }, 20);
-    currentSlide = n;
-    updatePagination();
-  }
-
   slides.forEach((slide, index) => {
     const randomBg = backgrounds[Math.floor(Math.random() * backgrounds.length)];
     const bgElement = slide.querySelector('.background');
