@@ -57,12 +57,10 @@ async function generatePdf() {
                 activeSlide.appendChild(link);
             };
 
-            if (currentPage === 2) {
-                activeSlide.querySelectorAll('.toc-list-item').forEach(item => {
-                    const targetSlide = parseInt(item.getAttribute('data-slide-to'), 10);
-                    if (!isNaN(targetSlide)) createLinkOverlay(item, targetSlide + 1);
-                });
-            }
+            activeSlide.querySelectorAll('.toc-list-item').forEach(item => {
+                const targetSlide = parseInt(item.getAttribute('data-slide-to'), 10);
+                if (!isNaN(targetSlide)) createLinkOverlay(item, targetSlide + 1);
+            });
 
             activeSlide.querySelectorAll('.page-indicator').forEach(indicator => {
                 const targetPage = parseInt(indicator.textContent, 10);
