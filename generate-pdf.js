@@ -140,10 +140,7 @@ async function generatePdf() {
 
 function optimizeWithGhostscript(inputPath, outputPath) {
     return new Promise((resolve) => {
-        const command = `
-            gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook \
-            -dNOPAUSE -dQUIET -dBATCH -sOutputFile=${outputPath} ${inputPath}
-        `;
+        const command = `gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=${outputPath} ${inputPath}`;
         exec(command, (error, stdout, stderr) => {
             if (error) {
                 console.warn("Ghostscript optimization failed. Using unoptimized PDF. Make sure Ghostscript is installed and in your PATH.", stderr);
@@ -153,12 +150,12 @@ function optimizeWithGhostscript(inputPath, outputPath) {
 
             fs.access(outputPath)
                 .then(() => {
-                    console.log("Ghostscript optimization successful.");
-                    return fs.rename(outputPath, inputPath);
+                    console.log(`Ghostscript optimization successful. Optimized file saved as ${outputPath}`);
+                    // The optimized file is kept, no rename.
+                    resolve();
                 })
-                .then(resolve)
                 .catch(err => {
-                    console.warn(`Ghostscript ran but the output file '${outputPath}' was not found or could not be renamed. Using unoptimized PDF.`, err);
+                    console.warn(`Ghostscript ran but the output file '${outputPath}' was not found. Using unoptimized PDF.`, err);
                     resolve();
                 });
         });
