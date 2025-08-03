@@ -164,9 +164,14 @@
       opacity: 0.5;
       z-index: 0;
     }
-    #bad-manners-card .hook-image {
+    .hook-image-top-right {
+      position: absolute;
       top: -20px;
       right: -20px;
+      width: 80px;
+      height: 80px;
+      opacity: 0.5;
+      z-index: 0;
     }
     .card-bg-container {
       position: absolute;
