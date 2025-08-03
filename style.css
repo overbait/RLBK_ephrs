@@ -937,7 +937,7 @@
     }
     .schedule-timeline {
       position: relative;
-      margin: 20px 0;
+      margin: 10px 0;
     }
     .schedule-timeline::before {
       content: '';
@@ -993,7 +993,7 @@
       border-radius: 6px;
 }
 .format-bracket-image {
-  width: 66.67%;
+  width: 55%;
   border-radius: 6px;
   margin-top: 20px;
   display: block;
@@ -1001,7 +1001,7 @@
   margin-right: auto;
 }
 .format-bracket-image-gsl {
-  width: 50%;
+  width: 40%;
   border-radius: 6px;
   margin-top: 20px;
   display: block;
@@ -1009,7 +1009,7 @@
   margin-right: auto;
 }
 .format-bracket-image-playoffs {
-  width: 60%;
+  width: 50%;
   border-radius: 6px;
   margin-top: 20px;
   display: block;
