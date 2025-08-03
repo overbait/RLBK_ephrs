@@ -832,6 +832,7 @@
     .toc-list-page {
       color: var(--primary-color);
       flex-shrink: 0;
+      font-size: 1.75rem;
     }
     .page-number {
       font-family: 'South Park', sans-serif;
