@@ -999,7 +999,7 @@
       border-radius: 6px;
 }
 .format-bracket-image {
-  width: 80%;
+  width: 90%;
   border-radius: 6px;
   margin-top: 20px;
   display: block;
@@ -1015,7 +1015,7 @@
   margin-right: auto;
 }
 .format-bracket-image-playoffs {
-  width: 60%;
+  width: 70%;
   border-radius: 6px;
   margin-top: 20px;
   display: block;
@@ -1024,7 +1024,8 @@
 }
 .gsl-explainer {
     margin-top: 1rem;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
+    text-align: right;
 }
 .important-notice {
   background-color: rgba(224, 102, 54, 0.2); /* A semi-transparent accent color */
