@@ -14,15 +14,7 @@ async function generatePdf() {
     // Load the page once
     await page.goto(`file://${__dirname}/index.html`, { waitUntil: 'networkidle0' });
 
-    const slideCount = await page.evaluate(() => {
-        const slides = document.querySelectorAll('.slide');
-        console.log('--- Found Slides ---');
-        slides.forEach((slide, i) => {
-            console.log(`Slide ${i}: ${slide.outerHTML.substring(0, 100)}...`);
-        });
-        console.log('--- End Found Slides ---');
-        return slides.length;
-    });
+    const slideCount = await page.evaluate(() => document.querySelectorAll('.slide').length);
     console.log(`Found ${slideCount} slides.`);
 
     const tempPdfPaths = [];
