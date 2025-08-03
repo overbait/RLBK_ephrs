@@ -319,6 +319,9 @@
       font-weight: 700;
       color: var(--primary-color);
     }
+    .game-rules-slide .provision-item {
+        font-size: 1.75rem !important;
+    }
     .collage-container {
         position: relative;
         width: 100%;
