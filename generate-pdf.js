@@ -62,6 +62,17 @@ async function generatePdf() {
                 if (!isNaN(targetSlide)) createLinkOverlay(item, targetSlide + 1);
             });
 
+            // Specific fix for the GSL button on slide 5, just in case.
+            if (currentPage === 5) {
+                const gslButton = activeSlide.querySelector('.btn-gsl');
+                if (gslButton) {
+                    const targetSlide = parseInt(gslButton.getAttribute('data-slide-to'), 10);
+                    if (!isNaN(targetSlide)) {
+                        createLinkOverlay(gslButton, targetSlide + 1);
+                    }
+                }
+            }
+
             activeSlide.querySelectorAll('.page-indicator').forEach(indicator => {
                 const targetPage = parseInt(indicator.textContent, 10);
                 if (!isNaN(targetPage)) createLinkOverlay(indicator, targetPage);
