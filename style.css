@@ -80,6 +80,9 @@
       background-size: contain;
       background-repeat: no-repeat;
     }
+    .slide:nth-child(2) .sub-item:before {
+        background-image: none;
+    }
     .absolute.top-10.right-10 {
         z-index: 10;
     }
