@@ -223,8 +223,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const getRandomRotation = () => Math.random() * 30 - 15;
 
   // FAIR PLAY & MISCONDUCT
-  attachImageToCard('.slide:nth-child(10) .content-box:nth-child(1)', 2, 'icon_sword2-min.png', getRandomRotation(), 13);
-  attachImageToCard('.slide:nth-child(10) .content-box:nth-child(2)', 3, 'icon_plus-min.png', getRandomRotation(), 13);
+  attachImageToCard('.slide:nth-child(11) .content-box:nth-child(1)', 2, 'icon_sword2-min.png', getRandomRotation(), 13);
+  attachImageToCard('.slide:nth-child(11) .content-box:nth-child(2)', 3, 'icon_plus-min.png', getRandomRotation(), 13);
 
   // NEW IMAGES
   attachImageToCard('.slide:nth-child(3) .content-box:nth-child(4)', 2, 'icon_megaphone-min.png', getRandomRotation(), 13);
@@ -234,8 +234,8 @@ document.addEventListener("DOMContentLoaded", () => {
   attachImageToCard('#content-creating-slide .content-box', 2, 'icon_camera.png', getRandomRotation(), 13);
 
   // COMMUNICATION
-  attachImageToCard('.slide:nth-child(11) .content-box:nth-child(1)', 2, 'icon_clock-min.png', getRandomRotation(), 13);
-  attachImageToCard('.slide:nth-child(11) .content-box:nth-child(2)', 3, 'icon_calendar-min.png', getRandomRotation(), 13);
+  attachImageToCard('.slide:nth-child(12) .content-box:nth-child(1)', 2, 'icon_clock-min.png', getRandomRotation(), 13);
+  attachImageToCard('.slide:nth-child(12) .content-box:nth-child(2)', 3, 'icon_calendar-min.png', getRandomRotation(), 13);
 
   // CONTACTS & RESOURCES
   // attachImageToCard('.slide:nth-child(13) .content-box:nth-child(1)', 2, 'icon_dude-min.png', getRandomRotation(), 13);

@@ -176,7 +176,7 @@
       margin-bottom: 6px;
       line-height: 1.4;
     }
-    .provision-item:before, .schedule-item:before, .format-item:before, .rule-item:before, .resource-item:before {
+    .provision-item:before, .schedule-item:before, .format-item:before, .rule-item:before, .resource-item:before, .toc-list-item:before {
       content: '';
       position: absolute;
       left: 0;
@@ -186,6 +186,9 @@
       background-image: url('assets/icon_point-min.png');
       background-size: contain;
       background-repeat: no-repeat;
+    }
+    .toc-list-item:before {
+        content: none;
     }
     .sub-item, .admin-item, .mod-item, .step-item, .schedule-detail, .contact-item, .exploit-item {
       position: relative;
@@ -809,7 +812,7 @@
     }
     .toc-list-dots {
       flex-grow: 1;
-      border-bottom: none;
+      border-bottom: 2px dotted rgba(255, 210, 125, 0.5);
       margin: 0 0.5rem;
       transform: translateY(-4px);
       transition: border-color 0.2s;
@@ -996,7 +999,7 @@
       border-radius: 6px;
 }
 .format-bracket-image {
-  width: 70%;
+  width: 80%;
   border-radius: 6px;
   margin-top: 20px;
   display: block;
@@ -1004,7 +1007,7 @@
   margin-right: auto;
 }
 .format-bracket-image-gsl {
-  width: 55%;
+  width: 65%;
   border-radius: 6px;
   margin-top: 20px;
   display: block;
@@ -1012,12 +1015,16 @@
   margin-right: auto;
 }
 .format-bracket-image-playoffs {
-  width: 50%;
+  width: 60%;
   border-radius: 6px;
   margin-top: 20px;
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+.gsl-explainer {
+    margin-top: 1rem;
+    font-size: 1.25rem;
 }
 .important-notice {
   background-color: rgba(224, 102, 54, 0.2); /* A semi-transparent accent color */
