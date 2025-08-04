@@ -1096,8 +1096,9 @@
 }
 
 .mod-image-unified {
-  width: 251px;
-  height: auto;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
   border-radius: 6px;
   margin-bottom: 0.5rem;
   border: 2px solid rgba(255, 210, 125, 0.5);
@@ -1111,4 +1112,9 @@
 .mod-caption {
   font-size: 1.4rem;
   margin-top: 15px;
+}
+
+.px-5 {
+  padding-left: 5px;
+  padding-right: 5px;
 }
