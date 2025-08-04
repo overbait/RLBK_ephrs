@@ -1088,3 +1088,9 @@
       font-weight: 700;
       color: var(--primary-color);
     }
+.mod-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 0.375rem;
+}
