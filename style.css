@@ -1096,16 +1096,11 @@
 }
 
 .map-name {
-  font-size: 1.1rem !important;
-  margin-top: 5px !important;
+  font-size: 1.1rem;
+  margin-top: 5px;
 }
 
 .mod-caption {
-  font-size: 1.1rem;
-  margin-top: 5px;
-}
-
-.game-rules-slide .map-name {
-  font-size: 1.1rem;
-  margin-top: 5px;
+  font-size: 1.4rem;
+  margin-top: 15px;
 }
