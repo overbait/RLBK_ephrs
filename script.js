@@ -235,7 +235,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // COMMUNICATION
   attachImageToCard('.slide:nth-child(12) .content-box:nth-child(1)', 2, 'icon_clock-min.png', getRandomRotation(), 13);
-  attachImageToCard('.slide:nth-child(12) .content-box:nth-child(3)', 3, 'icon_calendar-min.png', getRandomRotation(), 13);
 
   // CONTACTS & RESOURCES
   // attachImageToCard('.slide:nth-child(13) .content-box:nth-child(1)', 2, 'icon_dude-min.png', getRandomRotation(), 13);
