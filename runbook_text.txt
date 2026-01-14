@@ -1,0 +1,273 @@
+- - Страница 1 EPOHERS WORLD CUP
+- Age of Empires IV Tournament
+- August 30 - September 14, 2025
+
+- - Страница 2 TABLE OF CONTENTS
+- 1 General Provisions — 3
+- 2 Brackets & Schedule — 4
+- 2.1 Schedule — 4
+- 2.2 Tournament brackets — 4
+- 3 Tournament Format — 5
+- 3.1 General information — 5
+- 3.2 Qualifiers — 5
+- 3.3 Group Stage — 5
+- 3.4 Playoffs — 5
+- 4 Registration & Seeding — 6
+- 4.1 Registration — 6
+- 4.2 Seeding — 6
+- 5 Maps & Civilizations Rules — 7
+- 5.1 Common info — 7
+- 5.2 Maps — 7
+- 5.3 Civilizations — 7
+- 6 Server & Lobby Configuration — 8
+- 6.1 Server rules — 8
+- 6.2 Lobby settings — 8
+- 7 Game Rules — 9
+- 7.1 In-game rules — 9
+- 7.2 Game restarts — 9
+- 7.3 Game mods — 9
+- 8 Game Exploits & Fair Play — 10
+- 9 Communication & Technical — 11
+- 9.1 Coordination — 11
+- 9.2 Communication — 11
+- 9.3 Technical Details — 11
+- 10 Prize Pool & Payouts — 12
+- 11 Other Rules — 13
+
+- - Страница 3 1. General Provisions
+- 1.1 About the Tournament
+- Epohers World Cup is an esports entertainment event – an Age of Empires IV tournament hosted by the Epohers team.
+- 1.2 Organizer Team
+- The tournament organiser is the Epohers team.
+- Tournament admins:
+- Tosic (Discord: @tosic_graf)
+- Shtoprrrr (Discord: @shtoprrrr)
+- 1.3 Communication
+- All tournament communication takes place on the Epohers Discord server: https://discord.gg/WWt2VUncCJ (https://discord.gg/WWt2VUncCJ).
+- 1.4 Rules and Regulations
+- The organisers reserve the right to amend the rules at any time; significant changes will be announced publicly.
+- Any issues not covered by these rules will be decided exclusively by the organisers.
+- All participants must abide by these regulations.
+
+- - Страница 4 2. Brackets & Schedule
+- 2.1 Detailed Schedule
+- Qualifications:
+- First Qualification – August 30
+- Second Qualification – August 31
+- Group Stage: September 6 – 7
+- September 6: Full 1st round, 2nd round winners match
+- September 7: 2nd round loser match, 3rd round
+- Playoffs: September 13 – 14
+- September 13: Quarterfinals and semifinals
+- September 14: 3rd place match and grand final
+- Each tournament game day starts at 15:00 GMT
+- August 30-31
+- Qualifications
+- Two days of intense qualifiers to determine who moves on.
+- September 6-7
+- Group Stage
+- The top players battle it out in a GSL-style group stage.
+- September 13-14
+- Playoffs
+- The final weekend of the tournament, culminating in the Grand Final.
+- 2.2 Tournament Brackets
+- Qualifications – Link (https://docs.google.com/spreadsheets/d/15NbnUrzQlXH52Zu-0GF7Rhsi1YPiMO-o-S8BdPPYiWAv/edit?gid=0)
+- Main Stage – Link (https://docs.google.com/spreadsheets/d/1Prwscw5IbfP0Kg35zs18jchq7yCkiQiwvAZKbDjBicw/edit?gid=0)
+
+- - Страница 5 3. TOURNAMENT FORMAT
+- 3.1 General Information
+- Tournament in single format - 1v1.
+- The tournament consists of 3 stages: qualifiers, group stage and playoffs.
+- 3.2 Qualifiers
+- Single-elimination 48-6 bracket. Top 48 players by seeding can participate.
+- 2 qualifiers, 6 players advance from each (12 total). 4 players are invited directly.
+- All matches are Best-of-3
+- 3.3 Group Stage
+- Sixteen players are seeded into four groups of four.
+- Top two from each group advance (GSL format).
+- All matches are Best-of-5
+- 3.4 Playoffs
+- Single-elimination bracket for eight players with a 3rd-place match.
+- Quarters/3rd Place: Best-of-5
+- Semis/Grand Final: Best-of-7
+
+- - Страница 6 4. REGISTRATION & SEEDING
+- 4.1 Registration Procedure
+- Complete the registration form link (#)
+- Join the Discord server (https://discord.gg/WWt2VUncCJ)
+- Ensure your name appears on the tournament registration list (#).
+- Registration closes on August 29 at 20:00 GMT.
+- 4.2 Seeding System
+- The tournament uses 2 types of seeding: external and internal. External uses for starting seed in qualifiers, Internal uses only within the tournament.
+- External Seeding
+- External seeding using only for qualifier bracket seed.
+- External seeding based on Tournament ELO. For players who don’t have it, the ranked ELO 1x1 is used.
+- Additional feature for seeding is the order of registration.
+- Internal Seeding
+- Internal seeding determines a player's fixed position within a group, regardless of their external seed.
+- Invited Players: The 4 invited players receive the 1st seed in each of the four groups (Groups A–D), ranked according to their EGC Masters Points (i.e., the highest-ranked player goes to Group A, the next to Group B, and so on through Group D).
+- Qualified Players: Players who qualify are seeded into groups using a reverse seeding principle (1st qualifier seed to 2nd group places D -> A etc.).
+- Playoffs seeding based on group stage results:
+- 1A vs 2C
+- 1D vs 2B
+- 1B vs 2D
+- 1C vs 2A
+
+- - Страница 7 5. MAPS & CIVILIZATIONS RULES
+- 5.1 Global drafts rules
+- 5.1.1. Players must draft maps before the civilizations.
+- 5.1.2. The higher-seeded player can choose to be the host or guest for the draft.
+- 5.2 Map Rules
+- Map Draft Rules:
+- Players must draft maps according to the draft links provided below.
+- The last map drawn is always the first map played.
+- After the first game, the loser of the previous game chooses the next map from the remaining maps in the draft.
+- A player is allowed to pick a map from the opposing player's drafted maps.
+- Maps cannot be repeated during the series.
+- Map Pool:
+- Dry Arabia
+- Cliffside
+- EGC – Gorge
+- EGC – Holy Island
+- EGC – Archipelago
+- Baldland
+- Hill and Dale
+- Map Draft Presets:
+- BO3 (#)
+- BO5 (#)
+- BO7 (#)
+- 5.3 Civilizations
+- Players must draft civs according to the draft links provided below.
+- 5.3.1 Civilization draft presets:
+- Game (#)
+- BO3 (#)
+- BO5 (#)
+- BO7 (#)
+
+- - Страница 8 6. SERVER & LOBBY CONFIGURATION
+- 6.1 Server Rules
+- 6.1.1 Each player must have a stable internet connection, no other party can be responsible for the quality of a player’s internet connection.
+- 6.1.2 Players must find an agreement on which server to play on before the lobby is hosted.
+- 6.1.3 If the players can’t find an agreement on which server to play on, there 2 options:
+- Players flip a coin to determine which server they will play on the first game. After that, they rotate between servers.
+- Tournament admin will automatically select a server that seems geographically fair of both players, regardless of latency.
+- Predefined server list:
+- Australia vs Brazil: Europe
+- Australia/Asia/Korea vs Europe/UK: US (W)
+- Australia vs India: Asia
+- Australia vs US(W): Korea
+- Australia vs US(E): Europe
+- Australia/India vs Korea: Asia
+- Asia/India/Korea vs Brazil/US(W)/US(E): Europe
+- Brazil vs Europe/UK: US (E)
+- Brazil/Europe/UK vs US (W): US (E)
+- Europe vs US (E): UK
+- 6.2 Lobby settings
+- Any lobby not following these settings must be restarted.
+- 6.2.2 The higher seeded player can choose to be or not the host of lobby.
+- Observers: 5-min delay
+- Game mod: Standard
+- Win conditions: Landmarks/Sacred/Wonders
+- Tuning pack: None
+- Pause: Allowed
+- Display Player Scores: None
+- Resources: Standard
+- Starting age: Age I
+- Map state: Concealed
+- Map size: Micro (2 players)
+- Public game
+- Biome: European temperate
+- 6.3 Player colors
+- Players must use assigned colors consistently throughout the event.
+- If incorrect colors are selected, the game must be restarted.
+- The higher-seeded player has the right to pick their color first.
+- The color matchups must follow one of the approved schemes below:
+- V1
+- Player 1
+- VS
+- Player 2
+- V2
+- Player 1
+- VS
+- Player 2
+
+- - Страница 9 7. GAME RULES
+- 7.1 In-game rules
+- Players may not construct stone walls before reaching the Castle Age (Age III).
+- 7.2 Game restarts
+- A game may be restarted at any time by mutual agreement of the players, but only once per map.
+- A game may be restarted once per map if a player experiences a technical issue within the first two minutes (a screenshot must be sent to the tournament admin and opponent).
+- In all other cases, the decision to restart the game is made exclusively by tournament administrators (1.3).
+- 7.3 Game mods
+- All participants must download, install and check the functionality the following mods:
+- EGC – Gorge
+- Baldland
+- EGC – Holy Island
+- EGC – Archipelago
+
+- - Страница 10 8. GAME EXPLOITS & FAIR PLAY
+- 8.1 Cheating and exploits
+- 8.1.1. Cheating or hacking is not allowed. The use of  any external software to achieve victory or gain an advantage in the game is prohibited.
+- 8.1.2 The use of any bugs, glitches, exploits, and other unauthorized methods to achieve victory or gain an advantage in the game is prohibited.
+- 8.1.3 List of known exploits:
+- Using an unfinished building with zero villager build time to tether sheep.
+- Intentionally denying fish by placing building foundations on top of them.
+- Intentionally cancelling buildings with Jeanne d’Arc in order to gain more experience.
+- It is forbidden to unpack and repack the Khaganate Palace in order to reset unit production.
+- 8.2 Bad manners & Fair play
+- 8.2.1 All players must be respectful to tournament participants, organizers, casters, spectators and any other people involved in the event.
+- 8.2.2 Impersonating another person or misleading the organizers and other tournament participants by changing nicknames, accounts, etc., is prohibited.
+- 8.2.3 Using external assistance during tournament matches, such as verbal (hints, coaching) or physical (transferring control, including remote access), is prohibited.
+
+- - Страница 11 9. Communication & Technical
+- 9.1 Coordination
+- All players must be on the Epohers Discord Server.
+- Check all platforms regularly for updates.
+- 9.2 Communication
+- All tournament communication happens on the official "Epohers World Cup" Discord server.
+- Submit results and drafts in designated channels:
+- #quals-results for qualifiers
+- #main-results for the main stage
+- Example:
+- Tosic 1-3 Shtpoprrr
+- https://aoe2cm.net/draft/iGvtE (https://aoe2cm.net/draft/iGvtE)
+- https://aoe2cm.net/draft/ifjsdk (https://aoe2cm.net/draft/ifjsdk)
+- https://aoe2cm.net/draft/ovxc9 (https://aoe2cm.net/draft/ovxc9)
+- https://aoe2cm.net/draft/iuydas (https://aoe2cm.net/draft/iuydas)
+- https://aoe2cm.net/draft/Odigm (https://aoe2cm.net/draft/Odigm)
+- https://aoe2cm.net/draft/6zaPP (https://aoe2cm.net/draft/6zaPP)
+- All important tournament announcements are in #ep-world-cup-news.
+- Tournament discussion channels: #ep-world-cup-chat (open) and #players-only (only for participants).
+- 9.2.1 For any questions may contact the tournament admins personally
+- 9.3 Technical Details
+- Technical issues are handled by admins; report with screenshots.
+- Be available during scheduled match times.
+- Check-in is 15 mins prior.
+- In case of emergencies, contact admins on Discord immediately.
+
+- - Страница 12 10. PRIZE POOL & PAYOUTS
+- 10.1 Prize Pool: $3,000
+- 1st place: $1,000
+- 2nd place: $500
+- 3rd place: $300
+- 4th place: $200
+- 5th–8th places: $150 each
+- 9th–12th places: $75 each
+- 13th–16th places: $25 each
+- 10.2 Payouts
+- 10.2.1 The tournament admin will contact the winning players after the end of the tournament to payout their winnings.
+- 10.2.2 There are 2 available methods to claim winnings:
+- PayPal - funds are transferred to the PayPal wallet;
+- MirPay - funds are transferred to bank or service account which working with MirPay system.
+- Prize payouts are not guaranteed through any other channels.
+- 10.2.3 All commission costs are paid by the recipient.
+
+- - Страница 13 11. OTHER RULES
+- 11.2 Content creating
+- 11.2.1 The event is open casting, anyone may use tournament games to make media content.
+- 11.2.2 Players wishing to cast their POV must set delay according to lobby settings.
+- 11.2.3 Casters wishing to cast the event must:
+- display the Epohers World Cup logo,
+- include “Epohers World Cup” in the stream title.
+- 11.2.4 Free to use tournament assets - https://drive.google.com/drive/folders/1tx0dXjd95qNlSjHHehrcJvh3mDKQl4S_?usp=sharing (https://drive.google.com/drive/folders/1tx0dXjd95qNlSjHHehrcJvh3mDKQl4S_?usp=sharing).
+- 11.2.5 Organizers have the right to involve players to creating media content (photo, video, interview, etc.).
