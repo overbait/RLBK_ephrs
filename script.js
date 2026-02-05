@@ -102,10 +102,20 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const colors = [
-    ['#C9CBA3', '#FFE1A8'],
-    ['#E26D5C', '#723D46'],
-    ['#472D30', '#E26D5C'],
-    ['#FFE1A8', '#E26D5C']
+    ['#4fd3ff', '#0b1f3f'],
+    ['#5fd1ff', '#0a2238'],
+    ['#6a93ff', '#0d1a3d'],
+    ['#8e7dff', '#130f30'],
+    ['#b57bff', '#1b0f2c'],
+    ['#ff7fd1', '#2a0f24'],
+    ['#ff9bb4', '#2a1218'],
+    ['#ffb57a', '#2a1a10'],
+    ['#ffd45f', '#2a220e'],
+    ['#b6f768', '#1a2a12'],
+    ['#7fea7f', '#102a18'],
+    ['#62e3b0', '#0a2a24'],
+    ['#5fd6ff', '#0a2636'],
+    ['#7ad8c8', '#0a2831']
   ];
 
   document.querySelectorAll('.content-box').forEach(card => {
