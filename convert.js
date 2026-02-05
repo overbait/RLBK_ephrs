@@ -10,10 +10,18 @@ async function generatePdf() {
     args: ['--no-sandbox', '--disable-setuid-sandbox'],
   });
   const page = await browser.newPage();
+  page.setDefaultNavigationTimeout(120000);
+  page.setDefaultTimeout(120000);
   await page.setViewport({ width: 1260, height: 1782 });
 
   console.log('Navigating to index.html...');
-  await page.goto(`file://${__dirname}/index.html`, { waitUntil: 'networkidle0' });
+  await page.goto(`file://${__dirname}/index.html`, { waitUntil: 'domcontentloaded' });
+  await page.waitForFunction(() => document.querySelectorAll('.slide').length > 0);
+  await page.evaluate(async () => {
+    if (document.fonts?.ready) {
+      await document.fonts.ready;
+    }
+  });
 
   const slideCount = await page.evaluate(() => document.querySelectorAll('.slide').length);
   console.log(`Found ${slideCount} slides.`);
