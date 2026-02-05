@@ -166,18 +166,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const leafLayoutsBySlide = [
     [
-      { src: 'spring_assets/leaves/leaves_green_mid3.png', top: '12%', left: '18%', rotate: -25, scale: 1.1, width: 160, height: 160 },
-      { src: 'spring_assets/leaves/leaves_pink_mid4.png', top: '18%', left: '30%', rotate: -12, scale: 1.05, width: 150, height: 150 },
-      { src: 'spring_assets/leaves/leaves_green_small2.png', top: '24%', left: '44%', rotate: 4, scale: 0.8, width: 90, height: 90 },
-      { src: 'spring_assets/leaves/leaves_green_mid5.png', top: '70%', left: '8%', rotate: 18, scale: 1.05, width: 150, height: 150 },
-      { src: 'spring_assets/leaves/leaves_pink_mid2.png', top: '64%', left: '22%', rotate: 32, scale: 1.1, width: 155, height: 155 },
-      { src: 'spring_assets/leaves/leaves_green_small4.png', top: '58%', left: '36%', rotate: 44, scale: 0.85, width: 95, height: 95 },
-      { src: 'spring_assets/leaves/leaves_pink_mid7.png', top: '30%', left: '58%', rotate: 12, scale: 1.05, width: 145, height: 145 },
-      { src: 'spring_assets/leaves/leaves_green_mid1.png', top: '22%', left: '70%', rotate: 0, scale: 1, width: 145, height: 145 },
-      { src: 'spring_assets/leaves/leaves_green_small6.png', top: '16%', left: '82%', rotate: -10, scale: 0.8, width: 90, height: 90 },
-      { src: 'spring_assets/leaves/leaves_pink_mid5.png', top: '76%', left: '48%', rotate: 52, scale: 1.1, width: 155, height: 155 },
-      { src: 'spring_assets/leaves/leaves_green_mid8.png', top: '84%', left: '64%', rotate: 38, scale: 1.05, width: 150, height: 150 },
-      { src: 'spring_assets/leaves/leaves_green_small1.png', top: '68%', left: '78%', rotate: 28, scale: 0.85, width: 95, height: 95 }
+      { src: 'spring_assets/leaves/leaves_green_mid7.png', top: '6%', left: '8%', rotate: -35, scale: 1.15, width: 180, height: 180 },
+      { src: 'spring_assets/leaves/leaves_pink_mid9.png', top: '10%', left: '22%', rotate: -18, scale: 1.1, width: 170, height: 170 },
+      { src: 'spring_assets/leaves/leaves_green_small4.png', top: '14%', left: '36%', rotate: -6, scale: 0.85, width: 95, height: 95 },
+      { src: 'spring_assets/leaves/leaves_green_mid2.png', top: '18%', left: '52%', rotate: 8, scale: 1.1, width: 165, height: 165 },
+      { src: 'spring_assets/leaves/leaves_pink_mid4.png', top: '12%', left: '70%', rotate: 14, scale: 1.05, width: 160, height: 160 },
+      { src: 'spring_assets/leaves/leaves_green_small1.png', top: '10%', left: '84%', rotate: -8, scale: 0.8, width: 90, height: 90 },
+      { src: 'spring_assets/leaves/leaves_pink_mid6.png', top: '28%', left: '10%', rotate: 26, scale: 1.1, width: 165, height: 165 },
+      { src: 'spring_assets/leaves/leaves_green_mid5.png', top: '32%', left: '26%', rotate: 18, scale: 1.05, width: 155, height: 155 },
+      { src: 'spring_assets/leaves/leaves_green_small6.png', top: '38%', left: '42%', rotate: 30, scale: 0.85, width: 95, height: 95 },
+      { src: 'spring_assets/leaves/leaves_pink_mid2.png', top: '44%', left: '58%', rotate: 22, scale: 1.1, width: 165, height: 165 },
+      { src: 'spring_assets/leaves/leaves_green_mid8.png', top: '36%', left: '74%', rotate: 10, scale: 1.05, width: 155, height: 155 },
+      { src: 'spring_assets/leaves/leaves_green_small2.png', top: '30%', left: '88%', rotate: -2, scale: 0.8, width: 90, height: 90 },
+      { src: 'spring_assets/leaves/leaves_pink_mid5.png', top: '70%', left: '6%', rotate: 38, scale: 1.1, width: 170, height: 170 },
+      { src: 'spring_assets/leaves/leaves_green_mid1.png', top: '74%', left: '22%', rotate: 30, scale: 1.05, width: 160, height: 160 },
+      { src: 'spring_assets/leaves/leaves_green_small3.png', top: '66%', left: '38%', rotate: 40, scale: 0.85, width: 95, height: 95 },
+      { src: 'spring_assets/leaves/leaves_pink_mid7.png', top: '78%', left: '54%', rotate: 46, scale: 1.1, width: 170, height: 170 },
+      { src: 'spring_assets/leaves/leaves_green_mid3.png', top: '82%', left: '70%', rotate: 34, scale: 1.05, width: 160, height: 160 },
+      { src: 'spring_assets/leaves/leaves_green_small5.png', top: '72%', left: '86%', rotate: 24, scale: 0.85, width: 95, height: 95 }
     ],
     [
       { src: 'spring_assets/leaves/leaves_green_mid1.png', top: '10%', left: '62%', rotate: -18, scale: 1.05, width: 150, height: 150 },
