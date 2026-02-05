@@ -22,6 +22,13 @@ async function generatePdf() {
       await document.fonts.ready;
     }
   });
+  await page.emulateMediaType('screen');
+  await page.addStyleTag({
+    content: `
+      @page { margin: 0; size: 1260px 1782px; }
+      body { margin: 0; }
+    `,
+  });
 
   const slideCount = await page.evaluate(() => document.querySelectorAll('.slide').length);
   console.log(`Found ${slideCount} slides.`);
@@ -90,6 +97,7 @@ async function generatePdf() {
       path: tempPdfPath,
       width: '1260px',
       height: '1782px',
+      margin: { top: 0, right: 0, bottom: 0, left: 0 },
       printBackground: true,
     });
     tempPdfPaths.push(tempPdfPath);
