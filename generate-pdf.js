@@ -18,6 +18,7 @@ async function generatePdf() {
     console.log(`Found ${slideCount} slides.`);
 
     const tempPdfPaths = [];
+    const optimizedPdfPaths = [];
 
     for (let i = 0; i < slideCount; i++) {
         const pageNum = i + 1;
@@ -84,12 +85,18 @@ async function generatePdf() {
         });
         tempPdfPaths.push(tempPdfPath);
         console.log(`Generated ${tempPdfPath}`);
+
+        const optimizedPath = await optimizeWithGhostscript(
+            tempPdfPath,
+            path.join(__dirname, `temp-page-${pageNum}-optimized.pdf`)
+        );
+        optimizedPdfPaths.push(optimizedPath);
     }
     await browser.close();
 
     console.log("--- Merging PDFs and Correcting Links ---");
     const finalPdfDoc = await PDFDocument.create();
-    for (const tempPdfPath of tempPdfPaths) {
+    for (const tempPdfPath of optimizedPdfPaths) {
         const pdfBytes = await fs.readFile(tempPdfPath);
         const doc = await PDFDocument.load(pdfBytes);
         const [copiedPage] = await finalPdfDoc.copyPages(doc, [0]);
@@ -132,7 +139,8 @@ async function generatePdf() {
     await optimizeWithGhostscript('handbook.pdf', 'handbook-optimized.pdf');
 
     console.log("--- Cleaning Up Temporary Files ---");
-    for (const tempPdfPath of tempPdfPaths) {
+    const cleanupTargets = new Set([...tempPdfPaths, ...optimizedPdfPaths]);
+    for (const tempPdfPath of cleanupTargets) {
         await fs.unlink(tempPdfPath);
     }
     console.log("Cleanup complete.");
@@ -158,7 +166,7 @@ async function optimizeWithGhostscript(inputPath, outputPath) {
     const gsCommand = await resolveGhostscriptCommand();
     if (!gsCommand) {
         console.warn("Ghostscript not found. Skipping optimization. Install Ghostscript and ensure 'gs' is in your PATH to enable PDF optimization.");
-        return;
+        return inputPath;
     }
     return new Promise((resolve) => {
         const command = [
@@ -180,7 +188,7 @@ async function optimizeWithGhostscript(inputPath, outputPath) {
         exec(command, (error, stdout, stderr) => {
             if (error) {
                 console.warn("Ghostscript optimization failed. Using unoptimized PDF. Make sure Ghostscript is installed and in your PATH.", stderr);
-                resolve();
+                resolve(inputPath);
                 return;
             }
 
@@ -188,11 +196,11 @@ async function optimizeWithGhostscript(inputPath, outputPath) {
                 .then(() => {
                     console.log(`Ghostscript optimization successful. Optimized file saved as ${outputPath}`);
                     // The optimized file is kept, no rename.
-                    resolve();
+                    resolve(outputPath);
                 })
                 .catch(err => {
                     console.warn(`Ghostscript ran but the output file '${outputPath}' was not found. Using unoptimized PDF.`, err);
-                    resolve();
+                    resolve(inputPath);
                 });
         });
     });
