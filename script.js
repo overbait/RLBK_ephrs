@@ -164,6 +164,205 @@ document.addEventListener("DOMContentLoaded", () => {
     { image: 'spring_assets/bgs/bg_02.png', position: 'left top' }
   ];
 
+  const leafLayoutsBySlide = [
+    [
+      { src: 'spring_assets/leaves/leaves_green_mid3.png', top: '12%', left: '18%', rotate: -25, scale: 1.1, width: 160, height: 160 },
+      { src: 'spring_assets/leaves/leaves_pink_mid4.png', top: '18%', left: '30%', rotate: -12, scale: 1.05, width: 150, height: 150 },
+      { src: 'spring_assets/leaves/leaves_green_small2.png', top: '24%', left: '44%', rotate: 4, scale: 0.8, width: 90, height: 90 },
+      { src: 'spring_assets/leaves/leaves_green_mid5.png', top: '70%', left: '8%', rotate: 18, scale: 1.05, width: 150, height: 150 },
+      { src: 'spring_assets/leaves/leaves_pink_mid2.png', top: '64%', left: '22%', rotate: 32, scale: 1.1, width: 155, height: 155 },
+      { src: 'spring_assets/leaves/leaves_green_small4.png', top: '58%', left: '36%', rotate: 44, scale: 0.85, width: 95, height: 95 },
+      { src: 'spring_assets/leaves/leaves_pink_mid7.png', top: '30%', left: '58%', rotate: 12, scale: 1.05, width: 145, height: 145 },
+      { src: 'spring_assets/leaves/leaves_green_mid1.png', top: '22%', left: '70%', rotate: 0, scale: 1, width: 145, height: 145 },
+      { src: 'spring_assets/leaves/leaves_green_small6.png', top: '16%', left: '82%', rotate: -10, scale: 0.8, width: 90, height: 90 },
+      { src: 'spring_assets/leaves/leaves_pink_mid5.png', top: '76%', left: '48%', rotate: 52, scale: 1.1, width: 155, height: 155 },
+      { src: 'spring_assets/leaves/leaves_green_mid8.png', top: '84%', left: '64%', rotate: 38, scale: 1.05, width: 150, height: 150 },
+      { src: 'spring_assets/leaves/leaves_green_small1.png', top: '68%', left: '78%', rotate: 28, scale: 0.85, width: 95, height: 95 }
+    ],
+    [
+      { src: 'spring_assets/leaves/leaves_green_mid1.png', top: '10%', left: '62%', rotate: -18, scale: 1.05, width: 150, height: 150 },
+      { src: 'spring_assets/leaves/leaves_pink_mid6.png', top: '16%', left: '74%', rotate: -5, scale: 1.1, width: 155, height: 155 },
+      { src: 'spring_assets/leaves/leaves_green_small1.png', top: '22%', left: '86%', rotate: 12, scale: 0.8, width: 90, height: 90 },
+      { src: 'spring_assets/leaves/leaves_green_mid7.png', top: '68%', left: '58%', rotate: 22, scale: 1.05, width: 150, height: 150 },
+      { src: 'spring_assets/leaves/leaves_pink_mid1.png', top: '74%', left: '72%', rotate: 35, scale: 1.1, width: 155, height: 155 },
+      { src: 'spring_assets/leaves/leaves_green_small3.png', top: '62%', left: '84%', rotate: 48, scale: 0.85, width: 95, height: 95 },
+      { src: 'spring_assets/leaves/leaves_pink_mid3.png', top: '30%', left: '40%', rotate: 10, scale: 1.05, width: 145, height: 145 },
+      { src: 'spring_assets/leaves/leaves_green_mid4.png', top: '22%', left: '52%', rotate: -2, scale: 1, width: 145, height: 145 },
+      { src: 'spring_assets/leaves/leaves_green_small5.png', top: '16%', left: '64%', rotate: -12, scale: 0.8, width: 90, height: 90 },
+      { src: 'spring_assets/leaves/leaves_pink_mid8.png', top: '76%', left: '40%', rotate: 48, scale: 1.1, width: 155, height: 155 },
+      { src: 'spring_assets/leaves/leaves_green_mid2.png', top: '84%', left: '54%', rotate: 34, scale: 1.05, width: 150, height: 150 },
+      { src: 'spring_assets/leaves/leaves_green_small4.png', top: '68%', left: '66%', rotate: 24, scale: 0.85, width: 95, height: 95 }
+    ],
+    [
+      { src: 'spring_assets/leaves/leaves_pink_mid7.png', top: '8%', left: '14%', rotate: -30, scale: 1.1, width: 155, height: 155 },
+      { src: 'spring_assets/leaves/leaves_green_mid2.png', top: '14%', left: '28%', rotate: -16, scale: 1.05, width: 150, height: 150 },
+      { src: 'spring_assets/leaves/leaves_green_small5.png', top: '20%', left: '42%', rotate: -4, scale: 0.8, width: 90, height: 90 },
+      { src: 'spring_assets/leaves/leaves_pink_mid3.png', top: '68%', left: '10%', rotate: 24, scale: 1.1, width: 155, height: 155 },
+      { src: 'spring_assets/leaves/leaves_green_mid6.png', top: '74%', left: '24%', rotate: 36, scale: 1.05, width: 150, height: 150 },
+      { src: 'spring_assets/leaves/leaves_green_small6.png', top: '60%', left: '38%', rotate: 48, scale: 0.85, width: 95, height: 95 },
+      { src: 'spring_assets/leaves/leaves_pink_mid1.png', top: '28%', left: '54%', rotate: 8, scale: 1.05, width: 145, height: 145 },
+      { src: 'spring_assets/leaves/leaves_green_mid9.png', top: '20%', left: '66%', rotate: -6, scale: 1, width: 145, height: 145 },
+      { src: 'spring_assets/leaves/leaves_green_small2.png', top: '14%', left: '78%', rotate: -18, scale: 0.8, width: 90, height: 90 },
+      { src: 'spring_assets/leaves/leaves_pink_mid10.png', top: '76%', left: '50%', rotate: 46, scale: 1.1, width: 155, height: 155 },
+      { src: 'spring_assets/leaves/leaves_green_mid3.png', top: '84%', left: '64%', rotate: 32, scale: 1.05, width: 150, height: 150 },
+      { src: 'spring_assets/leaves/leaves_green_small5.png', top: '68%', left: '76%', rotate: 22, scale: 0.85, width: 95, height: 95 }
+    ],
+    [
+      { src: 'spring_assets/leaves/leaves_green_mid8.png', top: '12%', left: '70%', rotate: -20, scale: 1.05, width: 150, height: 150 },
+      { src: 'spring_assets/leaves/leaves_pink_mid5.png', top: '18%', left: '82%', rotate: -6, scale: 1.1, width: 155, height: 155 },
+      { src: 'spring_assets/leaves/leaves_green_small2.png', top: '24%', left: '90%', rotate: 10, scale: 0.8, width: 90, height: 90 },
+      { src: 'spring_assets/leaves/leaves_pink_mid8.png', top: '64%', left: '62%', rotate: 26, scale: 1.1, width: 155, height: 155 },
+      { src: 'spring_assets/leaves/leaves_green_mid4.png', top: '70%', left: '76%', rotate: 38, scale: 1.05, width: 150, height: 150 },
+      { src: 'spring_assets/leaves/leaves_green_small1.png', top: '58%', left: '88%', rotate: 50, scale: 0.85, width: 95, height: 95 },
+      { src: 'spring_assets/leaves/leaves_pink_mid2.png', top: '30%', left: '46%', rotate: 8, scale: 1.05, width: 145, height: 145 },
+      { src: 'spring_assets/leaves/leaves_green_mid6.png', top: '22%', left: '58%', rotate: -4, scale: 1, width: 145, height: 145 },
+      { src: 'spring_assets/leaves/leaves_green_small3.png', top: '16%', left: '70%', rotate: -14, scale: 0.8, width: 90, height: 90 },
+      { src: 'spring_assets/leaves/leaves_pink_mid7.png', top: '76%', left: '46%', rotate: 46, scale: 1.1, width: 155, height: 155 },
+      { src: 'spring_assets/leaves/leaves_green_mid9.png', top: '84%', left: '60%', rotate: 32, scale: 1.05, width: 150, height: 150 },
+      { src: 'spring_assets/leaves/leaves_green_small5.png', top: '68%', left: '72%', rotate: 22, scale: 0.85, width: 95, height: 95 }
+    ],
+    [
+      { src: 'spring_assets/leaves/leaves_green_mid3.png', top: '14%', left: '8%', rotate: -22, scale: 1.05, width: 150, height: 150 },
+      { src: 'spring_assets/leaves/leaves_pink_mid9.png', top: '20%', left: '20%', rotate: -8, scale: 1.1, width: 155, height: 155 },
+      { src: 'spring_assets/leaves/leaves_green_small4.png', top: '26%', left: '34%', rotate: 6, scale: 0.8, width: 90, height: 90 },
+      { src: 'spring_assets/leaves/leaves_pink_mid10.png', top: '66%', left: '6%', rotate: 28, scale: 1.1, width: 155, height: 155 },
+      { src: 'spring_assets/leaves/leaves_green_mid5.png', top: '72%', left: '20%', rotate: 40, scale: 1.05, width: 150, height: 150 },
+      { src: 'spring_assets/leaves/leaves_green_small3.png', top: '60%', left: '34%', rotate: 52, scale: 0.85, width: 95, height: 95 },
+      { src: 'spring_assets/leaves/leaves_pink_mid4.png', top: '30%', left: '48%', rotate: 8, scale: 1.05, width: 145, height: 145 },
+      { src: 'spring_assets/leaves/leaves_green_mid7.png', top: '22%', left: '60%', rotate: -4, scale: 1, width: 145, height: 145 },
+      { src: 'spring_assets/leaves/leaves_green_small1.png', top: '16%', left: '72%', rotate: -14, scale: 0.8, width: 90, height: 90 },
+      { src: 'spring_assets/leaves/leaves_pink_mid6.png', top: '76%', left: '44%', rotate: 46, scale: 1.1, width: 155, height: 155 },
+      { src: 'spring_assets/leaves/leaves_green_mid2.png', top: '84%', left: '58%', rotate: 32, scale: 1.05, width: 150, height: 150 },
+      { src: 'spring_assets/leaves/leaves_green_small6.png', top: '68%', left: '70%', rotate: 22, scale: 0.85, width: 95, height: 95 }
+    ],
+    [
+      { src: 'spring_assets/leaves/leaves_green_mid9.png', top: '10%', left: '58%', rotate: -24, scale: 1.05, width: 150, height: 150 },
+      { src: 'spring_assets/leaves/leaves_pink_mid2.png', top: '16%', left: '70%', rotate: -10, scale: 1.1, width: 155, height: 155 },
+      { src: 'spring_assets/leaves/leaves_green_small5.png', top: '22%', left: '84%', rotate: 4, scale: 0.8, width: 90, height: 90 },
+      { src: 'spring_assets/leaves/leaves_pink_mid6.png', top: '66%', left: '56%', rotate: 26, scale: 1.1, width: 155, height: 155 },
+      { src: 'spring_assets/leaves/leaves_green_mid1.png', top: '72%', left: '70%', rotate: 38, scale: 1.05, width: 150, height: 150 },
+      { src: 'spring_assets/leaves/leaves_green_small2.png', top: '60%', left: '84%', rotate: 50, scale: 0.85, width: 95, height: 95 },
+      { src: 'spring_assets/leaves/leaves_pink_mid8.png', top: '30%', left: '40%', rotate: 10, scale: 1.05, width: 145, height: 145 },
+      { src: 'spring_assets/leaves/leaves_green_mid4.png', top: '22%', left: '52%', rotate: -2, scale: 1, width: 145, height: 145 },
+      { src: 'spring_assets/leaves/leaves_green_small1.png', top: '16%', left: '64%', rotate: -12, scale: 0.8, width: 90, height: 90 },
+      { src: 'spring_assets/leaves/leaves_pink_mid9.png', top: '76%', left: '38%', rotate: 48, scale: 1.1, width: 155, height: 155 },
+      { src: 'spring_assets/leaves/leaves_green_mid7.png', top: '84%', left: '52%', rotate: 34, scale: 1.05, width: 150, height: 150 },
+      { src: 'spring_assets/leaves/leaves_green_small3.png', top: '68%', left: '64%', rotate: 24, scale: 0.85, width: 95, height: 95 }
+    ],
+    [
+      { src: 'spring_assets/leaves/leaves_pink_mid4.png', top: '14%', left: '12%', rotate: -28, scale: 1.1, width: 155, height: 155 },
+      { src: 'spring_assets/leaves/leaves_green_mid6.png', top: '20%', left: '26%', rotate: -14, scale: 1.05, width: 150, height: 150 },
+      { src: 'spring_assets/leaves/leaves_green_small1.png', top: '26%', left: '40%', rotate: 0, scale: 0.8, width: 90, height: 90 },
+      { src: 'spring_assets/leaves/leaves_pink_mid8.png', top: '68%', left: '12%', rotate: 22, scale: 1.1, width: 155, height: 155 },
+      { src: 'spring_assets/leaves/leaves_green_mid7.png', top: '74%', left: '26%', rotate: 34, scale: 1.05, width: 150, height: 150 },
+      { src: 'spring_assets/leaves/leaves_green_small4.png', top: '62%', left: '40%', rotate: 46, scale: 0.85, width: 95, height: 95 },
+      { src: 'spring_assets/leaves/leaves_pink_mid5.png', top: '30%', left: '52%', rotate: 10, scale: 1.05, width: 145, height: 145 },
+      { src: 'spring_assets/leaves/leaves_green_mid1.png', top: '22%', left: '64%', rotate: -2, scale: 1, width: 145, height: 145 },
+      { src: 'spring_assets/leaves/leaves_green_small6.png', top: '16%', left: '76%', rotate: -12, scale: 0.8, width: 90, height: 90 },
+      { src: 'spring_assets/leaves/leaves_pink_mid2.png', top: '76%', left: '50%', rotate: 48, scale: 1.1, width: 155, height: 155 },
+      { src: 'spring_assets/leaves/leaves_green_mid8.png', top: '84%', left: '64%', rotate: 34, scale: 1.05, width: 150, height: 150 },
+      { src: 'spring_assets/leaves/leaves_green_small2.png', top: '68%', left: '76%', rotate: 24, scale: 0.85, width: 95, height: 95 }
+    ],
+    [
+      { src: 'spring_assets/leaves/leaves_green_mid2.png', top: '12%', left: '64%', rotate: -20, scale: 1.05, width: 150, height: 150 },
+      { src: 'spring_assets/leaves/leaves_pink_mid1.png', top: '18%', left: '76%', rotate: -6, scale: 1.1, width: 155, height: 155 },
+      { src: 'spring_assets/leaves/leaves_green_small6.png', top: '24%', left: '88%', rotate: 10, scale: 0.8, width: 90, height: 90 },
+      { src: 'spring_assets/leaves/leaves_pink_mid5.png', top: '64%', left: '62%', rotate: 24, scale: 1.1, width: 155, height: 155 },
+      { src: 'spring_assets/leaves/leaves_green_mid8.png', top: '70%', left: '76%', rotate: 36, scale: 1.05, width: 150, height: 150 },
+      { src: 'spring_assets/leaves/leaves_green_small2.png', top: '58%', left: '88%', rotate: 48, scale: 0.85, width: 95, height: 95 },
+      { src: 'spring_assets/leaves/leaves_pink_mid6.png', top: '30%', left: '46%', rotate: 8, scale: 1.05, width: 145, height: 145 },
+      { src: 'spring_assets/leaves/leaves_green_mid5.png', top: '22%', left: '58%', rotate: -4, scale: 1, width: 145, height: 145 },
+      { src: 'spring_assets/leaves/leaves_green_small4.png', top: '16%', left: '70%', rotate: -14, scale: 0.8, width: 90, height: 90 },
+      { src: 'spring_assets/leaves/leaves_pink_mid3.png', top: '76%', left: '44%', rotate: 46, scale: 1.1, width: 155, height: 155 },
+      { src: 'spring_assets/leaves/leaves_green_mid1.png', top: '84%', left: '58%', rotate: 32, scale: 1.05, width: 150, height: 150 },
+      { src: 'spring_assets/leaves/leaves_green_small5.png', top: '68%', left: '70%', rotate: 22, scale: 0.85, width: 95, height: 95 }
+    ],
+    [
+      { src: 'spring_assets/leaves/leaves_green_mid4.png', top: '10%', left: '10%', rotate: -26, scale: 1.05, width: 150, height: 150 },
+      { src: 'spring_assets/leaves/leaves_pink_mid7.png', top: '16%', left: '24%', rotate: -12, scale: 1.1, width: 155, height: 155 },
+      { src: 'spring_assets/leaves/leaves_green_small3.png', top: '22%', left: '38%', rotate: 2, scale: 0.8, width: 90, height: 90 },
+      { src: 'spring_assets/leaves/leaves_pink_mid9.png', top: '66%', left: '8%', rotate: 24, scale: 1.1, width: 155, height: 155 },
+      { src: 'spring_assets/leaves/leaves_green_mid9.png', top: '72%', left: '22%', rotate: 36, scale: 1.05, width: 150, height: 150 },
+      { src: 'spring_assets/leaves/leaves_green_small5.png', top: '60%', left: '36%', rotate: 48, scale: 0.85, width: 95, height: 95 },
+      { src: 'spring_assets/leaves/leaves_pink_mid1.png', top: '30%', left: '52%', rotate: 8, scale: 1.05, width: 145, height: 145 },
+      { src: 'spring_assets/leaves/leaves_green_mid6.png', top: '22%', left: '64%', rotate: -4, scale: 1, width: 145, height: 145 },
+      { src: 'spring_assets/leaves/leaves_green_small2.png', top: '16%', left: '76%', rotate: -14, scale: 0.8, width: 90, height: 90 },
+      { src: 'spring_assets/leaves/leaves_pink_mid4.png', top: '76%', left: '50%', rotate: 46, scale: 1.1, width: 155, height: 155 },
+      { src: 'spring_assets/leaves/leaves_green_mid3.png', top: '84%', left: '64%', rotate: 32, scale: 1.05, width: 150, height: 150 },
+      { src: 'spring_assets/leaves/leaves_green_small1.png', top: '68%', left: '76%', rotate: 22, scale: 0.85, width: 95, height: 95 }
+    ],
+    [
+      { src: 'spring_assets/leaves/leaves_green_mid5.png', top: '14%', left: '66%', rotate: -22, scale: 1.05, width: 150, height: 150 },
+      { src: 'spring_assets/leaves/leaves_pink_mid3.png', top: '20%', left: '78%', rotate: -8, scale: 1.1, width: 155, height: 155 },
+      { src: 'spring_assets/leaves/leaves_green_small1.png', top: '26%', left: '90%', rotate: 6, scale: 0.8, width: 90, height: 90 },
+      { src: 'spring_assets/leaves/leaves_pink_mid4.png', top: '62%', left: '64%', rotate: 22, scale: 1.1, width: 155, height: 155 },
+      { src: 'spring_assets/leaves/leaves_green_mid2.png', top: '68%', left: '78%', rotate: 34, scale: 1.05, width: 150, height: 150 },
+      { src: 'spring_assets/leaves/leaves_green_small6.png', top: '56%', left: '90%', rotate: 46, scale: 0.85, width: 95, height: 95 },
+      { src: 'spring_assets/leaves/leaves_pink_mid7.png', top: '30%', left: '44%', rotate: 8, scale: 1.05, width: 145, height: 145 },
+      { src: 'spring_assets/leaves/leaves_green_mid9.png', top: '22%', left: '56%', rotate: -4, scale: 1, width: 145, height: 145 },
+      { src: 'spring_assets/leaves/leaves_green_small3.png', top: '16%', left: '68%', rotate: -14, scale: 0.8, width: 90, height: 90 },
+      { src: 'spring_assets/leaves/leaves_pink_mid8.png', top: '76%', left: '42%', rotate: 46, scale: 1.1, width: 155, height: 155 },
+      { src: 'spring_assets/leaves/leaves_green_mid4.png', top: '84%', left: '56%', rotate: 32, scale: 1.05, width: 150, height: 150 },
+      { src: 'spring_assets/leaves/leaves_green_small2.png', top: '68%', left: '68%', rotate: 22, scale: 0.85, width: 95, height: 95 }
+    ],
+    [
+      { src: 'spring_assets/leaves/leaves_pink_mid10.png', top: '12%', left: '12%', rotate: -26, scale: 1.1, width: 155, height: 155 },
+      { src: 'spring_assets/leaves/leaves_green_mid7.png', top: '18%', left: '26%', rotate: -12, scale: 1.05, width: 150, height: 150 },
+      { src: 'spring_assets/leaves/leaves_green_small2.png', top: '24%', left: '40%', rotate: 2, scale: 0.8, width: 90, height: 90 },
+      { src: 'spring_assets/leaves/leaves_pink_mid6.png', top: '64%', left: '10%', rotate: 24, scale: 1.1, width: 155, height: 155 },
+      { src: 'spring_assets/leaves/leaves_green_mid4.png', top: '70%', left: '24%', rotate: 36, scale: 1.05, width: 150, height: 150 },
+      { src: 'spring_assets/leaves/leaves_green_small4.png', top: '58%', left: '38%', rotate: 48, scale: 0.85, width: 95, height: 95 },
+      { src: 'spring_assets/leaves/leaves_pink_mid3.png', top: '30%', left: '52%', rotate: 8, scale: 1.05, width: 145, height: 145 },
+      { src: 'spring_assets/leaves/leaves_green_mid1.png', top: '22%', left: '64%', rotate: -4, scale: 1, width: 145, height: 145 },
+      { src: 'spring_assets/leaves/leaves_green_small6.png', top: '16%', left: '76%', rotate: -14, scale: 0.8, width: 90, height: 90 },
+      { src: 'spring_assets/leaves/leaves_pink_mid5.png', top: '76%', left: '50%', rotate: 46, scale: 1.1, width: 155, height: 155 },
+      { src: 'spring_assets/leaves/leaves_green_mid7.png', top: '84%', left: '64%', rotate: 32, scale: 1.05, width: 150, height: 150 },
+      { src: 'spring_assets/leaves/leaves_green_small4.png', top: '68%', left: '76%', rotate: 22, scale: 0.85, width: 95, height: 95 }
+    ],
+    [
+      { src: 'spring_assets/leaves/leaves_green_mid1.png', top: '10%', left: '60%', rotate: -20, scale: 1.05, width: 150, height: 150 },
+      { src: 'spring_assets/leaves/leaves_pink_mid2.png', top: '16%', left: '74%', rotate: -6, scale: 1.1, width: 155, height: 155 },
+      { src: 'spring_assets/leaves/leaves_green_small5.png', top: '22%', left: '88%', rotate: 10, scale: 0.8, width: 90, height: 90 },
+      { src: 'spring_assets/leaves/leaves_pink_mid8.png', top: '66%', left: '58%', rotate: 24, scale: 1.1, width: 155, height: 155 },
+      { src: 'spring_assets/leaves/leaves_green_mid6.png', top: '72%', left: '72%', rotate: 36, scale: 1.05, width: 150, height: 150 },
+      { src: 'spring_assets/leaves/leaves_green_small1.png', top: '60%', left: '86%', rotate: 48, scale: 0.85, width: 95, height: 95 },
+      { src: 'spring_assets/leaves/leaves_pink_mid9.png', top: '30%', left: '48%', rotate: 8, scale: 1.05, width: 145, height: 145 },
+      { src: 'spring_assets/leaves/leaves_green_mid8.png', top: '22%', left: '60%', rotate: -4, scale: 1, width: 145, height: 145 },
+      { src: 'spring_assets/leaves/leaves_green_small1.png', top: '16%', left: '72%', rotate: -14, scale: 0.8, width: 90, height: 90 },
+      { src: 'spring_assets/leaves/leaves_pink_mid2.png', top: '76%', left: '46%', rotate: 46, scale: 1.1, width: 155, height: 155 },
+      { src: 'spring_assets/leaves/leaves_green_mid5.png', top: '84%', left: '60%', rotate: 32, scale: 1.05, width: 150, height: 150 },
+      { src: 'spring_assets/leaves/leaves_green_small6.png', top: '68%', left: '72%', rotate: 22, scale: 0.85, width: 95, height: 95 }
+    ],
+    [
+      { src: 'spring_assets/leaves/leaves_green_mid3.png', top: '12%', left: '14%', rotate: -24, scale: 1.05, width: 150, height: 150 },
+      { src: 'spring_assets/leaves/leaves_pink_mid5.png', top: '18%', left: '28%', rotate: -10, scale: 1.1, width: 155, height: 155 },
+      { src: 'spring_assets/leaves/leaves_green_small6.png', top: '24%', left: '42%', rotate: 4, scale: 0.8, width: 90, height: 90 },
+      { src: 'spring_assets/leaves/leaves_pink_mid7.png', top: '66%', left: '12%', rotate: 26, scale: 1.1, width: 155, height: 155 },
+      { src: 'spring_assets/leaves/leaves_green_mid9.png', top: '72%', left: '26%', rotate: 38, scale: 1.05, width: 150, height: 150 },
+      { src: 'spring_assets/leaves/leaves_green_small3.png', top: '60%', left: '40%', rotate: 50, scale: 0.85, width: 95, height: 95 },
+      { src: 'spring_assets/leaves/leaves_pink_mid4.png', top: '30%', left: '50%', rotate: 8, scale: 1.05, width: 145, height: 145 },
+      { src: 'spring_assets/leaves/leaves_green_mid2.png', top: '22%', left: '62%', rotate: -4, scale: 1, width: 145, height: 145 },
+      { src: 'spring_assets/leaves/leaves_green_small3.png', top: '16%', left: '74%', rotate: -14, scale: 0.8, width: 90, height: 90 },
+      { src: 'spring_assets/leaves/leaves_pink_mid6.png', top: '76%', left: '48%', rotate: 46, scale: 1.1, width: 155, height: 155 },
+      { src: 'spring_assets/leaves/leaves_green_mid8.png', top: '84%', left: '62%', rotate: 32, scale: 1.05, width: 150, height: 150 },
+      { src: 'spring_assets/leaves/leaves_green_small2.png', top: '68%', left: '74%', rotate: 22, scale: 0.85, width: 95, height: 95 }
+    ],
+    [
+      { src: 'spring_assets/leaves/leaves_green_mid8.png', top: '10%', left: '62%', rotate: -18, scale: 1.05, width: 150, height: 150 },
+      { src: 'spring_assets/leaves/leaves_pink_mid9.png', top: '16%', left: '76%', rotate: -4, scale: 1.1, width: 155, height: 155 },
+      { src: 'spring_assets/leaves/leaves_green_small2.png', top: '22%', left: '90%', rotate: 10, scale: 0.8, width: 90, height: 90 },
+      { src: 'spring_assets/leaves/leaves_pink_mid1.png', top: '64%', left: '60%', rotate: 24, scale: 1.1, width: 155, height: 155 },
+      { src: 'spring_assets/leaves/leaves_green_mid5.png', top: '70%', left: '74%', rotate: 36, scale: 1.05, width: 150, height: 150 },
+      { src: 'spring_assets/leaves/leaves_green_small4.png', top: '58%', left: '88%', rotate: 48, scale: 0.85, width: 95, height: 95 },
+      { src: 'spring_assets/leaves/leaves_pink_mid8.png', top: '30%', left: '48%', rotate: 8, scale: 1.05, width: 145, height: 145 },
+      { src: 'spring_assets/leaves/leaves_green_mid6.png', top: '22%', left: '60%', rotate: -4, scale: 1, width: 145, height: 145 },
+      { src: 'spring_assets/leaves/leaves_green_small5.png', top: '16%', left: '72%', rotate: -14, scale: 0.8, width: 90, height: 90 },
+      { src: 'spring_assets/leaves/leaves_pink_mid3.png', top: '76%', left: '46%', rotate: 46, scale: 1.1, width: 155, height: 155 },
+      { src: 'spring_assets/leaves/leaves_green_mid2.png', top: '84%', left: '60%', rotate: 32, scale: 1.05, width: 150, height: 150 },
+      { src: 'spring_assets/leaves/leaves_green_small1.png', top: '68%', left: '72%', rotate: 22, scale: 0.85, width: 95, height: 95 }
+    ]
+  ];
+
   function updatePagination() {
     slides.forEach((slide, slideIndex) => {
       let paginationContainer = slide.querySelector('.pagination');
@@ -225,18 +424,18 @@ document.addEventListener("DOMContentLoaded", () => {
       bgElement.style.backgroundPosition = backgroundConfig.position;
     }
 
-    for (let i = 0; i < 8; i++) {
+    const leafLayout = leafLayoutsBySlide[index] || [];
+    leafLayout.forEach(leafConfig => {
       const leaf = document.createElement('div');
       leaf.classList.add('leaves-decoration');
-      const leafNum = Math.floor(Math.random() * 8) + 1;
-      leaf.style.backgroundImage = `url('assets/leves_${leafNum}-min.png')`;
-      leaf.style.top = `${Math.random() * 80 + 10}%`;
-      leaf.style.left = `${Math.random() * 80 + 10}%`;
-      leaf.style.transform = `rotate(${Math.random() * 360}deg) scale(${Math.random() * 0.5 + 0.8})`;
-      leaf.style.width = `${Math.random() * 80 + 80}px`;
-      leaf.style.height = `${Math.random() * 80 + 80}px`;
+      leaf.style.backgroundImage = `url('${leafConfig.src}')`;
+      leaf.style.top = leafConfig.top;
+      leaf.style.left = leafConfig.left;
+      leaf.style.transform = `rotate(${leafConfig.rotate}deg) scale(${leafConfig.scale})`;
+      leaf.style.width = `${leafConfig.width}px`;
+      leaf.style.height = `${leafConfig.height}px`;
       slide.appendChild(leaf);
-    }
+    });
 
   });
 
