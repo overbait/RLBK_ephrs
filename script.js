@@ -103,15 +103,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const colors = [
     ['#4fd3ff', '#0b1f3f'],
-    ['#58c7ff', '#0a2636'],
-    ['#5fe0c6', '#0a2831'],
-    ['#63d6a7', '#0a2a22'],
-    ['#67c78c', '#0a251a'],
-    ['#7cc3ff', '#0b1e3a'],
-    ['#9ad9ff', '#0b223f'],
-    ['#6fb7ff', '#0a2334'],
-    ['#7fd6f5', '#091a28'],
-    ['#8cc8ff', '#0a2230']
+    ['#5fd1ff', '#0a2238'],
+    ['#6a93ff', '#0d1a3d'],
+    ['#8e7dff', '#130f30'],
+    ['#b57bff', '#1b0f2c'],
+    ['#ff7fd1', '#2a0f24'],
+    ['#ff9bb4', '#2a1218'],
+    ['#ffb57a', '#2a1a10'],
+    ['#ffd45f', '#2a220e'],
+    ['#b6f768', '#1a2a12'],
+    ['#7fea7f', '#102a18'],
+    ['#62e3b0', '#0a2a24'],
+    ['#5fd6ff', '#0a2636'],
+    ['#7ad8c8', '#0a2831']
   ];
 
   document.querySelectorAll('.content-box').forEach(card => {
