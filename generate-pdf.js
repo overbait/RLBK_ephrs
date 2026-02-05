@@ -2,7 +2,7 @@ const puppeteer = require('puppeteer');
 const { PDFDocument } = require('pdf-lib');
 const fs = require('fs').promises;
 const path = require('path');
-const { exec } = require('child_process');
+const { exec, execFile } = require('child_process');
 
 async function generatePdf() {
     console.log("--- Starting PDF Generation with Simple and Robust Strategy ---");
@@ -138,10 +138,31 @@ async function generatePdf() {
     console.log("Cleanup complete.");
 }
 
-function optimizeWithGhostscript(inputPath, outputPath) {
+function resolveGhostscriptCommand() {
+    return new Promise((resolve) => {
+        execFile('gs', ['-version'], (error) => {
+            if (!error) {
+                resolve('gs');
+                return;
+            }
+            if (error.code === 'ENOENT') {
+                resolve(null);
+                return;
+            }
+            resolve('gs');
+        });
+    });
+}
+
+async function optimizeWithGhostscript(inputPath, outputPath) {
+    const gsCommand = await resolveGhostscriptCommand();
+    if (!gsCommand) {
+        console.warn("Ghostscript not found. Skipping optimization. Install Ghostscript and ensure 'gs' is in your PATH to enable PDF optimization.");
+        return;
+    }
     return new Promise((resolve) => {
         const command = [
-            'gs -sDEVICE=pdfwrite',
+            `${gsCommand} -sDEVICE=pdfwrite`,
             '-dCompatibilityLevel=1.4',
             '-dPDFSETTINGS=/prepress',
             '-dDetectDuplicateImages=true',
