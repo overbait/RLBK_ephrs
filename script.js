@@ -147,7 +147,22 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
-  const backgrounds = ['background1-min.png', 'background2-min.png', 'background3-min.png'];
+  const backgroundsBySlide = [
+    { image: 'spring_assets/bgs/bg_01.png', position: 'left top' },
+    { image: 'spring_assets/bgs/bg_02.png', position: 'center top' },
+    { image: 'spring_assets/bgs/bg_03.png', position: 'right top' },
+    { image: 'spring_assets/bgs/bg_04.png', position: 'left top' },
+    { image: 'spring_assets/bgs/bg_05.png', position: 'center top' },
+    { image: 'spring_assets/bgs/bg_06.png', position: 'right top' },
+    { image: 'spring_assets/bgs/bg_01.png', position: 'center top' },
+    { image: 'spring_assets/bgs/bg_02.png', position: 'right top' },
+    { image: 'spring_assets/bgs/bg_03.png', position: 'left top' },
+    { image: 'spring_assets/bgs/bg_04.png', position: 'center top' },
+    { image: 'spring_assets/bgs/bg_05.png', position: 'right top' },
+    { image: 'spring_assets/bgs/bg_06.png', position: 'left top' },
+    { image: 'spring_assets/bgs/bg_01.png', position: 'right top' },
+    { image: 'spring_assets/bgs/bg_02.png', position: 'left top' }
+  ];
 
   function updatePagination() {
     slides.forEach((slide, slideIndex) => {
@@ -203,10 +218,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   slides.forEach((slide, index) => {
-    const randomBg = backgrounds[Math.floor(Math.random() * backgrounds.length)];
+    const backgroundConfig = backgroundsBySlide[index];
     const bgElement = slide.querySelector('.background');
-    if (bgElement) {
-      bgElement.style.backgroundImage = `url('assets/${randomBg}')`;
+    if (bgElement && backgroundConfig) {
+      bgElement.style.backgroundImage = `url('${backgroundConfig.image}')`;
+      bgElement.style.backgroundPosition = backgroundConfig.position;
     }
 
     for (let i = 0; i < 8; i++) {

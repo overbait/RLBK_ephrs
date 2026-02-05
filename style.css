@@ -48,7 +48,7 @@
       width: 100%;
       height: 100%;
       z-index: 1;
-      background-image: url('assets/background1-min.png');
+      background-image: none;
       background-size: cover;
       background-position: center;
       opacity: 0.85;
