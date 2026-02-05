@@ -1,6 +1,25 @@
 document.addEventListener("DOMContentLoaded", () => {
   const slides = document.querySelectorAll(".slide");
 
+  const setActiveSlide = (targetId) => {
+    slides.forEach((slide) => {
+      slide.classList.toggle("active", slide.id === targetId);
+    });
+  };
+
+  const syncActiveSlide = () => {
+    const hash = window.location.hash;
+    const target = hash ? document.querySelector(hash) : null;
+    if (target && target.classList.contains("slide")) {
+      setActiveSlide(target.id);
+    } else if (slides.length) {
+      setActiveSlide(slides[0].id);
+    }
+  };
+
+  syncActiveSlide();
+  window.addEventListener("hashchange", syncActiveSlide);
+
   function attachImageToCard(cardSelector, hookNumber, imageUrl, rotation = 0, scale = 1) {
     const card = document.querySelector(cardSelector);
     if (!card) return;

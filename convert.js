@@ -14,6 +14,7 @@ const fs = require('fs');
     ]
   });
   const page = await browser.newPage();
+  await page.setViewport({ width: 1260, height: 1782 });
 
   // Read the HTML file and the CSS file
   let html = fs.readFileSync('index.html', 'utf-8');
@@ -29,19 +30,26 @@ const fs = require('fs');
 
   // Wait for the last slide's content to be ready
   await page.waitForSelector('#slide-12 .content-box', { timeout: 60000 });
-
-  // Change body background to red for debugging
-  await page.evaluate(() => {
-    document.body.style.backgroundColor = 'red';
+  await page.evaluate(async () => {
+    const images = Array.from(document.images);
+    await Promise.all(
+      images
+        .filter((img) => !img.complete)
+        .map(
+          (img) =>
+            new Promise((resolve) => {
+              img.addEventListener('load', resolve);
+              img.addEventListener('error', resolve);
+            })
+        )
+    );
   });
 
-  // Take a screenshot for debugging
-  await page.screenshot({ path: 'screenshot.png' });
-
-  await page.emulateMediaType('screen');
+  await page.emulateMediaType('print');
   await page.pdf({
     path: 'presentation.pdf',
     format: 'A4',
+    preferCSSPageSize: true,
     printBackground: true,
     margin: {
         top: 0,
