@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const slides = document.querySelectorAll(".slide");
   let currentSlide = 0;
-
   window.showSlide = function(n) {
     slides.forEach(slide => {
       slide.classList.remove('active');
