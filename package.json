@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "generate:pdf": "node generate-pdf.js"
+  },
   "dependencies": {
     "pdf-lib": "^1.17.1",
     "puppeteer": "^24.15.0"

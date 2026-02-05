@@ -125,7 +125,7 @@ async function generatePdf() {
         }
     }
 
-    const finalPdfBytes = await finalPdfDoc.save({ useObjectStreams: false });
+    const finalPdfBytes = await finalPdfDoc.save({ useObjectStreams: true, compress: true });
     await fs.writeFile('handbook.pdf', finalPdfBytes);
     console.log("Final PDF 'handbook.pdf' created successfully.");
 
@@ -140,7 +140,22 @@ async function generatePdf() {
 
 function optimizeWithGhostscript(inputPath, outputPath) {
     return new Promise((resolve) => {
-        const command = `gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=${outputPath} ${inputPath}`;
+        const command = [
+            'gs -sDEVICE=pdfwrite',
+            '-dCompatibilityLevel=1.4',
+            '-dPDFSETTINGS=/prepress',
+            '-dDetectDuplicateImages=true',
+            '-dCompressFonts=true',
+            '-dSubsetFonts=true',
+            '-dEmbedAllFonts=true',
+            '-dDownsampleColorImages=false',
+            '-dDownsampleGrayImages=false',
+            '-dDownsampleMonoImages=false',
+            '-dFastWebView=true',
+            '-dNOPAUSE -dQUIET -dBATCH',
+            `-sOutputFile=${outputPath}`,
+            inputPath
+        ].join(' ');
         exec(command, (error, stdout, stderr) => {
             if (error) {
                 console.warn("Ghostscript optimization failed. Using unoptimized PDF. Make sure Ghostscript is installed and in your PATH.", stderr);
