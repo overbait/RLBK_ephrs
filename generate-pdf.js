@@ -148,16 +148,16 @@ async function generatePdf() {
 
 function resolveGhostscriptCommand() {
     return new Promise((resolve) => {
-        execFile('gs', ['-version'], (error) => {
+        execFile('gswin64c', ['-version'], (error) => {
             if (!error) {
-                resolve('gs');
+                resolve('gswin64c');
                 return;
             }
             if (error.code === 'ENOENT') {
                 resolve(null);
                 return;
             }
-            resolve('gs');
+            resolve('gswin64c');
         });
     });
 }
@@ -165,7 +165,7 @@ function resolveGhostscriptCommand() {
 async function optimizeWithGhostscript(inputPath, outputPath) {
     const gsCommand = await resolveGhostscriptCommand();
     if (!gsCommand) {
-        console.warn("Ghostscript not found. Skipping optimization. Install Ghostscript and ensure 'gs' is in your PATH to enable PDF optimization.");
+        console.warn("Ghostscript not found. Skipping optimization. Install Ghostscript and ensure 'gswin64c' is in your PATH to enable PDF optimization.");
         return inputPath;
     }
     return new Promise((resolve) => {
