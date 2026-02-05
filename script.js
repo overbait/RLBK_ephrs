@@ -427,7 +427,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const bgElement = slide.querySelector('.background');
     if (bgElement && backgroundConfig) {
       bgElement.style.backgroundImage = `url('${backgroundConfig.image}')`;
-      bgElement.style.backgroundPosition = backgroundConfig.position;
+      bgElement.style.backgroundPosition = index === 0 ? 'center center' : backgroundConfig.position;
     }
 
     const leafLayout = leafLayoutsBySlide[index] || [];
