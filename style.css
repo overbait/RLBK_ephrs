@@ -932,24 +932,26 @@
   padding-top: 1.2rem;
   padding-bottom: 0.8rem;
 }
-.registration-seeding-slide .pagination {
-  display: none;
-}
 .registration-seeding-slide .seeding-intro {
   font-size: 1.22rem;
   line-height: 1.38 !important;
+}
+.registration-seeding-slide .seeding-highlight-text {
+  font-size: 1.75rem !important;
+  line-height: 1.35 !important;
 }
 .registration-seeding-slide .seeding-card-internal .seeding-item {
   margin-bottom: 6px;
   line-height: 1.24;
 }
 .registration-seeding-slide .seeding-card-internal .seeding-sub-item.text-base {
-  font-size: 1.2rem;
-  line-height: 1.16;
+  font-size: 1.34rem;
+  line-height: 1.22;
 }
 .registration-seeding-slide .seeding-pair,
 .registration-seeding-slide .seeding-param {
-  font-size: 1.2rem;
+  font-size: 1.34rem;
+  line-height: 1.22;
 }
     .btn-primary {
         background-color: var(--accent-color);
