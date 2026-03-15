@@ -395,6 +395,9 @@
     .collage-image:nth-child(16) { top: 85%; left: 10%; transform: rotate(5deg); }
     .collage-image:nth-child(17) { top: 40%; left: 60%; transform: rotate(-3deg); width: 200px;}
     .collage-image:nth-child(18) { top: 70%; left: 90%; transform: rotate(18deg); }
+    #content-creating-slide .content-box > .sub-item:last-of-type {
+      display: none;
+    }
     .rule-icon {
       font-size: 2rem;
       line-height: 1;
