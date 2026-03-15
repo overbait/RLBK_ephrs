@@ -395,9 +395,6 @@
     .collage-image:nth-child(16) { top: 85%; left: 10%; transform: rotate(5deg); }
     .collage-image:nth-child(17) { top: 40%; left: 60%; transform: rotate(-3deg); width: 200px;}
     .collage-image:nth-child(18) { top: 70%; left: 90%; transform: rotate(18deg); }
-    #content-creating-slide .content-box > .sub-item:last-of-type {
-      display: none;
-    }
     .rule-icon {
       font-size: 2rem;
       line-height: 1;
@@ -458,6 +455,36 @@
       font-weight: 700;
       color: var(--primary-color);
     }
+.prize-pool-card {
+  position: relative;
+  padding-bottom: 126px;
+}
+.prize-pool-footer {
+  position: absolute;
+  left: 50%;
+  bottom: 24px;
+  width: 24rem;
+  margin: 0;
+  text-align: center;
+  transform: translateX(-50%);
+}
+.prize-pool-note {
+  margin: 0 0 0.5rem 0;
+  text-align: center;
+  white-space: nowrap;
+  font-size: 1.2rem;
+}
+.prize-pool-donate {
+  width: 100%;
+  margin: 0;
+  text-align: center;
+}
+.prize-pool-donate .btn-primary {
+  display: inline-block;
+  white-space: nowrap;
+  padding: 0.35rem 1.8rem;
+  font-size: 1.45rem;
+}
 
 /* Bracket Styles */
 .bracket {
@@ -768,8 +795,8 @@
 .seeding-item {
   position: relative;
   padding-left: 30px;
-  margin-bottom: 6px;
-  line-height: 1.4;
+  margin-bottom: 5px;
+  line-height: 1.24;
 }
 .seeding-item:before {
   content: '';
@@ -800,6 +827,129 @@
   background-image: url('assets/icon_point-min.png');
   background-size: contain;
   background-repeat: no-repeat;
+}
+.seeding-card-internal .seeding-sub-item.text-base {
+  font-size: 1.16rem;
+  line-height: 1.12;
+}
+.seeding-card-internal {
+  padding-bottom: 12px;
+}
+.seeding-card-internal .seeding-item {
+  margin-bottom: 4px;
+  line-height: 1.2;
+}
+.seeding-intro {
+  font-size: 1.18rem;
+}
+.seeding-pairs-row {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.9rem;
+  margin-left: 1.6rem;
+}
+.seeding-pair {
+  position: relative;
+  padding-left: 18px;
+  line-height: 1.1;
+  font-size: 1.14rem;
+  white-space: nowrap;
+}
+.seeding-pair:before {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 6px;
+  width: 10px;
+  height: 10px;
+  background-image: url('assets/icon_point-min.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.seeding-params-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.9rem;
+  margin-left: 1.8rem;
+}
+.seeding-param {
+  position: relative;
+  padding-left: 18px;
+  font-size: 1.14rem;
+  line-height: 1.15;
+  white-space: nowrap;
+}
+.seeding-param:before {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 6px;
+  width: 10px;
+  height: 10px;
+  background-image: url('assets/icon_point-min.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.registration-seeding-slide .content-box {
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+.registration-seeding-slide .text-xl {
+  font-size: 1.62rem;
+}
+.registration-seeding-slide .text-lg {
+  font-size: 1.26rem;
+}
+.registration-seeding-slide .step-icon {
+  width: 34px;
+  height: 34px;
+  font-size: 1.2rem;
+}
+.registration-seeding-slide .section-title {
+  font-size: 4rem;
+}
+.registration-seeding-slide .section-header.text-3xl,
+.registration-seeding-slide .subsection-title.text-2xl {
+  font-size: 2.1rem;
+}
+.registration-seeding-slide .content > .mb-8 {
+  margin-bottom: 0.85rem;
+}
+.registration-seeding-slide .grid.grid-cols-1.gap-8 {
+  gap: 1rem;
+}
+.registration-seeding-slide .grid.grid-cols-1.gap-6 {
+  gap: 0.75rem;
+}
+.registration-seeding-slide .my-4 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.registration-seeding-slide .mt-6 {
+  margin-top: 0.7rem;
+}
+.registration-seeding-slide .content {
+  padding-top: 1.2rem;
+  padding-bottom: 0.8rem;
+}
+.registration-seeding-slide .pagination {
+  display: none;
+}
+.registration-seeding-slide .seeding-intro {
+  font-size: 1.22rem;
+  line-height: 1.38 !important;
+}
+.registration-seeding-slide .seeding-card-internal .seeding-item {
+  margin-bottom: 6px;
+  line-height: 1.24;
+}
+.registration-seeding-slide .seeding-card-internal .seeding-sub-item.text-base {
+  font-size: 1.2rem;
+  line-height: 1.16;
+}
+.registration-seeding-slide .seeding-pair,
+.registration-seeding-slide .seeding-param {
+  font-size: 1.2rem;
 }
     .btn-primary {
         background-color: var(--accent-color);

@@ -93,11 +93,11 @@
       <div class="absolute bottom-10 right-10">
         <img src="spring_assets/Logo_Spring4_small.png" alt="Epohers Logo" class="w-24">
       </div>
-      <div class="content flex flex-col h-full py-16 px-10">
+      <div class="content flex flex-col h-full py-10 px-10">
         <div class="mb-12 text-center">
           <h1 class="section-title text-5xl">1 General Provisions</h1>
         </div>
-        <div class="grid grid-cols-1 gap-8">
+        <div class="grid grid-cols-1 gap-5">
           <div class="content-box rounded-md">
             <h2 class="section-header text-3xl mb-4">1.1 About the tournament</h2>
             <div class="provision-item text-xl">Epohers World Cup 2 is an esports entertainment event - an Age of Empires IV online tournament hosted by Epohers team.</div>
@@ -271,7 +271,7 @@
       </div>
     </div>
     <!-- Slide 7: Registration & Seeding -->
-    <div class="slide">
+    <div class="slide registration-seeding-slide">
       <div class="background"></div>
       <div class="overlay"></div>
       <div class="edge-vignette"></div>
@@ -296,21 +296,29 @@
             <div class="provision-item text-xl">The tournament uses 2 types of seeding: external and internal. External is used for starting seed in qualifiers, internal is used only within the tournament.</div>
             <div class="grid grid-cols-1 gap-6 mt-4">
               <!-- External Seeding Card -->
-              <div class="content-box rounded-md" style="background-color: rgba(0,0,0,0.2);">
+              <div class="content-box rounded-md seeding-card-external" style="background-color: rgba(0,0,0,0.2);">
                 <h3 class="subsection-title text-2xl mb-3">External seeding</h3>
                 <div class="sub-item text-lg">External seeding is used only for qualifier bracket seed.</div>
                 <div class="sub-item text-lg">External seeding is based on the standard reverse seeding principle.</div>
-                <div class="sub-item text-lg">Priority: tournament ELO, ranked ELO 1x1, then order of registration.</div>
+                <div class="sub-item text-lg">Parameters of external seeding, by priority:</div>
+                <div class="seeding-params-grid text-base mt-2">
+                  <div class="seeding-param">tournament ELO;</div>
+                  <div class="seeding-param">ranked ELO 1x1;</div>
+                  <div class="seeding-param">order of registration.</div>
+                </div>
               </div>
               <!-- Internal Seeding Card -->
-              <div class="content-box rounded-md" style="background-color: rgba(0,0,0,0.2);">
+              <div class="content-box rounded-md seeding-card-internal" style="background-color: rgba(0,0,0,0.2);">
                 <h3 class="subsection-title text-2xl mb-3">Internal seeding</h3>
-                <p class="text-lg mb-4" style="line-height: 1.6;">
+                <p class="text-lg mb-3 seeding-intro" style="line-height: 1.45;">
                   Internal seed depends only on the player's success in the tournament and does not depend on the external seed with which the player came.
                 </p>
                 <div class="seeding-item text-lg">
-                  <strong>Invited players:</strong> six players are invited directly: the winner of the previous Epohers World Cup, the top four players of the last S-tier tournament, and top players by Tournament ELO.
+                  <strong>Invited players:</strong> the following persons are directly invited to the tournament:
                 </div>
+                <div class="seeding-sub-item text-base mt-2">1. Winner of the previous Epohers World Cup.</div>
+                <div class="seeding-sub-item text-base">2. Top four players of the last S-tier tournament.</div>
+                <div class="seeding-sub-item text-base">3. Top players by Tournament ELO.</div>
                 <div class="seeding-item text-lg">
                   <strong>Group placement:</strong> the 6 invited players seed in 4 groups (Groups A-D), ranked according to their Tournament ELO.
                 </div>
@@ -319,10 +327,12 @@
                 </div>
                 <div class="seeding-item text-lg">
                   <strong>Playoffs seeding based on group stage results:</strong>
-                  <div class="seeding-sub-item text-base mt-2">1A vs 2C</div>
-                  <div class="seeding-sub-item text-base">1D vs 2B</div>
-                  <div class="seeding-sub-item text-base">1B vs 2D</div>
-                  <div class="seeding-sub-item text-base">1C vs 2A</div>
+                  <div class="seeding-pairs-row text-base mt-2">
+                    <div class="seeding-pair">1A vs 2C</div>
+                    <div class="seeding-pair">1B vs 2D</div>
+                    <div class="seeding-pair">1D vs 2B</div>
+                    <div class="seeding-pair">1C vs 2A</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -466,7 +476,6 @@
                 <div class="content-box rounded-md">
                     <h2 class="section-header text-3xl mb-4">6.3 Player colors</h2>
                     <div class="provision-item text-lg">Players must use assigned colors consistently throughout the event.</div>
-                    <div class="provision-item text-lg">If incorrect colors are selected, the game must be restarted.</div>
                     <div class="provision-item text-lg">The higher-seeded player has the right to pick their color first.</div>
                     <div class="provision-item text-lg">Blue, teal and purple should be avoided on water and hybrid maps.</div>
                     <div class="provision-item text-lg">The color matchups must follow one of the approved schemes below:</div>
@@ -678,7 +687,7 @@
           <h1 class="section-title text-5xl">10 PRIZE POOL & PAYOUTS</h1>
         </div>
         <div class="grid grid-cols-1 gap-8">
-          <div class="content-box rounded-md">
+          <div class="content-box rounded-md prize-pool-card">
             <h2 class="section-header text-3xl mb-4">10.1 Prize pool</h2>
             <h3 class="text-2xl mb-4">Current prize pool is $2,300*:</h3>
             <div class="prize-distribution-container grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
@@ -694,9 +703,11 @@
                 <img src="assets/tropheys-min.png" alt="Prize Pool Distribution" style="max-width: 100%; height: 100%; object-fit: contain; border-radius: 6px;">
               </div>
             </div>
-            <div class="text-lg mt-4">*Prize pool can be increased.</div>
-            <div class="mt-4">
-              <a href="https://paypal.me/epohers" class="btn-primary btn-color-2">Donate to prize pool</a>
+            <div class="prize-pool-footer">
+              <div class="prize-pool-note text-lg">*Prize pool can be increased.</div>
+              <div class="prize-pool-donate">
+                <a href="https://paypal.me/epohers" class="btn-primary btn-color-2">Donate to prize pool</a>
+              </div>
             </div>
           </div>
           <div class="content-box rounded-md">
@@ -731,8 +742,7 @@
             <div class="provision-item text-lg mb-4">Players wishing to cast their POV must set stream delay according to lobby settings (5 min).</div>
             <div class="provision-item text-lg mb-4">Casters wishing to cast the event must:</div>
             <div class="sub-item text-lg ml-4">display the Epohers World Cup logo,</div>
-            <div class="sub-item text-lg ml-4 content-title-fix">include "Epohers World Cup" in the stream title.</div>
-            <div class="sub-item text-lg ml-4">include “Epohers World Cup” in the stream title.</div>
+            <div class="sub-item text-lg ml-4">include "Epohers World Cup" in the stream title.</div>
             <div class="provision-item text-lg mb-4">Free to use tournament assets - <a href="https://drive.google.com/drive/folders/1tx0dXjd95qNlSjHHehrcJvh3mDKQl4S_?usp=sharing" class="btn-primary btn-color-2" style="margin-left: 10px; font-size: 1.5rem; padding: 0.2rem 1rem;">Google drive</a></div>
             <div class="provision-item text-lg mb-4">Streaming POV is allowed without delay, including lobby settings, if the opponent in the current match does not object (both players must write in <span class="highlight">#players-only</span> that the game will be hosted without delay).</div>
             <div class="provision-item text-lg mb-4">Organizers have the right to involve players in creating media content (photo, video, interview, etc.).</div>
