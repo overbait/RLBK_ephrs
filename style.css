@@ -836,8 +836,11 @@
   padding-bottom: 12px;
 }
 .seeding-card-internal .seeding-item {
-  margin-bottom: 4px;
+  margin-bottom: 8px;
   line-height: 1.2;
+}
+.seeding-card-internal .seeding-item + .seeding-item {
+  margin-top: 6px;
 }
 .seeding-intro {
   font-size: 1.18rem;
@@ -981,15 +984,22 @@
     .btn-color-4 { background-color: #474C28; }
     .btn-color-5 { background-color: #023618; }
     .btn-color-6 { background-color: #bc4b51; }
+    .toc-box {
+      padding-top: 1.2rem;
+      padding-bottom: 1.2rem;
+    }
     .toc-list-item {
       display: flex;
       align-items: baseline;
-      margin-bottom: 1rem;
-      font-size: 1.75rem;
+      margin-bottom: 1.15rem;
+      font-size: 1.9rem;
       cursor: pointer;
       transition: color 0.2s;
       text-decoration: none;
       color: #f5f0e6;
+    }
+    .toc-list-item:not(.sub-item) {
+      margin-bottom: 1.45rem;
     }
     .toc-list-item:hover, .toc-list-item:hover .toc-list-dots {
       color: var(--primary-color);
@@ -997,8 +1007,8 @@
     }
     .toc-list-item.sub-item {
       padding-left: 3rem;
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
+      font-size: 1.62rem;
+      margin-bottom: 0.7rem;
     }
     .toc-list-number {
       color: var(--primary-color);
@@ -1021,7 +1031,7 @@
     .toc-list-page {
       color: var(--primary-color);
       flex-shrink: 0;
-      font-size: 1.75rem;
+      font-size: 1.9rem;
     }
     .page-number {
       font-family: 'South Park', sans-serif;

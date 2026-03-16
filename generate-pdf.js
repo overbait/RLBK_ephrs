@@ -2,7 +2,7 @@ const puppeteer = require('puppeteer');
 const { PDFDocument } = require('pdf-lib');
 const fs = require('fs').promises;
 const path = require('path');
-const { exec, execFile } = require('child_process');
+const { execFile } = require('child_process');
 
 async function generatePdf() {
     console.log("--- Starting PDF Generation with Simple and Robust Strategy ---");
@@ -147,18 +147,31 @@ async function generatePdf() {
 }
 
 function resolveGhostscriptCommand() {
+    const candidates = [
+        'gswin64c',
+        'gswin32c',
+        path.join(process.env.ProgramFiles || 'C:\\Program Files', 'gs', 'gs10.06.0', 'bin', 'gswin64c.exe'),
+        path.join(process.env.ProgramFiles || 'C:\\Program Files', 'gs', 'gs10.06.0', 'bin', 'gswin32c.exe'),
+    ];
+
     return new Promise((resolve) => {
-        execFile('gswin64c', ['-version'], (error) => {
-            if (!error) {
-                resolve('gswin64c');
-                return;
-            }
-            if (error.code === 'ENOENT') {
+        const tryCandidate = (index) => {
+            if (index >= candidates.length) {
                 resolve(null);
                 return;
             }
-            resolve('gswin64c');
-        });
+
+            const candidate = candidates[index];
+            execFile(candidate, ['-version'], (error) => {
+                if (!error) {
+                    resolve(candidate);
+                    return;
+                }
+                tryCandidate(index + 1);
+            });
+        };
+
+        tryCandidate(0);
     });
 }
 
@@ -169,8 +182,8 @@ async function optimizeWithGhostscript(inputPath, outputPath) {
         return inputPath;
     }
     return new Promise((resolve) => {
-        const command = [
-            `${gsCommand} -sDEVICE=pdfwrite`,
+        const args = [
+            '-sDEVICE=pdfwrite',
             '-dCompatibilityLevel=1.4',
             '-dPDFSETTINGS=/prepress',
             '-dDetectDuplicateImages=true',
@@ -181,11 +194,13 @@ async function optimizeWithGhostscript(inputPath, outputPath) {
             '-dDownsampleGrayImages=false',
             '-dDownsampleMonoImages=false',
             '-dFastWebView=true',
-            '-dNOPAUSE -dQUIET -dBATCH',
+            '-dNOPAUSE',
+            '-dQUIET',
+            '-dBATCH',
             `-sOutputFile=${outputPath}`,
             inputPath
-        ].join(' ');
-        exec(command, (error, stdout, stderr) => {
+        ];
+        execFile(gsCommand, args, (error, stdout, stderr) => {
             if (error) {
                 console.warn("Ghostscript optimization failed. Using unoptimized PDF. Make sure Ghostscript is installed and in your PATH.", stderr);
                 resolve(inputPath);
