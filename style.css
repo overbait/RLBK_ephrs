@@ -367,34 +367,34 @@
     .game-rules-slide .provision-item {
         font-size: 1.75rem !important;
     }
-    .collage-container {
+.collage-container {
         position: relative;
         width: 100%;
-        height: 400px; /* Adjust as needed */
-        margin-top: 2rem;
+        height: 280px;
+        margin-top: 1rem;
     }
     .collage-image {
         position: absolute;
-        max-width: 150px; /* Adjust as needed */
+        max-width: 120px;
     }
-    .collage-image:nth-child(1) { top: 10%; left: 15%; transform: rotate(-15deg); width: 250px; }
-    .collage-image:nth-child(2) { top: 50%; left: 5%; transform: rotate(5deg); }
-    .collage-image:nth-child(3) { top: 15%; left: 70%; transform: rotate(20deg); }
-    .collage-image:nth-child(4) { top: 60%; left: 80%; transform: rotate(-5deg); }
-    .collage-image:nth-child(5) { top: 70%; left: 20%; transform: rotate(10deg); }
-    .collage-image:nth-child(6) { top: 5%; left: 40%; transform: rotate(-10deg); }
-    .collage-image:nth-child(7) { top: 55%; left: 50%; transform: rotate(15deg); }
-    .collage-image:nth-child(8) { top: 20%; left: 5%; transform: rotate(-20deg); }
-    .collage-image:nth-child(9) { top: 75%; left: 65%; transform: rotate(8deg); }
-    .collage-image:nth-child(10) { top: 30%; left: 85%; transform: rotate(-12deg); }
-    .collage-image:nth-child(11) { top: 45%; left: 30%; transform: rotate(3deg); }
-    .collage-image:nth-child(12) { top: 80%; left: 40%; transform: rotate(-8deg); }
-    .collage-image:nth-child(13) { top: 25%; left: 30%; transform: rotate(12deg); }
-    .collage-image:nth-child(14) { top: 60%; left: 5%; transform: rotate(-15deg); }
-    .collage-image:nth-child(15) { top: 10%; left: 80%; transform: rotate(10deg); }
-    .collage-image:nth-child(16) { top: 85%; left: 10%; transform: rotate(5deg); }
-    .collage-image:nth-child(17) { top: 40%; left: 60%; transform: rotate(-3deg); width: 200px;}
-    .collage-image:nth-child(18) { top: 70%; left: 90%; transform: rotate(18deg); }
+    .collage-image:nth-child(1) { top: 8%; left: 14%; transform: rotate(-15deg); width: 190px; }
+    .collage-image:nth-child(2) { top: 48%; left: 4%; transform: rotate(5deg); }
+    .collage-image:nth-child(3) { top: 12%; left: 69%; transform: rotate(20deg); }
+    .collage-image:nth-child(4) { top: 56%; left: 79%; transform: rotate(-5deg); }
+    .collage-image:nth-child(5) { top: 68%; left: 18%; transform: rotate(10deg); }
+    .collage-image:nth-child(6) { top: 4%; left: 39%; transform: rotate(-10deg); }
+    .collage-image:nth-child(7) { top: 50%; left: 49%; transform: rotate(15deg); }
+    .collage-image:nth-child(8) { top: 18%; left: 4%; transform: rotate(-20deg); }
+    .collage-image:nth-child(9) { top: 70%; left: 63%; transform: rotate(8deg); }
+    .collage-image:nth-child(10) { top: 28%; left: 84%; transform: rotate(-12deg); }
+    .collage-image:nth-child(11) { top: 42%; left: 29%; transform: rotate(3deg); }
+    .collage-image:nth-child(12) { top: 74%; left: 39%; transform: rotate(-8deg); }
+    .collage-image:nth-child(13) { top: 23%; left: 28%; transform: rotate(12deg); }
+    .collage-image:nth-child(14) { top: 56%; left: 6%; transform: rotate(-15deg); }
+    .collage-image:nth-child(15) { top: 8%; left: 79%; transform: rotate(10deg); }
+    .collage-image:nth-child(16) { top: 78%; left: 10%; transform: rotate(5deg); }
+    .collage-image:nth-child(17) { top: 36%; left: 58%; transform: rotate(-3deg); width: 155px;}
+    .collage-image:nth-child(18) { top: 64%; left: 89%; transform: rotate(18deg); }
     .rule-icon {
       font-size: 2rem;
       line-height: 1;
