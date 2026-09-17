@@ -1,0 +1,3 @@
+Add-Type -AssemblyName System.Drawing
+Add-Type -ReferencedAssemblies System.Drawing -TypeDefinition 'using System;using System.Drawing;public class AlphaV5{public static void Run(string src,string dst){using(var b=new Bitmap(src)){for(int y=0;y<b.Height;y++)for(int x=0;x<b.Width;x++){Color c=b.GetPixel(x,y);int hi=Math.Max(c.R,Math.Max(c.G,c.B)),lo=Math.Min(c.R,Math.Min(c.G,c.B));if(lo>145 && hi-lo<22)b.SetPixel(x,y,Color.FromArgb(0,c.R,c.G,c.B));}b.Save(dst,System.Drawing.Imaging.ImageFormat.Png);}}}'
+[AlphaV5]::Run('C:/Users/APCHIHBA/.codex/generated_images/01a091bb-d200-7220-a4f0-bdec3711f324/exec-3bf300ee-2ddf-435d-8897-70fe9bc21705.png','C:/Users/APCHIHBA/Documents/ChatGPT/EPHRS_3/assets/logo_integrated_v5_alpha.png')
