@@ -1,0 +1,1055 @@
+@font-face {
+  font-family: "South Park";
+  src: url("../assets/fonts_spfont 2.ttf") format("truetype");
+}
+
+:root {
+  --frame-width: 1920px;
+  --frame-height: 1080px;
+  --safe-x: 100px;
+  --safe-y: 80px;
+  --spring-gold: #ffd27d;
+  --spring-cream: #f5f0e6;
+  --spring-teal: #6ec9ff;
+  --spring-green: #7ee8a1;
+  --spring-panel: rgba(9, 29, 38, 0.78);
+  --spring-panel-strong: rgba(9, 29, 38, 0.9);
+  --spring-border: rgba(255, 210, 125, 0.42);
+  --spring-shadow: rgba(2, 10, 14, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background: transparent;
+  overflow: hidden;
+  font-family: "Roboto", "Segoe UI", sans-serif;
+  color: var(--spring-cream);
+}
+
+body {
+  display: grid;
+  place-items: center;
+}
+
+.motion-root {
+  position: relative;
+  width: var(--frame-width);
+  height: var(--frame-height);
+  overflow: hidden;
+  background: transparent;
+}
+
+.scene {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.scene-safe {
+  position: absolute;
+  inset: var(--safe-y) var(--safe-x);
+}
+
+.scene-heading-wrap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 12px;
+  text-align: center;
+  transform-origin: center center;
+}
+
+.scene-heading {
+  font-family: "South Park", "Roboto", sans-serif;
+  font-size: 88px;
+  line-height: 0.95;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--spring-gold);
+  text-shadow:
+    0 0 22px rgba(255, 210, 125, 0.18),
+    0 8px 26px rgba(0, 0, 0, 0.22);
+}
+
+.scene-heading-line {
+  width: 420px;
+  height: 6px;
+  margin: 18px auto 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--spring-teal), var(--spring-green));
+  box-shadow: 0 0 18px rgba(110, 201, 255, 0.3);
+}
+
+.scene-heading-kicker {
+  margin-bottom: 12px;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(245, 240, 230, 0.8);
+}
+
+.brand-mark {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 138px;
+  margin: 0 auto;
+  width: 112px;
+  opacity: 0.92;
+  filter: drop-shadow(0 10px 26px rgba(0, 0, 0, 0.3));
+  transform-origin: center center;
+}
+
+.decor-leaf {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.18));
+  transform-origin: center center;
+}
+
+.players-grid {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1490px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 30px 28px;
+  transform: translate(-50%, -32%);
+}
+
+.player-card {
+  position: relative;
+  min-height: 244px;
+  padding: 24px 28px 92px;
+  border-radius: 28px;
+  border: 1px solid var(--spring-border);
+  background:
+    linear-gradient(180deg, rgba(20, 58, 70, 0.24), rgba(8, 24, 31, 0.08)),
+    var(--spring-panel);
+  box-shadow:
+    0 20px 50px var(--spring-shadow),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+  overflow: hidden;
+  transform-origin: center center;
+}
+
+.player-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at top right, rgba(110, 201, 255, 0.12), transparent 36%),
+    radial-gradient(circle at bottom left, rgba(126, 232, 161, 0.07), transparent 42%);
+  pointer-events: none;
+}
+
+.player-card__label {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 9px 12px;
+  border-radius: 999px;
+  background: rgba(255, 210, 125, 0.08);
+  border: 1px solid rgba(255, 210, 125, 0.22);
+  color: rgba(245, 240, 230, 0.8);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.player-card__header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 22px;
+}
+
+.player-card__name {
+  font-family: "South Park", "Roboto", sans-serif;
+  font-size: 56px;
+  line-height: 0.95;
+  color: var(--spring-gold);
+  text-transform: uppercase;
+  text-shadow: 0 0 18px rgba(255, 210, 125, 0.18);
+}
+
+.player-card__country {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+  font-size: 24px;
+  font-weight: 600;
+  color: rgba(245, 240, 230, 0.92);
+  z-index: 2;
+}
+
+.player-card__flag {
+  width: 238px;
+  height: 156px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+  flex: 0 0 auto;
+  -webkit-mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.88) 38%, rgba(0, 0, 0, 1) 100%);
+  mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.88) 38%, rgba(0, 0, 0, 1) 100%);
+}
+
+.player-card__flag-chip {
+  position: absolute;
+  right: 0;
+  bottom: -18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  border: 0;
+  backdrop-filter: none;
+  box-shadow: none;
+  opacity: 0.66;
+  transform-origin: center center;
+  z-index: 1;
+}
+
+.dates-layout {
+  position: absolute;
+  inset: 180px 40px 40px;
+}
+
+.dates-cards {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  bottom: auto;
+  width: 1540px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 34px;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.dates-progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(50% + 182px);
+  width: 1320px;
+  height: 120px;
+  margin: 0 auto;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.dates-progress__segment {
+  position: absolute;
+  top: 46px;
+  width: 430px;
+  height: 8px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(110, 201, 255, 0.16), rgba(126, 232, 161, 0.26));
+  box-shadow: 0 0 22px rgba(110, 201, 255, 0.14);
+  opacity: 0.72;
+}
+
+.dates-progress__segment--left {
+  left: 120px;
+}
+
+.dates-progress__segment--right {
+  right: 120px;
+}
+
+.dates-progress__orb {
+  position: absolute;
+  top: 20px;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.9), rgba(126, 232, 161, 0.92) 58%, rgba(110, 201, 255, 0.78) 100%);
+  box-shadow:
+    0 0 26px rgba(126, 232, 161, 0.38),
+    0 0 56px rgba(110, 201, 255, 0.2);
+  transform: translateX(-50%);
+}
+
+.date-card {
+  position: relative;
+  min-height: 348px;
+  padding: 28px 30px 30px;
+  border-radius: 28px;
+  border: 1px solid rgba(255, 210, 125, 0.32);
+  background:
+    linear-gradient(180deg, rgba(20, 58, 70, 0.24), rgba(8, 24, 31, 0.08)),
+    rgba(9, 29, 38, 0.8);
+  box-shadow:
+    0 24px 54px rgba(2, 10, 14, 0.32),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+  overflow: hidden;
+}
+
+.date-card--qf {
+  transform: translateY(34px);
+}
+
+.date-card--gs {
+  transform: translateY(0);
+}
+
+.date-card--po {
+  transform: translateY(-34px);
+}
+
+.date-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at top right, rgba(110, 201, 255, 0.12), transparent 38%),
+    radial-gradient(circle at bottom left, rgba(126, 232, 161, 0.08), transparent 44%);
+  pointer-events: none;
+}
+
+.date-card__phase {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(255, 210, 125, 0.08);
+  border: 1px solid rgba(255, 210, 125, 0.2);
+  color: rgba(245, 240, 230, 0.82);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.date-card__title {
+  position: relative;
+  margin-top: 24px;
+  font-family: "South Park", "Roboto", sans-serif;
+  font-size: 48px;
+  line-height: 0.95;
+  color: var(--spring-gold);
+  text-transform: uppercase;
+}
+
+.date-card__dates {
+  position: relative;
+  margin-top: 18px;
+  font-size: 46px;
+  line-height: 1;
+  font-weight: 800;
+  color: var(--spring-cream);
+}
+
+.date-card__desc {
+  position: relative;
+  margin-top: 18px;
+  max-width: 330px;
+  font-size: 26px;
+  line-height: 1.25;
+  color: rgba(245, 240, 230, 0.88);
+}
+
+.date-card__accent {
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+  width: 120px;
+  height: 5px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(110, 201, 255, 0.1), rgba(126, 232, 161, 0.95));
+  box-shadow: 0 0 16px rgba(110, 201, 255, 0.2);
+}
+
+.date-card__leaf {
+  position: absolute;
+  right: -10px;
+  top: 8px;
+  width: 120px;
+  opacity: 0.34;
+  pointer-events: none;
+}
+
+.prize-layout {
+  position: absolute;
+  inset: 100px 280px 90px;
+}
+
+.prize-viewport {
+  position: absolute;
+  inset: -36px -110px -24px;
+  perspective: 2400px;
+  perspective-origin: 50% 50%;
+  overflow: hidden;
+}
+
+.prize-camera {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.map-layout {
+  position: absolute;
+  inset: 140px 100px 90px;
+}
+
+.map-viewport {
+  position: absolute;
+  inset: 0;
+  perspective: 2200px;
+  perspective-origin: 50% 50%;
+  overflow: visible;
+}
+
+.map-camera {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.format-layout {
+  position: absolute;
+  inset: 120px 70px 90px;
+}
+
+.format-track {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1540px;
+  transform: translate(-50%, -50%);
+}
+
+.format-line {
+  position: absolute;
+  left: 80px;
+  right: 80px;
+  top: 156px;
+  height: 10px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(110, 201, 255, 0.14), rgba(126, 232, 161, 0.24));
+}
+
+.format-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 30px;
+}
+
+.format-card {
+  position: relative;
+  min-height: 322px;
+  padding: 28px 30px;
+  border-radius: 28px;
+  border: 1px solid rgba(255, 210, 125, 0.34);
+  background:
+    linear-gradient(180deg, rgba(20, 58, 70, 0.24), rgba(8, 24, 31, 0.08)),
+    rgba(9, 29, 38, 0.82);
+  box-shadow: 0 24px 54px rgba(2, 10, 14, 0.32);
+}
+
+.format-card__stage {
+  display: inline-flex;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(255, 210, 125, 0.08);
+  border: 1px solid rgba(255, 210, 125, 0.2);
+  color: rgba(245, 240, 230, 0.82);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.format-card__title {
+  margin-top: 22px;
+  font-family: "South Park", "Roboto", sans-serif;
+  font-size: 48px;
+  line-height: 0.95;
+  color: var(--spring-gold);
+  text-transform: uppercase;
+}
+
+.format-card__date {
+  margin-top: 16px;
+  font-size: 38px;
+  font-weight: 800;
+  color: var(--spring-cream);
+}
+
+.format-card__desc {
+  margin-top: 18px;
+  font-size: 26px;
+  line-height: 1.24;
+  color: rgba(245, 240, 230, 0.88);
+}
+
+.format-node {
+  position: absolute;
+  top: 132px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.92), rgba(126, 232, 161, 0.92) 58%, rgba(110, 201, 255, 0.78) 100%);
+  box-shadow:
+    0 0 26px rgba(126, 232, 161, 0.32),
+    0 0 58px rgba(110, 201, 255, 0.18);
+  transform: translateX(-50%);
+}
+
+.player-card__accent {
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+  width: 120px;
+  height: 5px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(110, 201, 255, 0.12), rgba(126, 232, 161, 0.9));
+  box-shadow: 0 0 14px rgba(110, 201, 255, 0.22);
+}
+
+.player-card__leaf {
+  position: absolute;
+  right: -12px;
+  top: -8px;
+  width: 120px;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.player-card__shine {
+  position: absolute;
+  inset: auto auto 28px 28px;
+  width: 160px;
+  height: 22px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(110, 201, 255, 0), rgba(110, 201, 255, 0.45), rgba(126, 232, 161, 0));
+  filter: blur(10px);
+  opacity: 0;
+}
+
+.transition-leaf {
+  position: absolute;
+  will-change: transform, opacity;
+  pointer-events: none;
+  user-select: none;
+  filter: drop-shadow(0 10px 14px rgba(0, 0, 0, 0.22));
+}
+
+.prize-panel {
+  position: absolute;
+  inset: 0;
+  padding: 34px 36px;
+  border-radius: 34px;
+  border: 1px solid rgba(255, 210, 125, 0.34);
+  background:
+    linear-gradient(180deg, rgba(20, 58, 70, 0.22), rgba(8, 24, 31, 0.08)),
+    rgba(9, 29, 38, 0.84);
+  box-shadow:
+    0 28px 64px rgba(2, 10, 14, 0.34),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+  overflow: hidden;
+}
+
+.prize-panel--cinematic {
+  width: 1320px;
+  min-height: 980px;
+  inset: auto;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.prize-panel--cinematic-tight {
+  width: 980px;
+  min-height: 980px;
+}
+
+.prize-panel__header {
+  position: relative;
+  padding-right: 210px;
+}
+
+.prize-panel__kicker {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--spring-gold);
+}
+
+.prize-panel__line {
+  width: 260px;
+  height: 6px;
+  margin-top: 14px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(110, 201, 255, 0.14), rgba(126, 232, 161, 0.95));
+}
+
+.prize-panel__art {
+  position: absolute;
+  top: -10px;
+  right: -6px;
+  width: 190px;
+  opacity: 0.45;
+}
+
+.prize-list {
+  position: absolute;
+  left: 36px;
+  right: 36px;
+  top: 104px;
+  bottom: 34px;
+  display: grid;
+  gap: 10px;
+  align-content: start;
+}
+
+.prize-panel--cinematic .prize-list {
+  top: 120px;
+  gap: 14px;
+}
+
+.prize-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.5fr 0.5fr;
+  align-items: center;
+  gap: 6px;
+  min-height: 76px;
+  padding: 16px 22px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 210, 125, 0.16);
+  background: rgba(5, 18, 24, 0.18);
+}
+
+.prize-panel--cinematic .prize-row {
+  min-height: 94px;
+  padding: 18px 24px;
+  border-radius: 20px;
+}
+
+.prize-panel--cinematic-tight .prize-row {
+  grid-template-columns: 1.3fr 0.7fr;
+}
+
+.prize-row--gold {
+  background: linear-gradient(90deg, rgba(255, 210, 125, 0.18), rgba(5, 18, 24, 0.18));
+  border-color: rgba(255, 210, 125, 0.36);
+}
+
+.prize-row--silver {
+  background: linear-gradient(90deg, rgba(214, 224, 233, 0.16), rgba(5, 18, 24, 0.18));
+  border-color: rgba(214, 224, 233, 0.26);
+}
+
+.prize-row--bronze {
+  background: linear-gradient(90deg, rgba(191, 124, 74, 0.18), rgba(5, 18, 24, 0.18));
+  border-color: rgba(191, 124, 74, 0.26);
+}
+
+.prize-row__place {
+  font-size: 30px;
+  font-weight: 800;
+  color: var(--spring-cream);
+}
+
+.prize-panel--cinematic .prize-row__place {
+  font-size: 36px;
+}
+
+.prize-row__amount {
+  font-size: 42px;
+  font-weight: 800;
+  color: var(--spring-gold);
+  text-align: right;
+}
+
+.prize-panel--cinematic .prize-row__amount {
+  font-size: 52px;
+}
+
+.prize-panel--cinematic-tight .prize-row__amount {
+  font-size: 40px;
+  white-space: nowrap;
+}
+
+.map-grid {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1320px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  transform: translate(-50%, -50%);
+}
+
+.map-grid--cinematic {
+  width: 1500px;
+  gap: 28px;
+  transform-style: preserve-3d;
+}
+
+.map-row {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+}
+
+.map-grid--cinematic .map-row {
+  gap: 28px;
+}
+
+.map-thumb {
+  position: relative;
+  width: 152px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0;
+  border-radius: 6px;
+}
+
+.map-thumb--cinematic {
+  width: 178px;
+  transform-style: preserve-3d;
+}
+
+.map-thumb__image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 2px solid rgba(255, 210, 125, 0.5);
+}
+
+.map-thumb--cinematic .map-thumb__image {
+  width: 176px;
+  height: 176px;
+  border-width: 2.5px;
+  box-shadow:
+    0 20px 28px rgba(0, 0, 0, 0.28),
+    0 0 0 1px rgba(255, 236, 190, 0.08) inset;
+}
+
+.map-thumb__name {
+  margin-top: 10px;
+  padding: 0 2px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.12;
+  color: var(--spring-gold);
+  text-align: center;
+}
+
+.map-thumb--cinematic .map-thumb__name {
+  margin-top: 12px;
+  font-size: 18px;
+  font-weight: 700;
+  text-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+}
+
+.map-thumb__accent {
+  display: none;
+}
+
+.tlp-layout {
+  position: absolute;
+  inset: 90px 180px;
+}
+
+.tlp-viewport {
+  position: absolute;
+  inset: 0;
+  perspective: 2400px;
+  perspective-origin: 50% 50%;
+  overflow: visible;
+}
+
+.tlp-camera {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.tlp-orbit-rig {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transform-style: preserve-3d;
+}
+
+.tlp-stage {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transform-style: preserve-3d;
+}
+
+.tlp-thumb {
+  width: 900px;
+  transform-style: preserve-3d;
+}
+
+.tlp-thumb__image {
+  width: 894px;
+  height: 894px;
+  border-width: 3px;
+  border-radius: 10px;
+  box-shadow:
+    0 30px 44px rgba(0, 0, 0, 0.34),
+    0 0 0 1px rgba(255, 236, 190, 0.1) inset;
+}
+
+.tlp-thumb__name {
+  margin-top: 18px;
+  font-size: 78px;
+  font-weight: 700;
+  line-height: 1.06;
+  text-shadow: 0 8px 20px rgba(0, 0, 0, 0.34);
+}
+
+.title-layout {
+  position: absolute;
+  inset: 120px 110px 100px;
+}
+
+.title-stack {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 120px;
+  width: 1360px;
+  margin: 0 auto;
+  text-align: center;
+  will-change: transform, opacity;
+}
+
+.title-logo {
+  width: 260px;
+  margin: 0 auto 30px;
+  filter: drop-shadow(0 18px 30px rgba(0, 0, 0, 0.28));
+  transform-origin: 50% 50%;
+  will-change: transform, opacity, filter;
+}
+
+.title-main {
+  font-family: "South Park", "Roboto", sans-serif;
+  font-size: 102px;
+  line-height: 0.92;
+  color: var(--spring-gold);
+  text-transform: uppercase;
+  will-change: transform, opacity;
+}
+
+.title-sub {
+  margin-top: 20px;
+  font-size: 40px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: var(--spring-cream);
+  text-transform: uppercase;
+  will-change: transform, opacity, letter-spacing;
+}
+
+.title-date {
+  margin-top: 26px;
+  font-size: 54px;
+  font-weight: 900;
+  color: rgba(245, 240, 230, 0.94);
+  will-change: transform, opacity;
+}
+
+.title-line {
+  width: 420px;
+  height: 6px;
+  margin: 24px auto 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(110, 201, 255, 0.12), rgba(126, 232, 161, 0.95));
+  transform-origin: 50% 50%;
+  will-change: transform, opacity;
+}
+
+.cta-layout {
+  position: absolute;
+  inset: 140px 120px 120px;
+}
+
+.cta-panel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  width: 1240px;
+  padding: 40px 44px 46px;
+  border-radius: 36px;
+  border: 1px solid rgba(255, 210, 125, 0.34);
+  background:
+    linear-gradient(180deg, rgba(20, 58, 70, 0.22), rgba(8, 24, 31, 0.08)),
+    rgba(9, 29, 38, 0.84);
+  box-shadow:
+    0 28px 64px rgba(2, 10, 14, 0.34),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.cta-icon {
+  width: 86px;
+  margin: 0 auto 22px;
+}
+
+.cta-title {
+  font-family: "South Park", "Roboto", sans-serif;
+  font-size: 96px;
+  line-height: 0.92;
+  color: var(--spring-gold);
+  text-transform: uppercase;
+}
+
+.cta-text {
+  margin-top: 22px;
+  font-size: 34px;
+  font-weight: 700;
+  color: rgba(245, 240, 230, 0.9);
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 28px;
+  padding: 18px 28px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(110, 201, 255, 0.16), rgba(126, 232, 161, 0.18));
+  border: 1px solid rgba(110, 201, 255, 0.26);
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--spring-cream);
+}
+
+.final-cta-layout {
+  position: absolute;
+  inset: 120px 120px 100px;
+}
+
+.final-cta-panel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 110px;
+  width: 1180px;
+  margin: 0 auto;
+  padding: 40px 48px 46px;
+  border-radius: 38px;
+  border: 1px solid rgba(255, 210, 125, 0.34);
+  background:
+    linear-gradient(180deg, rgba(20, 58, 70, 0.22), rgba(8, 24, 31, 0.08)),
+    rgba(9, 29, 38, 0.84);
+  box-shadow:
+    0 28px 64px rgba(2, 10, 14, 0.34),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+  text-align: center;
+  overflow: hidden;
+}
+
+.final-cta-kicker {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(245, 240, 230, 0.78);
+}
+
+.final-cta-title {
+  margin-top: 20px;
+  font-family: "South Park", "Roboto", sans-serif;
+  font-size: 96px;
+  line-height: 0.92;
+  color: var(--spring-gold);
+  text-transform: uppercase;
+  text-shadow:
+    0 0 24px rgba(255, 210, 125, 0.18),
+    0 10px 30px rgba(0, 0, 0, 0.22);
+}
+
+.final-cta-line {
+  width: 420px;
+  height: 6px;
+  margin: 24px auto 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(110, 201, 255, 0.12), rgba(126, 232, 161, 0.95));
+  box-shadow: 0 0 18px rgba(110, 201, 255, 0.22);
+}
+
+.final-cta-deadline {
+  margin-top: 26px;
+  font-size: 34px;
+  line-height: 1;
+  font-weight: 800;
+  color: rgba(245, 240, 230, 0.92);
+}
+
+.final-cta-detail {
+  margin-top: 14px;
+  font-size: 62px;
+  line-height: 1;
+  font-weight: 900;
+  color: var(--spring-cream);
+}
+
+.final-cta-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 24px;
+  padding: 15px 24px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(110, 201, 255, 0.16), rgba(126, 232, 161, 0.18));
+  border: 1px solid rgba(110, 201, 255, 0.26);
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--spring-cream);
+}
+
+.final-cta-leaf {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.16;
+  filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.14));
+}

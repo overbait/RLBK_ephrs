@@ -1,6 +1,9 @@
 {
   "scripts": {
-    "generate:pdf": "node generate-pdf.js"
+    "generate:pdf": "node generate-pdf.js",
+    "render:motion": "node motion/render-sequence.js",
+    "render:invited": "node motion/render-sequence.js invited_players",
+    "render:transition": "node motion/render-sequence.js transition_leaves"
   },
   "dependencies": {
     "pdf-lib": "^1.17.1",
